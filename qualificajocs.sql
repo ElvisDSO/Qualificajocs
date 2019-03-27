@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-03-2019 a las 00:16:58
+-- Tiempo de generación: 27-03-2019 a las 15:37:59
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.16
 
@@ -21,6 +21,73 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `qualificajocs`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `compañia`
+--
+
+CREATE TABLE `compañia` (
+  `ID_COMPAÑIA` int(11) NOT NULL,
+  `NOMBRE_COMPAÑIA` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `compañia`
+--
+
+INSERT INTO `compañia` (`ID_COMPAÑIA`, `NOMBRE_COMPAÑIA`) VALUES
+(1, 'Nombre_Compañia_1'),
+(2, 'Nombre_Compañia_2'),
+(3, 'Nombre_Compañia_3'),
+(4, 'Nombre_Compañia_4'),
+(5, 'Nombre_Compañia_5'),
+(6, 'Nombre_Compañia_6'),
+(7, 'Nombre_Compañia_7'),
+(8, 'Nombre_Compañia_8'),
+(9, 'Nombre_Compañia_9'),
+(10, 'Nombre_Compañia_10'),
+(11, 'Nombre_Compañia_11'),
+(12, 'Nombre_Compañia_12'),
+(13, 'Nombre_Compañia_13'),
+(14, 'Nombre_Compañia_14'),
+(15, 'Nombre_Compañia_15'),
+(16, 'Nombre_Compañia_16'),
+(17, 'Nombre_Compañia_17'),
+(18, 'Nombre_Compañia_18'),
+(19, 'Nombre_Compañia_19'),
+(20, 'Nombre_Compañia_20'),
+(21, 'Nombre_Compañia_21'),
+(22, 'Nombre_Compañia_22'),
+(23, 'Nombre_Compañia_23'),
+(24, 'Nombre_Compañia_24'),
+(25, 'Nombre_Compañia_25'),
+(26, 'Nombre_Compañia_26'),
+(27, 'Nombre_Compañia_27'),
+(28, 'Nombre_Compañia_28'),
+(29, 'Nombre_Compañia_29'),
+(30, 'Nombre_Compañia_30'),
+(31, 'Nombre_Compañia_31'),
+(32, 'Nombre_Compañia_32'),
+(33, 'Nombre_Compañia_33'),
+(34, 'Nombre_Compañia_34'),
+(35, 'Nombre_Compañia_35'),
+(36, 'Nombre_Compañia_36'),
+(37, 'Nombre_Compañia_37'),
+(38, 'Nombre_Compañia_38'),
+(39, 'Nombre_Compañia_39'),
+(40, 'Nombre_Compañia_40'),
+(41, 'Nombre_Compañia_41'),
+(42, 'Nombre_Compañia_42'),
+(43, 'Nombre_Compañia_43'),
+(44, 'Nombre_Compañia_44'),
+(45, 'Nombre_Compañia_45'),
+(46, 'Nombre_Compañia_46'),
+(47, 'Nombre_Compañia_47'),
+(48, 'Nombre_Compañia_48'),
+(49, 'Nombre_Compañia_49'),
+(50, 'Nombre_Compañia_50');
 
 -- --------------------------------------------------------
 
