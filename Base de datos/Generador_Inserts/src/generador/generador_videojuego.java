@@ -10,7 +10,7 @@ public class generador_videojuego {
 
 		try {
 
-			fichero = new FileWriter("generador_videojuego.txt");
+			fichero = new FileWriter("generador_videojuego.sql");
 			pw = new PrintWriter(fichero);
 
 			final String[] rating = { "TODOS", "3", "7", "12", "16", "18" };

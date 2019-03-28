@@ -1,4 +1,4 @@
-INSERT INTO `videojuegos` (`ID_VIDEOJUEGO`, `NOMBRE`, `COMPAÑIA`, `FECHA_LANZAMIENTO`, `N_JUGADORES`, `RATING`) 
+INSERT INTO `videojuegos` (`ID_VIDEOJUEGO`, `NOMBRE`, `COMPAÃ‘IA`, `FECHA_LANZAMIENTO`, `N_JUGADORES`, `RATING`) 
 VALUES 
 ('1','Nombre_Videojuego_1','50','1983-6-19','1','3'),
 ('2','Nombre_Videojuego_2','37','1997-1-15','2','7'),
