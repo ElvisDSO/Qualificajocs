@@ -102,6 +102,32 @@ CREATE TABLE `genero` (
   `NOMBRE_GENERO_PT` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `genero`
+--
+
+INSERT INTO `genero` (`ID_GENERO`, `NOMBRE_GENERO_ES`, `NOMBRE_GENERO_EN`, `NOMBRE_GENERO_PT`) VALUES
+(1, 'Aventura gráfica', 'Graphic adventure', 'Aventura gráfica'),
+(2, 'Estrategia', 'Strategy', 'Estratégia'),
+(3, 'Musical', 'Musical', 'Musical'),
+(4, 'Plataformas', 'Plataformer', 'Plataforma'),
+(5, 'Rol', 'Role', 'Rol'),
+(6, 'Automovilismo', 'Racing', 'Automobilismo'),
+(7, 'Acción', 'Action', 'Ação'),
+(8, 'Estrategia en tiempo', 'Realtime strategy', 'Estratégia em tempo '),
+(9, 'Lucha', 'Fighting', 'Luta'),
+(10, 'Otros', 'Others', 'Outros'),
+(11, 'Puzle', 'Puzzle', 'Quebra-cabeças'),
+(12, 'Juego de guerra', 'Wargames', 'jogos de guerra'),
+(13, 'Disparos en tercera ', 'Third person shooter', 'Atirador em terceira'),
+(14, 'Deportes', 'Sports', 'Desporto'),
+(15, 'Realidad Virtual', 'Virtual reality', 'Realidade virtual'),
+(16, 'Simulación', 'Simulation', 'Simulação'),
+(17, 'Disparos en primera ', 'First-Person shooter', 'Atirador em primeira'),
+(18, 'Vuelo', 'Flight', 'Voo'),
+(19, 'Fiesta', 'Party', 'Festa'),
+(20, 'Estrategia por turno', 'Turn-based strategy', 'Estratégia por turno');
+
 -- --------------------------------------------------------
 
 --
@@ -146,6 +172,46 @@ CREATE TABLE `plataforma` (
   `ID_PLATAFORMA` int(11) NOT NULL,
   `PLATAFORMA` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `plataforma`
+--
+
+INSERT INTO `plataforma` (`ID_PLATAFORMA`, `PLATAFORMA`) VALUES
+(1, 'Playstation 4'),
+(2, 'Xbox One'),
+(3, 'Nintendo DS'),
+(4, 'Android'),
+(5, 'WiiU'),
+(6, 'Playstation 2'),
+(7, 'DC'),
+(8, 'Nintendo 64'),
+(9, 'PC'),
+(10, 'Switch'),
+(11, 'Playstation 3'),
+(12, 'iPhone'),
+(13, 'Playstation VITA'),
+(14, 'XBOX'),
+(15, 'Game Boy Advance'),
+(16, 'Nintendo Gamecube'),
+(17, 'Nintendo 3DS'),
+(18, 'XBOX 360'),
+(19, 'Wii'),
+(20, 'PSP'),
+(21, 'Playstation X'),
+(22, 'Super Nintendo'),
+(23, 'NES'),
+(24, 'Game Boy'),
+(25, 'Sega Dreamcast'),
+(26, 'Sega Mega Drive'),
+(27, 'Game Boy Color'),
+(28, 'Sega Saturn'),
+(29, 'Atari 2600'),
+(30, 'Sega Master System'),
+(31, 'Atari 5200'),
+(32, 'Oculus Go'),
+(33, 'HTC VIVE'),
+(34, 'Playstation VR');
 
 -- --------------------------------------------------------
 
