@@ -8,6 +8,7 @@ public class generador_jugados {
 		FileWriter fichero = null;
 		PrintWriter pw = null;
 		final int NUM_JUEGOS_POR_JUGADOR = 20;
+		final int NUM_JUGADORES_TOTALES = 500;
 
 		try {
 
@@ -20,7 +21,7 @@ public class generador_jugados {
 			int contador = 1;
 			int id_jugador = 1;
 
-			for (int i = 1; i <= NUM_JUEGOS_POR_JUGADOR; i++) {
+			for (int i = 1; i <= NUM_JUGADORES_TOTALES; i++) {
 				int[] juegos = new int[NUM_JUEGOS_POR_JUGADOR];
 
 				for (int j = 0; j < NUM_JUEGOS_POR_JUGADOR; j++) {
@@ -41,7 +42,7 @@ public class generador_jugados {
 					pw.print("'" + id_jugador + "',");
 					pw.print("'" + getRandom.getRandomIntBetweenRange(0, 10) + "'");
 					pw.print(")");
-					if (i == NUM_JUEGOS_POR_JUGADOR && contador == NUM_JUEGOS_POR_JUGADOR) {
+					if (i == NUM_JUGADORES_TOTALES && contador == NUM_JUEGOS_POR_JUGADOR) {
 						pw.println(";");
 					} else {
 						pw.println(",");
