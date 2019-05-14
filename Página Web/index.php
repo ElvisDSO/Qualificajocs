@@ -4,8 +4,8 @@
   include 'functions/establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
 
   include 'logo.php'; //Logo de Qualificajocs
-  include 'menuCategorias.php' //Buscar por categoría. Buscador en el menú lateral.
-  include 'navbar.php' //Bloque navbar.
+  include 'menuCategorias.php'; //Buscar por categoría. Buscador en el menú lateral.
+  include 'navbar.php'; //Bloque navbar.
 
   include_once 'functions/recursosIdioma.php'; //Traducción de los párrafos existentes
 ?>
