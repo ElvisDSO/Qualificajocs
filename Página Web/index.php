@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
   include_once 'config/connection.php';   //Establecer conexión con la base de datos 
+
+  include 'logo.php'; //Logo de Qualificajocs
 ?>
 <html lang="en">
 
@@ -80,8 +82,12 @@
 
 <body style="margin-top:-20px">
   <div class="wrapper">
-    
-</div>
+    <form method="post" action="panelBusqueda.php">
+      <div class="sidebar" data-color="rose" data-background-color="black" data-image="images/sidebar-0.jpg">
+        <?php logo(); ?>
+      </div>
+    </form>
+  </div>
 
 <script>
 
