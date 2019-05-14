@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-04-2019 a las 00:51:06
+-- Tiempo de generación: 15-05-2019 a las 00:57:00
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -25714,11 +25714,22 @@ INSERT INTO `plataforma_videojuego` (`ID_VIDEOJUEGO`, `ID_PLATAFORMA`) VALUES
 --
 
 CREATE TABLE `textos` (
-  `ID_TEXTO` int(11) NOT NULL,
+  `ID_TEXTO` varchar(20) NOT NULL,
   `TEXTO_ES` varchar(200) NOT NULL,
   `TEXTO_EN` varchar(200) NOT NULL,
   `TEXTO_PT` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `textos`
+--
+
+INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
+('Compañias', 'Compañias', 'Companies', 'Companhias'),
+('Consolas', 'Consolas', 'Consoles', 'Consolas'),
+('Inicio', 'Inicio', 'Start', 'Início'),
+('MiColeccion', 'Mi colección', 'My collection', 'Minha coleção'),
+('Videojuegos', 'Videojuegos', 'Videogames', 'Videojogos');
 
 -- --------------------------------------------------------
 
@@ -28349,12 +28360,6 @@ ALTER TABLE `genero`
 --
 ALTER TABLE `plataforma`
   MODIFY `ID_PLATAFORMA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
-
---
--- AUTO_INCREMENT de la tabla `textos`
---
-ALTER TABLE `textos`
-  MODIFY `ID_TEXTO` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
