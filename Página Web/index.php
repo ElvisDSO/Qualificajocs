@@ -2,9 +2,10 @@
 <?php
   include_once 'config/connection.php';   //Establecer conexión con la base de datos 
   include 'functions/establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
-  
+
   include 'logo.php'; //Logo de Qualificajocs
   include 'menuCategorias.php' //Buscar por categoría. Buscador en el menú lateral.
+  include 'navbar.php' //Bloque navbar.
 
   include_once 'functions/recursosIdioma.php'; //Traducción de los párrafos existentes
 ?>
@@ -89,6 +90,17 @@
     <form method="post" action="panelBusqueda.php">
       <div class="sidebar" data-color="rose" data-background-color="black" data-image="images/sidebar-0.jpg">
         <?php logo(); ?>
+        <div class="sidebar-wrapper">
+          <?php menuCategorias();?>
+        </div>
+      </div>
+
+      <div class="main-panel">
+        <!-- Navbar -->
+        <?php navbar();?>
+        <!-- End Navbar -->
+
+
       </div>
     </form>
   </div>

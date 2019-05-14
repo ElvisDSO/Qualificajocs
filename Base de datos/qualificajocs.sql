@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-05-2019 a las 00:57:00
+-- Tiempo de generación: 15-05-2019 a las 01:14:10
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -25729,6 +25729,8 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('Consolas', 'Consolas', 'Consoles', 'Consolas'),
 ('Inicio', 'Inicio', 'Start', 'Início'),
 ('MiColeccion', 'Mi colección', 'My collection', 'Minha coleção'),
+('Subtitulo', 'Juega, valora, descubre.', 'Play, rate, discover.', 'Joga, valoriza, descobre.'),
+('Titulo', 'Bienvenido a Qualificajocs.', 'Welcome to Qualificajocs.', 'Bem-vindo à Qualificajocs.'),
 ('Videojuegos', 'Videojuegos', 'Videogames', 'Videojogos');
 
 -- --------------------------------------------------------
