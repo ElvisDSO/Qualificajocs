@@ -247,14 +247,19 @@ md = {
     }
   },
 
-  showNotification: function(from, align) {
+  /* Función que viene con el material-dashboard. Se ha realizado una pequeña modificación. 
+     Para poder tener textos traducidos se le ha añadido como parámetro la variable texto, 
+     que contendrá el texto en el idioma que haya escogido el usuario. 
+     También se ha marcado el azul (info) como color único para el bloque de notificaciones */
+  showNotification: function(from, align, texto) {
     type = ['', 'info', 'danger', 'success', 'warning', 'rose', 'primary'];
 
-    color = Math.floor((Math.random() * 6) + 1);
+    //color = Math.floor((Math.random() * 6) + 1);
+    color = 1;
 
     $.notify({
       icon: "add_alert",
-      message: "Welcome to <b>Material Dashboard Pro</b> - a beautiful admin panel for every web developer."
+      message: texto
 
     }, {
       type: type[color],
@@ -542,15 +547,12 @@ md = {
 
       nav_content = '<ul class="nav navbar-nav nav-mobile-menu">' + nav_content + '</ul>';
 
-      navbar_form = $('nav').find('.navbar-form').get(0).outerHTML;
-
       $sidebar_nav = $sidebar_wrapper.find(' > .nav');
 
       // insert the navbar form before the sidebar list
       $nav_content = $(nav_content);
-      $navbar_form = $(navbar_form);
+    
       $nav_content.insertBefore($sidebar_nav);
-      $navbar_form.insertBefore($nav_content);
 
       $(".sidebar-wrapper .dropdown .dropdown-menu > li > a").click(function(event) {
         event.stopPropagation();
@@ -564,7 +566,6 @@ md = {
     } else {
       if ($(window).width() > 991) {
         // reset all the additions that we made for the sidebar wrapper only if the screen is bigger than 991px
-        $sidebar_wrapper.find('.navbar-form').remove();
         $sidebar_wrapper.find('.nav-mobile-menu').remove();
 
         mobile_menu_initialized = false;

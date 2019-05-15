@@ -423,11 +423,6 @@ template {
   }
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 
 html {
   font-family: sans-serif;
@@ -18015,16 +18010,6 @@ a .material-icons {
   transform: translate3d(0px, 0, 0);
 }
 
-.sidebar .logo:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 15px;
-  height: 1px;
-  width: calc(100% - 30px);
-  background-color: rgba(180, 180, 180, 0.3);
-}
-
 .sidebar .logo p {
   float: left;
   font-size: 20px;
@@ -18064,16 +18049,6 @@ a .material-icons {
   padding-bottom: 20px;
   margin: 20px auto 0;
   position: relative;
-}
-
-.sidebar .user:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 15px;
-  height: 1px;
-  width: calc(100% - 30px);
-  background-color: rgba(180, 180, 180, 0.3);
 }
 
 .sidebar .user .photo {

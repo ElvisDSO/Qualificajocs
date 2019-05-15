@@ -86,10 +86,11 @@
     <div class="collapse show" id="desplegableBusqueda">
       <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link" onclick="mostrarMenu(<?php echo $arrayRecursosIdioma['BuscarPlataforma']; ?>)" >
+          <?php $sectorActual = 0; $sectorActual = $arrayPlataforma[0] ?>
+          <a class="nav-link" onclick="mostrarMenu(<?php echo $sectorActual; ?>)" >
             <p> <?php echo $arrayRecursosIdioma['BuscarPlataforma']; ?> 
-              <i id="icon-derecha<?php echo $sectorActual; ?>" name="icon-derecha<?php echo $sectorActual; ?>" class="fa fa-caret-right" style="float:right; font-size: 12px; vertical-align:middle; line-height: 30px"></i>
-            </p>
+                <i id="icon-derecha<?php echo $sectorActual; ?>" name="icon-derecha<?php echo $sectorActual; ?>" class="fa fa-caret-right" style="float:right; font-size: 12px; vertical-align:middle; line-height: 30px"></i>
+              </p>
           </a>
         </li>
         <li class="nav-item">
