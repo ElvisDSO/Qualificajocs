@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-05-2019 a las 14:07:57
+-- Tiempo de generación: 15-05-2019 a las 16:18:53
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -88,6 +88,33 @@ INSERT INTO `compañia` (`ID_COMPAÑIA`, `NOMBRE_COMPAÑIA`) VALUES
 (48, 'Nombre_Compañia_48'),
 (49, 'Nombre_Compañia_49'),
 (50, 'Nombre_Compañia_50');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `empresa`
+--
+
+CREATE TABLE `empresa` (
+  `ID_EMPRESA` int(11) NOT NULL,
+  `NOMBRE_EMPRESA` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `empresa`
+--
+
+INSERT INTO `empresa` (`ID_EMPRESA`, `NOMBRE_EMPRESA`) VALUES
+(1, 'Sony'),
+(2, 'Microsoft'),
+(3, 'Nintendo'),
+(4, 'PC'),
+(5, 'Sega'),
+(6, 'Android'),
+(7, 'iPhone'),
+(8, 'Valve'),
+(9, 'Oculus'),
+(10, 'Atari');
 
 -- --------------------------------------------------------
 
@@ -19624,48 +19651,48 @@ INSERT INTO `lista_pendientes` (`ID_VIDEOJUEGO`, `ID_USUARIO`) VALUES
 
 CREATE TABLE `plataforma` (
   `ID_PLATAFORMA` int(11) NOT NULL,
-  `PLATAFORMA` varchar(20) NOT NULL
+  `PLATAFORMA` varchar(20) NOT NULL,
+  `ID_EMPRESA` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `plataforma`
 --
 
-INSERT INTO `plataforma` (`ID_PLATAFORMA`, `PLATAFORMA`) VALUES
-(1, 'Playstation 4'),
-(2, 'Xbox One'),
-(3, 'Nintendo DS'),
-(4, 'Android'),
-(5, 'WiiU'),
-(6, 'Playstation 2'),
-(7, 'DC'),
-(8, 'Nintendo 64'),
-(9, 'PC'),
-(10, 'Switch'),
-(11, 'Playstation 3'),
-(12, 'iPhone'),
-(13, 'Playstation VITA'),
-(14, 'XBOX'),
-(15, 'Game Boy Advance'),
-(16, 'Nintendo Gamecube'),
-(17, 'Nintendo 3DS'),
-(18, 'XBOX 360'),
-(19, 'Wii'),
-(20, 'PSP'),
-(21, 'Playstation X'),
-(22, 'Super Nintendo'),
-(23, 'NES'),
-(24, 'Game Boy'),
-(25, 'Sega Dreamcast'),
-(26, 'Sega Mega Drive'),
-(27, 'Game Boy Color'),
-(28, 'Sega Saturn'),
-(29, 'Atari 2600'),
-(30, 'Sega Master System'),
-(31, 'Atari 5200'),
-(32, 'Oculus Go'),
-(33, 'HTC VIVE'),
-(34, 'Playstation VR');
+INSERT INTO `plataforma` (`ID_PLATAFORMA`, `PLATAFORMA`, `ID_EMPRESA`) VALUES
+(1, 'Playstation 4', 1),
+(2, 'Xbox One', 2),
+(3, 'Nintendo DS', 3),
+(4, 'Android', 6),
+(5, 'WiiU', 3),
+(6, 'Playstation 2', 1),
+(7, 'Dreamcast', 5),
+(8, 'Nintendo 64', 3),
+(9, 'PC', 4),
+(10, 'Switch', 3),
+(11, 'Playstation 3', 1),
+(12, 'iPhone', 7),
+(13, 'Playstation VITA', 1),
+(14, 'XBOX', 2),
+(15, 'Game Boy Advance', 3),
+(16, 'Nintendo Gamecube', 3),
+(17, 'Nintendo 3DS', 3),
+(18, 'XBOX 360', 2),
+(19, 'Wii', 3),
+(20, 'PSP', 1),
+(21, 'Playstation X', 1),
+(22, 'Super Nintendo', 3),
+(23, 'NES', 3),
+(24, 'Game Boy', 3),
+(26, 'Sega Mega Drive', 5),
+(27, 'Game Boy Color', 3),
+(28, 'Sega Saturn', 5),
+(29, 'Atari 2600', 10),
+(30, 'Sega Master System', 5),
+(31, 'Atari 5200', 10),
+(32, 'Oculus Go', 9),
+(33, 'HTC VIVE', 8),
+(34, 'Playstation VR', 1);
 
 -- --------------------------------------------------------
 
@@ -28292,6 +28319,12 @@ ALTER TABLE `compañia`
   ADD PRIMARY KEY (`ID_COMPAÑIA`);
 
 --
+-- Indices de la tabla `empresa`
+--
+ALTER TABLE `empresa`
+  ADD PRIMARY KEY (`ID_EMPRESA`);
+
+--
 -- Indices de la tabla `genero`
 --
 ALTER TABLE `genero`
@@ -28319,7 +28352,8 @@ ALTER TABLE `lista_pendientes`
 -- Indices de la tabla `plataforma`
 --
 ALTER TABLE `plataforma`
-  ADD PRIMARY KEY (`ID_PLATAFORMA`);
+  ADD PRIMARY KEY (`ID_PLATAFORMA`),
+  ADD KEY `ID_EMPRESA` (`ID_EMPRESA`);
 
 --
 -- Indices de la tabla `plataforma_videojuego`
@@ -28383,6 +28417,12 @@ ALTER TABLE `videojuegos`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `plataforma`
+--
+ALTER TABLE `plataforma`
+  ADD CONSTRAINT `plataforma_ibfk_1` FOREIGN KEY (`ID_EMPRESA`) REFERENCES `empresa` (`ID_EMPRESA`);
 
 --
 -- Filtros para la tabla `videojuegos`
