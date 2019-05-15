@@ -22,7 +22,7 @@ function recursosIdioma($idiomaActual) {
 
     //Obtiene todos los textos traducidos y los guarda en un array.
     while($filaTexto = mysqli_fetch_assoc($sql_result)){
-            $arrayRecursosIdioma[$filaTexto['ID']] = $filaTexto['TEXTO_'.$idiomaActual];
+            $arrayRecursosIdioma[$filaTexto['ID_TEXTO']] = $filaTexto['TEXTO_'.$idiomaActual];
     }
     mysqli_free_result($sql_result);
     mysqli_close($connection);
