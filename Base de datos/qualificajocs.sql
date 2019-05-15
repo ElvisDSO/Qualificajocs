@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-05-2019 a las 01:14:10
+-- Tiempo de generación: 15-05-2019 a las 14:07:57
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -25725,8 +25725,13 @@ CREATE TABLE `textos` (
 --
 
 INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
+('BuscarCompañia', 'Buscar por compañía', 'Search by company', 'Procurar por companhia'),
+('BuscarGenero', 'Buscar por genero', 'Search by gender', 'Procurar por gênero'),
+('BuscarNombre', 'Buscar por nombre', 'Search by name', 'Procurar por nome'),
+('BuscarPlataforma', 'Buscar por plataforma', 'Search by platform', 'Procura por plataforma'),
 ('Compañias', 'Compañias', 'Companies', 'Companhias'),
 ('Consolas', 'Consolas', 'Consoles', 'Consolas'),
+('Descubre', 'Descubre tu videojuego', 'Discover your videogame', 'Descobre o teo videojogo'),
 ('Inicio', 'Inicio', 'Start', 'Início'),
 ('MiColeccion', 'Mi colección', 'My collection', 'Minha coleção'),
 ('Subtitulo', 'Juega, valora, descubre.', 'Play, rate, discover.', 'Joga, valoriza, descobre.'),
