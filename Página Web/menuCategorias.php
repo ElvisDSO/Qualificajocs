@@ -47,7 +47,7 @@
 
 <!-- Bloque de inicio. -->
 <div class="user">
-  <div class="photo" style="background-color: #FD9A13; margin-right: 15px; border-radius: 8%; width: 42px; height: 42px; text-align: center; margin-left: 8px;">
+  <div class="photo" style="background-color: #2271B3; margin-right: 15px; border-radius: 8%; width: 42px; height: 42px; text-align: center; margin-left: 8px;">
     <div style="display: inline-block; vertical-align: middle; margin-top: 7px;"><i class="material-icons" style="color: #FFFFFF;">home</i></div>
   </div>
   <div class="user-info">
@@ -61,7 +61,7 @@
 
 <!-- Bloque de Mi Colección. -->
 <div class="user">
-  <div class="photo" style="background-color: #FD9A13; margin-right: 15px; border-radius: 8%; width: 42px; height: 42px; text-align: center; margin-left: 8px;">
+  <div class="photo" style="background-color: #E50914; margin-right: 15px; border-radius: 8%; width: 42px; height: 42px; text-align: center; margin-left: 8px;">
     <div style="display: inline-block; vertical-align: middle; margin-top: 7px;"><i class="material-icons" style="color: #FFFFFF;">library_books</i></div>
   </div>
   <div class="user-info">
@@ -94,26 +94,44 @@
         /* Bucle para imprimir todos los grupos y sus correspondientes actividades. */
         foreach ($arraySectores as &$sector) {
           $sectorActual = $sector[0];
+
+          if ($sector[0] != 4) {
+          
           ?>
-          <li class="nav-item">
-            <a class="nav-link" onclick="mostrarMenu(<?php echo $sectorActual; ?>)" >
-              <p> 
-                <?php 
-                  if ($sector[0] == 1) {
-                    echo $arrayRecursosIdioma['BuscarPlataforma'];
-                  } else if ($sector[0] == 2) {
-                    echo $arrayRecursosIdioma['BuscarCompañia'];
-                  } else if ($sector[0] == 3) {
-                    echo $arrayRecursosIdioma['BuscarGenero'];
-                  } else if ($sector[0] == 4) {
-                    echo $arrayRecursosIdioma['BuscarNombre'];
-                  }
-                ?>
-                <i id="icon-derecha<?php echo $sectorActual; ?>" name="icon-derecha<?php echo $sectorActual; ?>" class="fa fa-caret-right" style="float:right; font-size: 12px; vertical-align:middle; line-height: 30px"></i>
-              </p>
-            </a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="mostrarMenu(<?php echo $sectorActual; ?>)" >
+                <p> 
+                  <?php 
+                    if ($sector[0] == 1) {
+                      echo $arrayRecursosIdioma['BuscarPlataforma'];
+                    } else if ($sector[0] == 2) {
+                      echo $arrayRecursosIdioma['BuscarCompañia'];
+                    } else if ($sector[0] == 3) {
+                      echo $arrayRecursosIdioma['BuscarGenero'];
+                    }
+                  ?>
+                  <i id="icon-derecha<?php echo $sectorActual; ?>" name="icon-derecha<?php echo $sectorActual; ?>" class="fa fa-caret-right" style="float:right; font-size: 12px; vertical-align:middle; line-height: 30px"></i>
+                </p>
+              </a>
+            </li>
           <?php 
+          } else { ?>
+            <li class="nav-item">
+              <a class="nav-link">
+                <p>
+                  <?php echo $arrayRecursosIdioma['BuscarNombre']; ?>
+                </p>
+                <div class="input-group no-border">
+                  <input type="text" value="" class="form-control searchbar-properties" placeholder="<?php echo $arrayRecursosIdioma['IntroduceNombre']; ?>..." id="inputNombre" name="inputNombre">
+                  <button type="submit" class="btn btn-white btn-round btn-just-icon" id="botonNombre">
+                    <i class="material-icons">search</i>
+                    <div class="ripple-container"></div>
+                  </button>
+                </div>
+              </a>
+            </li>
+            <?php
+          }
         }
         ?>
       </ul>

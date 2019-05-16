@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2019 a las 12:41:34
+-- Tiempo de generación: 16-05-2019 a las 14:37:21
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -25783,6 +25783,7 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('Contacta', '¡Contacta con nosotros!', 'Contact with us!', 'Contacte-nos!'),
 ('Descubre', 'Descubre tu videojuego', 'Discover your videogame', 'Descobre o teo videojogo'),
 ('Inicio', 'Inicio', 'Start', 'Início'),
+('IntroduceNombre', 'Introduce un nombre', 'Insert a name', 'Indroduza um nome'),
 ('MejorValorados', 'Conoce los mejores juegos.', 'Know the games with best review.', 'Conheça os melhores jogos.'),
 ('MejorValoradosDos', 'Los mejores de siempre.', 'The very best ever.', 'Os melhores de todos os tempos.'),
 ('MiColeccion', 'Mi colección', 'My collection', 'Minha coleção'),

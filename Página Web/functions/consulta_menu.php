@@ -39,7 +39,7 @@ function obtenerEmpresa() {
   connect();
   $codigoHTML = "";
   //Consulta para recoger la información de todas las plataformas
-  $sqlEmpresa = "SELECT ID_EMPRESA, NOMBRE_EMPRESA FROM empresa ORDER BY NOMBRE_EMPRESA";
+  $sqlEmpresa = "SELECT ID_EMPRESA, NOMBRE_EMPRESA FROM empresa ORDER BY ID_EMPRESA";
   $resultEmpresa = mysqli_query($connection, $sqlEmpresa); //Ejecución de la consulta
   $empresaReturn = array();
   //Si hay resultados...
@@ -70,7 +70,7 @@ function obtenerPlataforma() {
   connect();
   $codigoHTML = "";
   //Consulta para recoger la información de todas las plataformas
-  $sqlPlataforma = "SELECT ID_PLATAFORMA, ID_EMPRESA, PLATAFORMA FROM plataforma ORDER BY PLATAFORMA";
+  $sqlPlataforma = "SELECT ID_PLATAFORMA, ID_EMPRESA, PLATAFORMA FROM plataforma ORDER BY ID_PLATAFORMA";
   $resultPlataforma = mysqli_query($connection, $sqlPlataforma); //Ejecución de la consulta
   $plataformaReturn = array();
   //Si hay resultados...
@@ -129,7 +129,7 @@ function obtenerCompañia() {
 function obtenerGenero() {
   global $connection;
   //Arranca la variable de sesión que contiene al idioma.
-  include 'functions/establecerIdioma.php'; 
+  include 'establecerIdioma.php'; 
 
   //Variable que contendrá el resultado de la búsqueda
   $text = '';
