@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2019 a las 03:17:41
+-- Tiempo de generación: 16-05-2019 a las 12:41:34
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -25773,23 +25773,26 @@ CREATE TABLE `textos` (
 --
 
 INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
+('AvisoLegal', 'Aviso legal.', 'Legal notice.', 'Aviso legal.'),
 ('BuscarCompañia', 'Buscar por compañía', 'Search by company', 'Procurar por companhia'),
 ('BuscarGenero', 'Buscar por genero', 'Search by gender', 'Procurar por gênero'),
 ('BuscarNombre', 'Buscar por nombre', 'Search by name', 'Procurar por nome'),
 ('BuscarPlataforma', 'Buscar por plataforma', 'Search by platform', 'Procura por plataforma'),
 ('Compañias', 'Compañias', 'Companies', 'Companhias'),
 ('Consolas', 'Consolas', 'Consoles', 'Consolas'),
+('Contacta', '¡Contacta con nosotros!', 'Contact with us!', 'Contacte-nos!'),
 ('Descubre', 'Descubre tu videojuego', 'Discover your videogame', 'Descobre o teo videojogo'),
 ('Inicio', 'Inicio', 'Start', 'Início'),
-('MejorValorados', 'Conoce los juegos con mejor crítica.', 'Know the games with best review.', 'Conheça o jogos com as milhores críticas.'),
+('MejorValorados', 'Conoce los mejores juegos.', 'Know the games with best review.', 'Conheça os melhores jogos.'),
 ('MejorValoradosDos', 'Los mejores de siempre.', 'The very best ever.', 'Os melhores de todos os tempos.'),
 ('MiColeccion', 'Mi colección', 'My collection', 'Minha coleção'),
 ('Recomendacion', 'Basados en tus gustos.', 'Based on your tastes.', 'Baseado nos teus gostos'),
 ('RecomendacionDos', 'Descubre a qué jugar.', 'Find out what to play.', 'Descobre o que jogar.'),
+('RedesSociales', 'Nuestras redes sociales.', 'Our social networks.', 'Nossas redes sociais.'),
 ('Subtitulo', 'Juega, valora, descubre.', 'Play, rate, discover.', 'Joga, valoriza, descobre.'),
 ('Titulo', 'Bienvenido a Qualificajocs.', 'Welcome to Qualificajocs.', 'Bem-vindo à Qualificajocs.'),
-('TuColeccion', 'Tus jugados, tus pendientes.', 'Your playeds, your pendings.', 'Os teus jugados, os teus pendentes.'),
-('TuColeccionDos', 'Tu colección.', 'Your collection.', 'À tua coleçao.'),
+('TuColeccion', 'Tus jugados, tus pendientes.', 'Your playeds, your pendings.', 'Teus jugados, teus pendentes.'),
+('TuColeccionDos', 'Tu colección.', 'Your collection.', 'À tua coleção.'),
 ('Videojuegos', 'Videojuegos', 'Videogames', 'Videojogos');
 
 -- --------------------------------------------------------

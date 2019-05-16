@@ -5,7 +5,7 @@
 
   include 'flags.php'; //Banderas para cambiar el idioma.
   include 'carousel.php'; //Slider de la pagina principal
-  #include 'footer.php'; //Footer
+  include 'footer.php'; //Footer
   include 'menuCategorias.php'; //Buscar por categoría. Buscador en el menú lateral.
   include 'navbar.php'; //Bloque navbar.
   #include 'functions/cookies.php'; //Función de aviso de cookies.
@@ -188,8 +188,7 @@
             <?php carousel();?>    
           </div>
         </div>
-
-        
+        <?php footer();?>
       </div>
     </form>
   </div>
