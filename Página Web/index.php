@@ -8,7 +8,7 @@
   include 'footer.php'; //Footer
   include 'menuCategorias.php'; //Buscar por categoría. Buscador en el menú lateral.
   include 'navbar.php'; //Bloque navbar.
-  #include 'functions/cookies.php'; //Función de aviso de cookies.
+  include 'functions/cookies.php'; //Función de aviso de cookies.
   include 'logo.php'; //Logo de Qualificajocs.
   include_once 'functions/recursosIdioma.php'; //Traducción de los párrafos existentes
 
@@ -93,6 +93,8 @@
   
   <!-- Script de carga del aviso de las cookies. -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+  <?php cookies(); ?>
+
 
   <!-- Estilos para la modificación de la página en su versión web -->
   <link rel="stylesheet" type="text/css" href="assets/css/ajusteTamPantalla.css">
