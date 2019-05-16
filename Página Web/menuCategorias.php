@@ -108,8 +108,7 @@
                   } else if ($sector[0] == 4) {
                     echo $arrayRecursosIdioma['BuscarNombre'];
                   }
-                ?> 
-                <!--<b class="caret"></b>-->
+                ?>
                 <i id="icon-derecha<?php echo $sectorActual; ?>" name="icon-derecha<?php echo $sectorActual; ?>" class="fa fa-caret-right" style="float:right; font-size: 12px; vertical-align:middle; line-height: 30px"></i>
               </p>
             </a>
@@ -121,29 +120,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
 }
 ?>

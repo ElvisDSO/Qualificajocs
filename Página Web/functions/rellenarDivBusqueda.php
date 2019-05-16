@@ -11,8 +11,11 @@ if (isset($_POST["idSector"])){
   $sectorActual = $_POST["idSector"];
 }
 
-$arrayEmpresa = obtenerEmpresa();//Almacenará todos los grupos de un sector.
-$arrayPlataformas = obtenerPlataformas();//Almacenará todos las actividades para un grupo.
+$arrayEmpresa = obtenerEmpresa();//Almacenará todos las empresas.
+$arrayPlataformas = obtenerPlataformas();//Almacenará todos las plataformas.
+$arrayGenero = obtenerGenero(); //Almacenará todos los generos.
+$arrayCompañia = obtenerCompañia(); //Almacenará todas las compañias.
+
 $contenidoHTML = '<input type="hidden" id="sectorAbierto" name="sectorAbierto" value="'.$sectorActual.'"/><div class="row" style="border-radius: 4px;">';
 $numeroGrupo = 0;
 //Se recorrerán todos los grupos y se generará un código HTML personalizado para cada sector.

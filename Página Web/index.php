@@ -3,21 +3,26 @@
   include_once 'config/connection.php';   //Establecer conexión con la base de datos 
   include 'functions/establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
 
-  include 'logo.php'; //Logo de Qualificajocs
-  include 'menuCategorias.php'; //Buscar por categoría. Buscador en el menú lateral.
   include 'flags.php'; //Banderas para cambiar el idioma.
+  include 'carousel.php'; //Slider de la pagina principal
+  #include 'footer.php'; //Footer
+  include 'menuCategorias.php'; //Buscar por categoría. Buscador en el menú lateral.
   include 'navbar.php'; //Bloque navbar.
-  
-
+  #include 'functions/cookies.php'; //Función de aviso de cookies.
+  include 'logo.php'; //Logo de Qualificajocs.
   include_once 'functions/recursosIdioma.php'; //Traducción de los párrafos existentes
+
+  $arrayRecursosIdioma = recursosIdioma($idiomaActual);
 ?>
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
-    <title>
-      Qualificajocs.
-    </title>
+  <link rel="icon" type="image/png" href="images/mando-de-consola.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Qualificajocs.
+  </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -83,9 +88,17 @@
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="assets/demo/demo.js"></script>
   
+  <!-- fichero javascript con funciones de búsqueda -->
+  <script src="js/funciones.js"></script>
+  
+  <!-- Script de carga del aviso de las cookies. -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
 
+  <!-- Estilos para la modificación de la página en su versión web -->
+  <link rel="stylesheet" type="text/css" href="assets/css/ajusteTamPantalla.css">
 </head>
 
+<div id="divBusqueda" class="border shadow-lg p-4 mb-4 bg-light" style="display:none; padding:20px; background-color: #036397; z-index: 100000; position: absolute; top: 300px; left: 250px"></div>
 
 <body style="margin-top:-20px">
   <div class="wrapper">
@@ -101,16 +114,82 @@
         <!-- Navbar -->
         <?php navbar();?>
         <!-- End Navbar -->
-
         <div style="margin-top: 70px; padding: 45px 15px 2px">
           <div class="container-fluid">
             <div class="row">
 
+              <!-- Bloque Mejor valorados -->
+              <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">star</i>
+                    </div>
+                    <p class="card-category"><?php echo $arrayRecursosIdioma['MejorValoradosDos']; ?></p>
+                    <h3 class="card-title"><?php echo $arrayRecursosIdioma['MejorValorados']; ?></h3>
+                  </div>
+                  <div class="card-footer">
+                    <div class="input-group no-border">
+                      <input type="text" value="" class="form-control searchbar-properties" placeholder="<?php echo $arrayRecursosIdioma['MejorValoradosDos']; ?>..." id="inputMejor" name="inputMejor">
+                      <button type="submit" class="btn btn-white btn-round btn-just-icon" id="botonMejor">
+                        <i class="material-icons">search</i>
+                        <div class="ripple-container"></div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bloque Tu Colección -->
+              <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="card card-stats">
+                  <div class="card-header card-header-danger card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">library_books</i>
+                    </div>
+                    <p class="card-category"><?php echo $arrayRecursosIdioma['TuColeccionDos']; ?></p>
+                    <h3 class="card-title"><?php echo $arrayRecursosIdioma['TuColeccion']; ?></h3>
+                  </div>
+                  <div class="card-footer">
+                    <div class="input-group no-border">
+                      <input type="text" value="" class="form-control searchbar-properties" placeholder="<?php echo $arrayRecursosIdioma['TuColeccionDos']; ?>..." id="inputColeccion" name="inputColeccion">
+                      <button type="submit" class="btn btn-white btn-round btn-just-icon" id="botonColeccion">
+                        <i class="material-icons">search</i>
+                        <div class="ripple-container"></div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bloque Recomendación -->
+              <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="card card-stats">
+                  <div class="card-header card-header-success card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">find_in_page</i>
+                    </div>
+                    <p class="card-category"><?php echo $arrayRecursosIdioma['RecomendacionDos']; ?></p>
+                    <h3 class="card-title"><?php echo $arrayRecursosIdioma['Recomendacion']; ?></h3>
+                  </div>
+                  <div class="card-footer">
+                    <div class="input-group no-border">
+                      <input type="text" value="" class="form-control searchbar-properties" placeholder="<?php echo $arrayRecursosIdioma['RecomendacionDos']; ?>..." id="inputRecomendacion" name="inputRecomendacion">
+                      <button type="submit" class="btn btn-white btn-round btn-just-icon" id="botonRecomendacion">
+                        <i class="material-icons">search</i>
+                        <div class="ripple-container"></div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
             </div>
+            <?php carousel();?>    
           </div>
         </div>
 
-
+        
       </div>
     </form>
   </div>

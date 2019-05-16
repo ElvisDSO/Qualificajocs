@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-05-2019 a las 16:18:53
+-- Tiempo de generación: 16-05-2019 a las 03:17:41
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -25737,6 +25737,27 @@ INSERT INTO `plataforma_videojuego` (`ID_VIDEOJUEGO`, `ID_PLATAFORMA`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `sector`
+--
+
+CREATE TABLE `sector` (
+  `ID_SECTOR` int(11) NOT NULL,
+  `NOMBRE_SECTOR` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `sector`
+--
+
+INSERT INTO `sector` (`ID_SECTOR`, `NOMBRE_SECTOR`) VALUES
+(1, 'plataforma'),
+(2, 'compañia'),
+(3, 'genero'),
+(4, 'Nombre');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `textos`
 --
 
@@ -25760,9 +25781,15 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('Consolas', 'Consolas', 'Consoles', 'Consolas'),
 ('Descubre', 'Descubre tu videojuego', 'Discover your videogame', 'Descobre o teo videojogo'),
 ('Inicio', 'Inicio', 'Start', 'Início'),
+('MejorValorados', 'Conoce los juegos con mejor crítica.', 'Know the games with best review.', 'Conheça o jogos com as milhores críticas.'),
+('MejorValoradosDos', 'Los mejores de siempre.', 'The very best ever.', 'Os melhores de todos os tempos.'),
 ('MiColeccion', 'Mi colección', 'My collection', 'Minha coleção'),
+('Recomendacion', 'Basados en tus gustos.', 'Based on your tastes.', 'Baseado nos teus gostos'),
+('RecomendacionDos', 'Descubre a qué jugar.', 'Find out what to play.', 'Descobre o que jogar.'),
 ('Subtitulo', 'Juega, valora, descubre.', 'Play, rate, discover.', 'Joga, valoriza, descobre.'),
 ('Titulo', 'Bienvenido a Qualificajocs.', 'Welcome to Qualificajocs.', 'Bem-vindo à Qualificajocs.'),
+('TuColeccion', 'Tus jugados, tus pendientes.', 'Your playeds, your pendings.', 'Os teus jugados, os teus pendentes.'),
+('TuColeccionDos', 'Tu colección.', 'Your collection.', 'À tua coleçao.'),
 ('Videojuegos', 'Videojuegos', 'Videogames', 'Videojogos');
 
 -- --------------------------------------------------------
@@ -28360,6 +28387,12 @@ ALTER TABLE `plataforma`
 --
 ALTER TABLE `plataforma_videojuego`
   ADD PRIMARY KEY (`ID_VIDEOJUEGO`,`ID_PLATAFORMA`);
+
+--
+-- Indices de la tabla `sector`
+--
+ALTER TABLE `sector`
+  ADD PRIMARY KEY (`ID_SECTOR`);
 
 --
 -- Indices de la tabla `textos`
