@@ -41,6 +41,7 @@
     $arrayPlataforma = obtenerPlataforma(); //Obtiene de la base de datos todas las diferentes consolas.
     $arrayCompañias = obtenerCompañia(); //Obtiene de la base de datos todas las diferentes compañias.
     $arrayGenero = obtenerGenero(); //Obtiene de la base de datos todas las diferentes compañias.
+    $arraySectores = obtenerSectores(); //Obtiene de la base de datos todos los sectores.
     $arrayRecursosIdioma = recursosIdioma($idiomaActual);
 ?>
 
@@ -72,6 +73,9 @@
   </div>
 </div>
 
+
+
+
 <!-- Bloque Buscar. -->
 <div class="user">
   <div class="photo" style="background-color: #52AB56; margin-right: 15px; border-radius: 8%; width: 42px; height: 42px; text-align: center; margin-left: 8px;">
@@ -85,39 +89,60 @@
     </a>
     <div class="collapse show" id="desplegableBusqueda">
       <ul class="nav">
-        <li class="nav-item">
-          <?php $sectorActual = 0; $sectorActual = $arrayPlataforma[0] ?>
-          <a class="nav-link" onclick="mostrarMenu(<?php echo $sectorActual; ?>)" >
-            <p> <?php echo $arrayRecursosIdioma['BuscarPlataforma']; ?> 
+        <?php
+        $sectorActual = 0;
+        /* Bucle para imprimir todos los grupos y sus correspondientes actividades. */
+        foreach ($arraySectores as &$sector) {
+          $sectorActual = $sector[0];
+          ?>
+          <li class="nav-item">
+            <a class="nav-link" onclick="mostrarMenu(<?php echo $sectorActual; ?>)" >
+              <p> 
+                <?php 
+                  if ($sector[0] == 1) {
+                    echo $arrayRecursosIdioma['BuscarPlataforma'];
+                  } else if ($sector[0] == 2) {
+                    echo $arrayRecursosIdioma['BuscarCompañia'];
+                  } else if ($sector[0] == 3) {
+                    echo $arrayRecursosIdioma['BuscarGenero'];
+                  } else if ($sector[0] == 4) {
+                    echo $arrayRecursosIdioma['BuscarNombre'];
+                  }
+                ?> 
+                <!--<b class="caret"></b>-->
                 <i id="icon-derecha<?php echo $sectorActual; ?>" name="icon-derecha<?php echo $sectorActual; ?>" class="fa fa-caret-right" style="float:right; font-size: 12px; vertical-align:middle; line-height: 30px"></i>
               </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" onclick="mostrarMenu(<?php echo $arrayRecursosIdioma['BuscarCompañia']; ?>)" >
-            <p> <?php echo $arrayRecursosIdioma['BuscarCompañia']; ?> 
-              <i id="icon-derecha<?php echo $sectorActual; ?>" name="icon-derecha<?php echo $sectorActual; ?>" class="fa fa-caret-right" style="float:right; font-size: 12px; vertical-align:middle; line-height: 30px"></i>
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" onclick="mostrarMenu(<?php echo $arrayRecursosIdioma['BuscarGenero']; ?>)" >
-            <p> <?php echo $arrayRecursosIdioma['BuscarGenero']; ?> 
-              <i id="icon-derecha<?php echo $sectorActual; ?>" name="icon-derecha<?php echo $sectorActual; ?>" class="fa fa-caret-right" style="float:right; font-size: 12px; vertical-align:middle; line-height: 30px"></i>
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" onclick="mostrarMenu(<?php echo $arrayRecursosIdioma['BuscarNombre']; ?>)" >
-            <p> <?php echo $arrayRecursosIdioma['BuscarNombre']; ?> 
-              <i id="icon-derecha<?php echo $sectorActual; ?>" name="icon-derecha<?php echo $sectorActual; ?>" class="fa fa-caret-right" style="float:right; font-size: 12px; vertical-align:middle; line-height: 30px"></i>
-            </p>
-          </a>
-        </li>
+            </a>
+          </li>
+          <?php 
+        }
+        ?>
       </ul>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <?php
 }

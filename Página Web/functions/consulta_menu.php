@@ -3,21 +3,20 @@
 
 function obtenerSectores() {
   global $connection;
-
   //Variable que contendrá el resultado de la búsqueda
   $text = '';
   connect();
   $codigoHTML = "";
   //Contulta para recoger la información de todas las actividades
-  $sqlSector = "SELECT SECTOR_ID, SECTOR_NOMBRE_". $idiomaActual ." FROM sectores";
+  $sqlSector = "SELECT ID_SECTOR, NOMBRE_SECTOR FROM sector";
   $resultSector = mysqli_query($connection, $sqlSector); //Ejecución de la consulta
   $sectoresReturn = array();
   //Si hay resultados...
   while($filaSector = mysqli_fetch_assoc($resultSector)){
     // se recoge la información según la vamos a pasar a la variable de javascript
     $sectores = array();
-    $sectores[] = $filaSector['SECTOR_ID'];
-    $sectores[] = $filaSector['SECTOR_NOMBRE_'. $idiomaActual];
+    $sectores[] = $filaSector['ID_SECTOR'];
+    $sectores[] = $filaSector['NOMBRE_SECTOR'];
     $sectoresReturn[] = $sectores;
   }
 
@@ -26,9 +25,6 @@ function obtenerSectores() {
   // Después de trabajar con la bbdd, cerramos la conexión (por seguridad, no hay que dejar conexiones abiertas)
   return $sectoresReturn;
 }
-
-
-
 
 /**
 * Obtiene las plataformas que se encuentran almacenadas en la base de datos 
