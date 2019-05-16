@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2019 a las 17:39:43
+-- Tiempo de generación: 16-05-2019 a las 21:28:24
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -25773,12 +25773,15 @@ CREATE TABLE `textos` (
 --
 
 INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
+('AccedeLibreria', 'Accede a tu librería', 'Enter to your library', 'Aceda à sua livraria'),
 ('AvisoLegal', 'Aviso legal.', 'Legal notice.', 'Aviso legal.'),
 ('BuscarCompañia', 'Buscar por compañía', 'Search by company', 'Procurar por companhia'),
 ('BuscarGenero', 'Buscar por genero', 'Search by gender', 'Procurar por gênero'),
 ('BuscarNombre', 'Buscar por nombre', 'Search by name', 'Procurar por nome'),
 ('BuscarPlataforma', 'Buscar por plataforma', 'Search by platform', 'Procura por plataforma'),
+('CerrarSesion', 'Cerrar sesión', 'Log Out', 'Sair da sessão'),
 ('Compañias', 'Compañias', 'Companies', 'Companhias'),
+('Configuracion', 'Configuración', 'Settings', 'Configuração'),
 ('Consolas', 'Consolas', 'Consoles', 'Consolas'),
 ('Contacta', '¡Contacta con nosotros!', 'Contact with us!', 'Contacte-nos!'),
 ('Descubre', 'Descubre tu videojuego', 'Discover your videogame', 'Descobre o teo videojogo'),
@@ -25787,11 +25790,14 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('MejorValorados', 'Conoce los mejores juegos.', 'Know the games with best review.', 'Conheça os melhores jogos.'),
 ('MejorValoradosDos', 'Los mejores de siempre.', 'The very best ever.', 'Os melhores de todos os tempos.'),
 ('MiColeccion', 'Mi colección', 'My collection', 'Minha coleção'),
+('Perfil', 'Perfil', 'Profile', 'Perfil'),
 ('Recomendacion', 'Basados en tus gustos.', 'Based on your tastes.', 'Baseado nos teus gostos'),
 ('RecomendacionDos', 'Descubre a qué jugar.', 'Find out what to play.', 'Descobre o que jogar.'),
 ('RedesSociales', 'Nuestras redes sociales.', 'Our social networks.', 'Nossas redes sociais.'),
 ('Subtitulo', 'Juega, valora, descubre.', 'Play, rate, discover.', 'Joga, valoriza, descobre.'),
+('TeRecomendamos', 'Te recomendamos', 'We recommend you', 'Recomendamos-te'),
 ('Titulo', 'Bienvenido a Qualificajocs.', 'Welcome to Qualificajocs.', 'Bem-vindo à Qualificajocs.'),
+('TOP', 'Nuestro TOP', 'Our TOP', 'Nosso TOP'),
 ('TuColeccion', 'Tus jugados, tus pendientes.', 'Your playeds, your pendings.', 'Teus jugados, teus pendentes.'),
 ('TuColeccionDos', 'Tu colección.', 'Your collection.', 'À tua coleção.'),
 ('Videojuegos', 'Videojuegos', 'Videogames', 'Videojogos');

@@ -61,11 +61,11 @@
 
 <!-- Bloque de Mi Colección. -->
 <div class="user">
-  <div class="photo" style="background-color: #E50914; margin-right: 15px; border-radius: 8%; width: 42px; height: 42px; text-align: center; margin-left: 8px;">
+  <div class="photo" style="background-color: #dc3545; margin-right: 15px; border-radius: 8%; width: 42px; height: 42px; text-align: center; margin-left: 8px;">
     <div style="display: inline-block; vertical-align: middle; margin-top: 7px;"><i class="material-icons" style="color: #FFFFFF;">library_books</i></div>
   </div>
   <div class="user-info">
-    <a href="./miColeccion.php" class="username">
+    <a href="./coleccionUsuario.php" class="username">
       <span>
         <h6><?php echo $arrayRecursosIdioma['MiColeccion']; ?></h6> <!-- Se imprime texto descriptivo -->
       </span>
@@ -123,7 +123,7 @@
                 </p>
                 <div class="input-group no-border">
                   <input type="text" value="" class="form-control searchbar-properties" placeholder="<?php echo $arrayRecursosIdioma['IntroduceNombre']; ?>..." id="inputNombre" name="inputNombre">
-                  <button type="submit" class="btn btn-white btn-round btn-just-icon" id="botonNombre">
+                  <button type="submit" class="btn btn-success btn-round btn-just-icon" id="botonNombre">
                     <i class="material-icons">search</i>
                     <div class="ripple-container"></div>
                   </button>

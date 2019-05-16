@@ -5,6 +5,7 @@
 
   include 'flags.php'; //Banderas para cambiar el idioma.
   include 'carousel.php'; //Slider de la pagina principal
+  include 'userButton.php'; //Botón usuario.
   include 'footer.php'; //Footer
   include 'menuCategorias.php'; //Buscar por categoría. Buscador en el menú lateral.
   include 'navbar.php'; //Bloque navbar.
@@ -119,7 +120,6 @@
         <div style="margin-top: 70px; padding: 45px 15px 2px">
           <div class="container-fluid">
             <div class="row">
-
               <!-- Bloque Mejor valorados -->
               <div class="col-lg-4 col-md-4 col-sm-4">
                 <div class="card card-stats">
@@ -131,17 +131,12 @@
                     <h3 class="card-title"><?php echo $arrayRecursosIdioma['MejorValorados']; ?></h3>
                   </div>
                   <div class="card-footer">
-                    <div class="input-group no-border">
-                      <input type="text" value="" class="form-control searchbar-properties" placeholder="<?php echo $arrayRecursosIdioma['MejorValoradosDos']; ?>..." id="inputMejor" name="inputMejor">
-                      <button type="submit" class="btn btn-white btn-round btn-just-icon" id="botonMejor">
-                        <i class="material-icons">search</i>
-                        <div class="ripple-container"></div>
-                      </button>
-                    </div>
+                    <div class="card-body">
+                    <a href="./panelBusqueda.php" class="btn btn-warning" ><?php echo $arrayRecursosIdioma['TOP'];?></a>
+                  </div>
                   </div>
                 </div>
               </div>
-
               <!-- Bloque Tu Colección -->
               <div class="col-lg-4 col-md-4 col-sm-4">
                 <div class="card card-stats">
@@ -153,17 +148,12 @@
                     <h3 class="card-title"><?php echo $arrayRecursosIdioma['TuColeccion']; ?></h3>
                   </div>
                   <div class="card-footer">
-                    <div class="input-group no-border">
-                      <input type="text" value="" class="form-control searchbar-properties" placeholder="<?php echo $arrayRecursosIdioma['TuColeccionDos']; ?>..." id="inputColeccion" name="inputColeccion">
-                      <button type="submit" class="btn btn-white btn-round btn-just-icon" id="botonColeccion">
-                        <i class="material-icons">search</i>
-                        <div class="ripple-container"></div>
-                      </button>
+                    <div class="card-body">
+                      <a href="./coleccionUsuario.php" class="btn btn-danger" ><?php echo $arrayRecursosIdioma['AccedeLibreria'];?></a>
                     </div>
                   </div>
                 </div>
               </div>
-
               <!-- Bloque Recomendación -->
               <div class="col-lg-4 col-md-4 col-sm-4">
                 <div class="card card-stats">
@@ -175,12 +165,8 @@
                     <h3 class="card-title"><?php echo $arrayRecursosIdioma['Recomendacion']; ?></h3>
                   </div>
                   <div class="card-footer">
-                    <div class="input-group no-border">
-                      <input type="text" value="" class="form-control searchbar-properties" placeholder="<?php echo $arrayRecursosIdioma['RecomendacionDos']; ?>..." id="inputRecomendacion" name="inputRecomendacion">
-                      <button type="submit" class="btn btn-white btn-round btn-just-icon" id="botonRecomendacion">
-                        <i class="material-icons">search</i>
-                        <div class="ripple-container"></div>
-                      </button>
+                    <div class="card-body">
+                      <a href="./panelBusqueda.php" class="btn btn-success" ><?php echo $arrayRecursosIdioma['TeRecomendamos'];?></a>
                     </div>
                   </div>
                 </div>
