@@ -3,14 +3,14 @@
   include_once 'config/connection.php';   //Establecer conexión con la base de datos 
   include 'functions/establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
 
-  include 'flags.php'; //Banderas para cambiar el idioma.
-  include 'carousel.php'; //Slider de la pagina principal
-  include 'userButton.php'; //Botón usuario.
-  include 'footer.php'; //Footer
-  include 'menuCategorias.php'; //Buscar por categoría. Buscador en el menú lateral.
-  include 'navbar.php'; //Bloque navbar.
+  include 'functions/flags.php'; //Banderas para cambiar el idioma.
+  include 'functions/carousel.php'; //Slider de la pagina principal
+  include 'functions/userButton.php'; //Botón usuario.
+  include 'functions/footer.php'; //Footer
+  include 'functions/menuCategorias.php'; //Buscar por categoría. Buscador en el menú lateral.
+  include 'functions/navbar.php'; //Bloque navbar.
   include 'functions/cookies.php'; //Función de aviso de cookies.
-  include 'logo.php'; //Logo de Qualificajocs.
+  include 'functions/logo.php'; //Logo de Qualificajocs.
   include_once 'functions/recursosIdioma.php'; //Traducción de los párrafos existentes
 
   $arrayRecursosIdioma = recursosIdioma($idiomaActual);
@@ -132,7 +132,7 @@
                   </div>
                   <div class="card-footer">
                     <div class="card-body">
-                    <a href="./panelBusqueda.php" class="btn btn-warning" ><?php echo $arrayRecursosIdioma['TOP'];?></a>
+                    <a href="./juegosTOP.php" class="btn btn-warning" ><?php echo $arrayRecursosIdioma['TOP'];?></a>
                   </div>
                   </div>
                 </div>
@@ -166,7 +166,7 @@
                   </div>
                   <div class="card-footer">
                     <div class="card-body">
-                      <a href="./panelBusqueda.php" class="btn btn-success" ><?php echo $arrayRecursosIdioma['TeRecomendamos'];?></a>
+                      <a href="./juegosTOP.php" class="btn btn-success" ><?php echo $arrayRecursosIdioma['TeRecomendamos'];?></a>
                     </div>
                   </div>
                 </div>

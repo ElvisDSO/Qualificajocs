@@ -3,8 +3,8 @@ include_once 'config/connection.php';
 /*Guarda el idioma de la variable de sesión en una variable propia.*/
 
 function footer(){
-  include 'functions/establecerIdioma.php';
-  include_once 'functions/recursosIdioma.php';
+  include 'establecerIdioma.php';
+  include_once 'recursosIdioma.php';
 
   $arrayRecursosIdioma = recursosIdioma($idiomaActual);
 ?>

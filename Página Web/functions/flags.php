@@ -2,7 +2,7 @@
 //session_start();
 /* Variable de sesión que contiene el idioma. */
 function flags(){
-	include 'functions/establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
+	include 'establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
 ?>	
 
 <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />

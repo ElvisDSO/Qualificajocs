@@ -3,7 +3,7 @@ include_once 'config/connection.php';
 include_once 'recursosIdioma.php';
 
 function cookies() {
-  include 'functions/establecerIdioma.php';
+  include 'establecerIdioma.php';
   $arrayRecursosIdioma = recursosIdioma($idiomaActual);
 ?>
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />

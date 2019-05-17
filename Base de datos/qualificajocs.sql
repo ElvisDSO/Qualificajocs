@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2019 a las 21:28:24
+-- Tiempo de generación: 17-05-2019 a las 03:45:08
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -25780,17 +25780,23 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('BuscarNombre', 'Buscar por nombre', 'Search by name', 'Procurar por nome'),
 ('BuscarPlataforma', 'Buscar por plataforma', 'Search by platform', 'Procura por plataforma'),
 ('CerrarSesion', 'Cerrar sesión', 'Log Out', 'Sair da sessão'),
+('Compañia', 'Compañía', 'Company', 'Companhia'),
 ('Compañias', 'Compañias', 'Companies', 'Companhias'),
 ('Configuracion', 'Configuración', 'Settings', 'Configuração'),
 ('Consolas', 'Consolas', 'Consoles', 'Consolas'),
 ('Contacta', '¡Contacta con nosotros!', 'Contact with us!', 'Contacte-nos!'),
+('Criterios', 'Criterios de búsqueda seleccionados', 'Selected search criteria', 'Critérios de pesquisa selecionados'),
 ('Descubre', 'Descubre tu videojuego', 'Discover your videogame', 'Descobre o teo videojogo'),
+('Empresa', 'Empresa', 'Enterprise', 'Empresa'),
+('Genero', 'Género', 'Gender', 'Gênero'),
 ('Inicio', 'Inicio', 'Start', 'Início'),
 ('IntroduceNombre', 'Introduce un nombre', 'Insert a name', 'Indroduza um nome'),
 ('MejorValorados', 'Conoce los mejores juegos.', 'Know the games with best review.', 'Conheça os melhores jogos.'),
 ('MejorValoradosDos', 'Los mejores de siempre.', 'The very best ever.', 'Os melhores de todos os tempos.'),
 ('MiColeccion', 'Mi colección', 'My collection', 'Minha coleção'),
+('Nombre', 'Nombre', 'Name', 'Nome'),
 ('Perfil', 'Perfil', 'Profile', 'Perfil'),
+('Plataforma', 'Plataforma', 'Platform', 'Plataforma'),
 ('Recomendacion', 'Basados en tus gustos.', 'Based on your tastes.', 'Baseado nos teus gostos'),
 ('RecomendacionDos', 'Descubre a qué jugar.', 'Find out what to play.', 'Descobre o que jogar.'),
 ('RedesSociales', 'Nuestras redes sociales.', 'Our social networks.', 'Nossas redes sociais.'),

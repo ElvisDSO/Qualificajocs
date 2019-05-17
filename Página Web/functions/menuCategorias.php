@@ -35,8 +35,8 @@
 * Función que establece el bloque del menú lateral.
 **/
   function menuCategorias(){
-    include 'functions/consulta_menu.php'; //Se carga la variable de sesión.
-    include 'functions/establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
+    include 'consulta_menu.php'; //Se carga la variable de sesión.
+    include 'establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
     //Se obtienen los valores requeridos de la base de datos.
     $arrayPlataforma = obtenerPlataforma(); //Obtiene de la base de datos todas las diferentes consolas.
     $arrayCompañias = obtenerCompañia(); //Obtiene de la base de datos todas las diferentes compañias.
@@ -82,12 +82,12 @@
     <div style="display: inline-block; vertical-align: middle; margin-top: 7px;"><i class="material-icons" style="color: #FFFFFF;">search</i></div> <!-- Icono del bloque -->
   </div>
   <div class="user-info">
-    <a href="#desplegableBusqueda" class="username">
+    <a href="#desplegableBusqueda" class="username"><!-- referencia al bloque desplegableBusqueda -->
       <span>
         <h6><?php echo $arrayRecursosIdioma['Descubre']; ?></h6> <!-- Texto descriptivo del bloque. -->
       </span>
     </a>
-    <div class="collapse show" id="desplegableBusqueda">
+    <div class="collapse show" id="desplegableBusqueda"> <!-- identifica a este bloque como desplegableBusqueda. -->
       <ul class="nav">
         <?php
         $sectorActual = 0;
@@ -95,22 +95,22 @@
         foreach ($arraySectores as &$sector) {
           $sectorActual = $sector[0];
 
-          if ($sector[0] != 4) {
+          if ($sector[0] != 4) { //Si el sector no es el de escribir el nombre del juego.
           
           ?>
             <li class="nav-item">
               <a class="nav-link" onclick="mostrarMenu(<?php echo $sectorActual; ?>)" >
                 <p> 
                   <?php 
-                    if ($sector[0] == 1) {
+                    if ($sector[0] == 1) { //Imprime el texto de buscar por plataforma
                       echo $arrayRecursosIdioma['BuscarPlataforma'];
-                    } else if ($sector[0] == 2) {
+                    } else if ($sector[0] == 2) { //Imprime el texto de buscar por compañía
                       echo $arrayRecursosIdioma['BuscarCompañia'];
-                    } else if ($sector[0] == 3) {
+                    } else if ($sector[0] == 3) { //Imprime el texto de buscar por género
                       echo $arrayRecursosIdioma['BuscarGenero'];
                     }
                   ?>
-                  <i id="icon-derecha<?php echo $sectorActual; ?>" name="icon-derecha<?php echo $sectorActual; ?>" class="fa fa-caret-right" style="float:right; font-size: 12px; vertical-align:middle; line-height: 30px"></i>
+                  <i id="icon-derecha<?php echo $sectorActual; ?>" name="icon-derecha<?php echo $sectorActual; ?>" class="fa fa-caret-right" style="float:right; font-size: 12px; vertical-align:middle; line-height: 30px"></i> <!-- imprime una flecha al lado del texto. -->
                 </p>
               </a>
             </li>
@@ -119,9 +119,9 @@
             <li class="nav-item">
               <a class="nav-link">
                 <p>
-                  <?php echo $arrayRecursosIdioma['BuscarNombre']; ?>
+                  <?php echo $arrayRecursosIdioma['BuscarNombre']; //Imprime el texto de buscar por nombre.?> 
                 </p>
-                <div class="input-group no-border">
+                <div class="input-group no-border"> <!-- imprime el bloque para introducir el texto y el botón para enviar la búsqueda. -->
                   <input type="text" value="" class="form-control searchbar-properties" placeholder="<?php echo $arrayRecursosIdioma['IntroduceNombre']; ?>..." id="inputNombre" name="inputNombre">
                   <button type="submit" class="btn btn-success btn-round btn-just-icon" id="botonNombre">
                     <i class="material-icons">search</i>

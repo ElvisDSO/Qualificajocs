@@ -3,8 +3,8 @@
 * Función encargada de la impresión del elemento navbar.
 **/
 function navbar(){
-	include 'functions/establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
-	include_once 'functions/recursosIdioma.php';//Arranca el array que contiene el texto traducido.
+	include 'establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
+	include_once 'recursosIdioma.php';//Arranca el array que contiene el texto traducido.
   	/* Se carga los textos traducidos de la base de datos. */
   	$arrayRecursosIdioma = recursosIdioma($idiomaActual);
 ?>

@@ -1,25 +1,25 @@
-function realizarBusquedaActividad(numeroActividad,nombrefichero,idioma){
-  $("#divActividades").hide("slow");
-  $("#inputActividad").val(document.getElementById('spanActividad'+numeroActividad).innerHTML);
+function realizarBusquedaPlataforma(numeroPlataforma,nombrefichero,idioma){
+  $("#divPlataforma").hide("slow");
+  $("#inputPlataforma").val(document.getElementById('spanPlataforma'+numeroPlataforma).innerHTML);
   // Actualizamos el texto con el criterio de búsqueda visualizado
-  $("#spanCriterioActividad").html($("#inputActividad").val());
-  if ($("#inputActividad").val() != ""){
-  	$("#tituloCriterioActividad").css("display", "block");
+  $("#spanCriterioPlataforma").html($("#inputPlataforma").val());
+  if ($("#inputPlataforma").val() != ""){
+  	$("#tituloCriterioPlataforma").css("display", "block");
   } else {
-	$("#tituloCriterioActividad").css("display", "none");
+	$("#tituloCriterioPlataforma").css("display", "none");
   }
   realizarBusqueda(nombrefichero,'',idioma);
 }
 
-function realizarBusquedaGrupo(numeroGrupo,nombrefichero,idioma){
-  $("#divGrupo").hide("slow");
-  $("#inputGrupo").val(document.getElementById('spanGrupo'+numeroGrupo).innerHTML);
+function realizarBusquedaEmpresa(numeroEmpresa,nombrefichero,idioma){
+  $("#divEmpresa").hide("slow");
+  $("#inputEmpresa").val(document.getElementById('spanEmpresa'+numeroEmpresa).innerHTML);
   // Actualizamos el texto con el criterio de búsqueda visualizado
-  $("#spanCriterioActividad").html($("#inputGrupo").val());
-  if ($("#inputGrupo").val() != ""){
-  	$("#tituloCriterioActividad").css("display", "block");
+  $("#spanCriterioPlataforma").html($("#inputEmpresa").val());
+  if ($("#inputEmpresa").val() != ""){
+  	$("#tituloCriterioPlataforma").css("display", "block");
   } else {
-	$("#tituloCriterioActividad").css("display", "none");
+	$("#tituloCriterioPlataforma").css("display", "none");
   }	
   realizarBusqueda(nombrefichero,'',idioma);
 }
@@ -48,11 +48,11 @@ function verPagina(paginaver, cambiar, totalPaginas) {
 	  codigoHTMLpaginacion = codigoHTMLpaginacion.concat("<ul class='pagination'>");
 	  //codigoHTMLpaginacion = codigoHTMLpaginacion.concat("<li class='page-item'><a class='page-link' href='#'>Anterior</a></li>");
 	  codigoHTMLpaginacion = codigoHTMLpaginacion.concat("<li class='page-item' disabled><a class='page-link' style='cursor: default;'>PÁGINA</a></li>");
-	  // Si estamos en el segundo grupo de páginas, o posteriores, mostramos la opción de volver al grupo de páginas anterior
+	  // Si estamos en el segundo Empresa de páginas, o posteriores, mostramos la opción de volver al Empresa de páginas anterior
 	  if (paginaver > 5){
 		codigoHTMLpaginacion = codigoHTMLpaginacion.concat("<li class='page-item'><a class='page-link' href='#' onclick='verPagina(");
-		paginainiciogrupo = paginaver-5;
-		codigoHTMLpaginacion = codigoHTMLpaginacion.concat(paginainiciogrupo);
+		paginainicioempresa = paginaver-5;
+		codigoHTMLpaginacion = codigoHTMLpaginacion.concat(paginainicioempresa);
 		codigoHTMLpaginacion = codigoHTMLpaginacion.concat(",1,");
 		codigoHTMLpaginacion = codigoHTMLpaginacion.concat(numPagina);
 		codigoHTMLpaginacion = codigoHTMLpaginacion.concat(")'>...</a></li>");
@@ -94,13 +94,13 @@ function realizarBusqueda(nombrefichero,orden,idioma){
 	
 	var codigoHTMLpaginacion = "";
 
-	$("#divActividades").hide("slow");
+	$("#divPlataforma").hide("slow");
 
-	criterioComercio = $("#inputComercio").val();
+	criterioNombre = $("#inputNombre").val();
 	criterioProducto = $("#inputProducto").val();
-	criterioGeografico = $("#inputGeografico").val();
-	criterioActividad = $("#inputActividad").val();
-	criterioGrupo = $("#inputGrupo").val();
+	criterioGenero = $("#inputGenero").val();
+	criterioPlataforma = $("#inputPlataforma").val();
+	criterioEmpresa = $("#inputEmpresa").val();
 	
 	if ((nombrefichero === undefined) || (nombrefichero === 'panelBusqueda.php')) {  // lanzamos la búsqueda desde panelBusqueda
 
@@ -109,9 +109,9 @@ function realizarBusqueda(nombrefichero,orden,idioma){
 			// Formato de datos que se espera en la respuesta
 			dataType: "json",
 			url: "functions/resultadoConsulta.php",
-			data: {comercio: criterioComercio, geografico: criterioGeografico, categoria: criterioActividad, grupo: criterioGrupo, orden: orden},
+			data: {nombre: criterioNombre, genero: criterioGenero, categoria: criterioPlataforma, empresa: criterioEmpresa, orden: orden},
 			success: function (data) {
-			  $("#divActividades").hide("slow");
+			  $("#divPlataforma").hide("slow");
 			  resultadosBusqueda = data;
 			  // Rellenar Grid
 			  numElementos = 0;
@@ -148,30 +148,30 @@ function realizarBusqueda(nombrefichero,orden,idioma){
 				  codigoHTML = codigoHTML.concat(contadorElementos);
 				  codigoHTML = codigoHTML.concat("' name='formInfo");
 				  codigoHTML = codigoHTML.concat(contadorElementos);
-				  codigoHTML = codigoHTML.concat("' action='infoComercio.php'>");
-				  codigoHTML = codigoHTML.concat("<input type='hidden' id='idComercio");
+				  codigoHTML = codigoHTML.concat("' action='infoNombre.php'>");
+				  codigoHTML = codigoHTML.concat("<input type='hidden' id='idNombre");
 				  codigoHTML = codigoHTML.concat(contadorElementos);
-				  codigoHTML = codigoHTML.concat("' name='idComercio");
+				  codigoHTML = codigoHTML.concat("' name='idNombre");
 				  codigoHTML = codigoHTML.concat(contadorElementos);
 				  codigoHTML = codigoHTML.concat("' value='");
 				  codigoHTML = codigoHTML.concat(idActual);
 				  codigoHTML = codigoHTML.concat("'>");
-				  codigoHTML = codigoHTML.concat("<input type='hidden' id='inputComercio' name='inputComercio' value='");
-				  codigoHTML = codigoHTML.concat(criterioComercio);
+				  codigoHTML = codigoHTML.concat("<input type='hidden' id='inputNombre' name='inputNombre' value='");
+				  codigoHTML = codigoHTML.concat(criterioNombre);
 				  codigoHTML = codigoHTML.concat("'>");
 				  codigoHTML = codigoHTML.concat("<input type='hidden' id='inputProducto' name='inputProducto' value='");
 				  codigoHTML = codigoHTML.concat(criterioProducto);
 				  codigoHTML = codigoHTML.concat("'>");
-				  codigoHTML = codigoHTML.concat("<input type='hidden' id='inputGeografico' name='inputGeografico' value='");
-				  codigoHTML = codigoHTML.concat(criterioGeografico);
+				  codigoHTML = codigoHTML.concat("<input type='hidden' id='inputGenero' name='inputGenero' value='");
+				  codigoHTML = codigoHTML.concat(criterioGenero);
 				  codigoHTML = codigoHTML.concat("'>");
-				  codigoHTML = codigoHTML.concat("<input type='hidden' id='inputActividad' name='inputActividad' value='");
-				  codigoHTML = codigoHTML.concat(criterioActividad);
+				  codigoHTML = codigoHTML.concat("<input type='hidden' id='inputPlataforma' name='inputPlataforma' value='");
+				  codigoHTML = codigoHTML.concat(criterioPlataforma);
 				  codigoHTML = codigoHTML.concat("'>");	
-				  codigoHTML = codigoHTML.concat("<input type='hidden' id='inputGrupo' name='inputGrupo' value='");
-				  codigoHTML = codigoHTML.concat(criterioGrupo);
+				  codigoHTML = codigoHTML.concat("<input type='hidden' id='inputEmpresa' name='inputEmpresa' value='");
+				  codigoHTML = codigoHTML.concat(criterioEmpresa);
 				  codigoHTML = codigoHTML.concat("'>");					
-				  codigoHTML = codigoHTML.concat("<h3 class='card-title' style='cursor: pointer;' onmouseover=$(this).addClass('text-danger') onmouseout=$(this).removeClass('text-danger') ><span id='rotulo_comercio' onclick='formInfo");
+				  codigoHTML = codigoHTML.concat("<h3 class='card-title' style='cursor: pointer;' onmouseover=$(this).addClass('text-danger') onmouseout=$(this).removeClass('text-danger') ><span id='rotulo_nombre' onclick='formInfo");
 				  codigoHTML = codigoHTML.concat(contadorElementos);	
 				  codigoHTML = codigoHTML.concat(".submit()'>");
 				  codigoHTML = codigoHTML.concat(resultadosBusqueda[contadorElementos][0]);
@@ -227,48 +227,36 @@ function realizarBusqueda(nombrefichero,orden,idioma){
 			    if (idioma == "ES"){
 					if (resultadosBusqueda.length == 1){
 						//<?php echo $arrayRecursosIdioma['BuscarProducto']; ?>
-					  var textoResultados = "Su consulta ha obtenido 1 resultado";
+					  var textoResultados = "1 resultado obtenido.";
 				    } else {
-					  var textoResultados = "Su consulta ha obtenido " + resultadosBusqueda.length + " resultados";
+					  var textoResultados = "" + resultadosBusqueda.length + " resultados obtenidos";
 
-						if (resultadosBusqueda.length == 2000) {
-						  	md.showNotification('top','right','Su consulta ha generado más de 2000 resultados. Se muestran únicamente los 2000 primeros resultados.');
+						if (resultadosBusqueda.length == 200) {
+						  	md.showNotification('top','right','La consulta ha generado más de 200 resultados. Se muestran únicamente los 200 primeros resultados.');
 						  //	notificacion = "";
 						  //	notificacion = notificacion.concat("<button type='button' aria-hidden='true' class='close' data-notify='dismiss' style='position: absolute; right: 10px; top: 50%; margin-top: -9px; z-index: 1033;'><i class='material-icons'>close</i></button><i data-notify='icon' class='material-icons'>add_alert</i><span data-notify='title'></span><span data-notify='message'>Welcome to <b>Material Dashboard Pro</b> - a beautiful admin panel for every web developer.</span><a href='#' target='_blank' data-notify='url'></a>");
 						}
 				    }
 				} else if (idioma == "EN"){
 					if (resultadosBusqueda.length == 1){
-					  var textoResultados = "Your search returned 1 result";
+					  var textoResultados = "1 result returned.";
 				    } else {
-					  var textoResultados = "Your search returned " + resultadosBusqueda.length + " results";
+					  var textoResultados = "" + resultadosBusqueda.length + " results returned.";
 
-						if (resultadosBusqueda.length == 2000) {
-						  	md.showNotification('top','right','Your query has generated more than 2000 results. Only the first 2000 results are displayed.');
+						if (resultadosBusqueda.length == 200) {
+						  	md.showNotification('top','right','Your query has generated more than 200 results. Only the first 200 results are displayed.');
 						  //	notificacion = "";
 						  //	notificacion = notificacion.concat("<button type='button' aria-hidden='true' class='close' data-notify='dismiss' style='position: absolute; right: 10px; top: 50%; margin-top: -9px; z-index: 1033;'><i class='material-icons'>close</i></button><i data-notify='icon' class='material-icons'>add_alert</i><span data-notify='title'></span><span data-notify='message'>Welcome to <b>Material Dashboard Pro</b> - a beautiful admin panel for every web developer.</span><a href='#' target='_blank' data-notify='url'></a>");
 						}
 				    }
-				} else if (idioma == "FR"){
+				} else if (idioma == "PT"){
 					if (resultadosBusqueda.length == 1){
-					  var textoResultados = "Votre recherche a donné 1 résultat";
+					  var textoResultados = "1 resultado obtido.";
 				    } else {
-					  var textoResultados = "Votre recherche a donné " + resultadosBusqueda.length + " résultats";
+					  var textoResultados = "" + resultadosBusqueda.length + " resultados obtidos";
 
-						if (resultadosBusqueda.length == 2000) {
-						  	md.showNotification('top','right','Votre requête a généré plus de 2000 résultats. Seuls les premiers résultats 2000 sont affichés.');
-						  //	notificacion = "";
-						  //	notificacion = notificacion.concat("<button type='button' aria-hidden='true' class='close' data-notify='dismiss' style='position: absolute; right: 10px; top: 50%; margin-top: -9px; z-index: 1033;'><i class='material-icons'>close</i></button><i data-notify='icon' class='material-icons'>add_alert</i><span data-notify='title'></span><span data-notify='message'>Welcome to <b>Material Dashboard Pro</b> - a beautiful admin panel for every web developer.</span><a href='#' target='_blank' data-notify='url'></a>");
-						}
-				    }
-				} else {
-					if (resultadosBusqueda.length == 1){
-					  var textoResultados = "Zure bilaketak 1 emaitza lortu ditu";
-				    } else {
-					  var textoResultados = "Zure bilaketak " + resultadosBusqueda.length + " emaitza lortu ditu";
-
-						if (resultadosBusqueda.length == 2000) {
-						  	md.showNotification('top','right','Zure kontsulta lortu 2000 emaitza baino gehiago. Lehenengo 2000 emaitza bakarrik erakusten dira.');
+						if (resultadosBusqueda.length == 200) {
+						  	md.showNotification('top','right','A consulta gerou mais de 200 resultados. Só são mostrados os primeiros 200 resultados.');
 						  //	notificacion = "";
 						  //	notificacion = notificacion.concat("<button type='button' aria-hidden='true' class='close' data-notify='dismiss' style='position: absolute; right: 10px; top: 50%; margin-top: -9px; z-index: 1033;'><i class='material-icons'>close</i></button><i data-notify='icon' class='material-icons'>add_alert</i><span data-notify='title'></span><span data-notify='message'>Welcome to <b>Material Dashboard Pro</b> - a beautiful admin panel for every web developer.</span><a href='#' target='_blank' data-notify='url'></a>");
 						}
@@ -280,8 +268,8 @@ function realizarBusqueda(nombrefichero,orden,idioma){
 			}
 		});
 		
-	} else {  // lanzamos la búsqueda desde index o desde infoComercio
-		window.location = "panelBusqueda.php?inputComercio="+criterioComercio+"&inputProducto="+criterioProducto+"&inputGeografico="+criterioGeografico+"&inputActividad="+criterioActividad+"&inputGrupo="+criterioGrupo;
+	} else {  // lanzamos la búsqueda desde index o desde infoVideojuego
+		window.location = "panelBusqueda.php?inputNombre="+criterioNombre+"&inputProducto="+criterioProducto+"&inputGenero="+criterioGenero+"&inputPlataforma="+criterioPlataforma+"&inputEmpresa="+criterioEmpresa;
 
 		
 	}

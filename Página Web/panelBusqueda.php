@@ -3,17 +3,72 @@
   include_once 'config/connection.php';   //Establecer conexión con la base de datos 
   include 'functions/establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
 
-  include 'flags.php'; //Banderas para cambiar el idioma.
-  include 'carousel.php'; //Slider de la pagina principal
-  include 'userButton.php'; //Botón usuario.
-  include 'footer.php'; //Footer
-  include 'menuCategorias.php'; //Buscar por categoría. Buscador en el menú lateral.
-  include 'navbar.php'; //Bloque navbar.
+  include 'functions/flags.php'; //Banderas para cambiar el idioma.
+  include 'functions/userButton.php'; //Botón usuario.
+  include 'functions/footer.php'; //Footer
+  include 'functions/menuCategorias.php'; //Buscar por categoría. Buscador en el menú lateral.
   include 'functions/cookies.php'; //Función de aviso de cookies.
-  include 'logo.php'; //Logo de Qualificajocs.
+  include 'functions/logo.php'; //Logo de Qualificajocs.
   include_once 'functions/recursosIdioma.php'; //Traducción de los párrafos existentes
 
   $arrayRecursosIdioma = recursosIdioma($idiomaActual);
+
+  //Se almacenan todos los valores que el usuario ha introducido.   
+  if (isset($_POST["inputNombre"])) { 
+    $criterioNombre = $_POST["inputNombre"];
+  } else if (isset($_GET["inputNombre"])) {  //desde menú izquierdo
+    $criterioNombre = $_GET["inputNombre"];
+  } else {
+    $criterioNombre = "";
+  }
+
+  if (isset($_POST["inputGenero"])) {
+    $criterioGenero = $_POST["inputGenero"];
+  } else if (isset($_GET["inputGenero"])) {  // desde menú izquierdo
+    $criterioGenero = $_GET["inputGenero"];
+  } else {
+    $criterioGenero = "";
+  }
+  if (isset($_POST["inputCompañia"])) {
+    $criterioCompañia = $_POST["inputCompañia"];
+  } else if (isset($_GET["inputCompañia"])) {  // hemos llegado aquí desde menú izquierdo
+    $criterioCompañia = $_GET["inputCompañia"];
+  } else {
+    $criterioCompañia = "";
+  }
+
+  if (isset($_POST["inputPlataforma"])) {
+    $criterioPlataforma = $_POST["inputPlataforma"];
+  } else if (isset($_GET["inputPlataforma"])) {  // hemos llegado aquí desde menú izquierdo
+    $criterioPlataforma = $_GET["inputPlataforma"];
+  } else {
+    $criterioPlataforma = "";
+  }
+
+  if (isset($_POST["inputEmpresa"])) {
+    $criterioEmpresa = $_POST["inputEmpresa"];
+  } else if (isset($_GET["inputEmpresa"])) {  // hemos llegado aquí desde menú izquierdo
+    $criterioEmpresa = $_GET["inputEmpresa"];
+  } else {
+    $criterioEmpresa = "";
+  }
+
+  if (isset($_POST["inputTOP"])) {
+    $criterioTOP = $_POST["inputTOP"];
+  } else if (isset($_GET["inputTOP"])) {  // hemos llegado aquí desde menú izquierdo
+    $criterioTOP = $_GET["inputTOP"];
+  } else {
+    $criterioTOP = "";
+  }
+
+  if (isset($_POST["inputRecomendacion"])) {
+    $criterioRecomendacion = $_POST["inputRecomendacion"];
+  } else if (isset($_GET["inputRecomendacion"])) {  // hemos llegado aquí desde menú izquierdo
+    $criterioRecomendacion = $_GET["inputRecomendacion"];
+  } else {
+    $criterioRecomendacion = "";
+  }
+
 ?>
 <html lang="en">
 
@@ -98,9 +153,31 @@
 
   <!-- Estilos para la modificación de la página en su versión web -->
   <link rel="stylesheet" type="text/css" href="assets/css/ajusteTamPantalla.css">
+
+  <style>
+  /* Estilo gif de carga de datos. */
+    .ajax-loader {
+      visibility: hidden;
+      background-color: rgba(255,255,255,0.7);
+      position: absolute;
+      z-index: +100 !important;
+      width: 100%;
+      height:100%;
+    }
+
+    .ajax-loader img {
+      position: relative;
+      top:50%;
+      left:50%;
+    }
+  </style>
 </head>
 
-<div id="divBusqueda" class="border shadow-lg p-4 mb-4 bg-light" style="display:none; padding:20px; background-color: #036397; z-index: 100000; position: absolute; top: 300px; left: 250px"></div>
+<div class="ajax-loader" id="ajax-loader">
+  <img src="images/cargando.gif" class="img-responsive" />
+</div>
+
+<div id="divBusqueda" class="border shadow-lg p-4 mb-4 bg-light" style="display:none; padding:20px; background-color: #FFFFFF; z-index: 100000; position: absolute; top: 300px; left: 250px"></div>
 
 <body style="margin-top:-20px">
   <div class="wrapper">
@@ -108,25 +185,72 @@
       <div class="sidebar" data-color="rose" data-background-color="black" data-image="images/sidebar-0.jpg">
         <?php logo(); ?>
         <div class="sidebar-wrapper">
-          <?php menuCategorias();?>
+          <?php menuCategorias(); ?>
         </div>
       </div>
 
-      <div class="main-panel">
-        <!-- Navbar -->
-        <?php navbar();?>
-        <!-- End Navbar -->
-        <div style="margin-top: 70px; padding: 45px 15px 2px">
-          <div class="container-fluid">
-            <div class="row">
-              
+      <div class="main-panel">      
+        <div class="row">
+          <div class="container col-lg-1 col-md-1 col-sm-1"></div><!-- Bloque vacío por cuestiones estéticas. -->
+          <div class="container col-lg-6 col-md-6 col-sm-6 border border-right-0" style="padding-left:40px">
+            <!-- Mostrador de criterios introducidos -->
+            <h5 style="line-height:0.6!important; margin: 20px 0 20px;"><font face="Tw Cen MT" color="#666666"><?php echo $arrayRecursosIdioma['Criterios']; ?></font></h5><hr>
+              <?php
+              if ($criterioNombre <> "" && $criterioNombre <> "undefined"){
+                echo "<h6 id='tituloCriterioNombre'>";
+                echo $arrayRecursosIdioma['Nombre'];
+                echo ": <b><span id='spanCriterioNombre'>".$criterioNombre."</span></b></h6>";
+              } else {
+                echo "<h6 id='tituloCriterioNombre' style='display:none'>";
+                echo $arrayRecursosIdioma['Nombre'];
+                echo ": <b><span id='spanCriterioNombre'></span></b></h6>";
+              }
+              if ($criterioGenero <> "" && $criterioGenero <> "undefined"){
+                echo "<h6 id='tituloCriterioGenero' >";
+                echo $arrayRecursosIdioma['Genero'];
+                echo ": <b><span id='spanCriterioGenero'>".$criterioGenero."</span></b></h6>";
+              } else {
+                echo "<h6 id='tituloCriterioGenero' style='display:none'>";
+                echo $arrayRecursosIdioma['Genero'];
+                echo ": <b><span id='spanCriterioGenero'></span></b></h6>";
+              }
+              if ($criterioCompañia <> "" && $criterioCompañia <> "undefined"){
+                echo "<h6 id='tituloCriterioCompañia' >";
+                echo $arrayRecursosIdioma['Compañia'];
+                echo ": <b><span id='spanCriterioCompañia'>".$criterioCompañia."</span></b></h6>";
+              } else {
+                echo "<h6 id='tituloCriterioCompañia' style='display:none'>";
+                echo $arrayRecursosIdioma['Compañia'];
+                echo ": <b><span id='spanCriterioCompañia'></span></b></h6>";
+              }
+              if ($criterioPlataforma <> "" && $criterioPlataforma <> "undefined"){
+                echo "<h6 id='tituloCriterioPlataforma' >";
+                echo $arrayRecursosIdioma['Plataforma'];
+                echo ": <b><span id='spanCriterioPlataforma'>".$criterioPlataforma."</span></b></h6>";
+              } else if ($criterioEmpresa <> "" && $criterioEmpresa <> "undefined"){
+                echo "<h6 id='tituloCriterioPlataforma' >";
+                echo $arrayRecursosIdioma['Empresa'];
+                echo ": <b><span id='spanCriterioPlataforma'>".$criterioEmpresa."</span></b></h6>";
+              } else {
+                echo "<h6 id='tituloCriterioPlataforma' style='display:none'>";
+                echo $arrayRecursosIdioma['Plataforma'];
+                echo ": <b><span id='spanCriterioPlataforma'></span></b></h6>";
+              }
+              ?>
             </div>
+            <div class="container col-lg-2 col-md-2 col-sm-2"></div>
           </div>
+          <div class="content" style="margin-top: 0px;">
+            <div class="container-fluid row">
+              <div class="col-lg-6 col-md-12 col-sm-12" id="paginacion" style="text-align: right"></div>
+              <div class="col-lg-6 col-md-12 col-sm-12" id="numResultados" style="text-align: right"></div>
+            </div>
+            <div class="container-fluid" id="gridResultados"></div>
+          </div>
+          <?php footer();?>
         </div>
-        <?php footer();?>
-      </div>
-    </form>
-  </div>
+      </form>
+    </div>
 
 <script>
 /* Cambia el estado del puntero del ratón indicando al usuario que se presenta un botón "clickeable". */
