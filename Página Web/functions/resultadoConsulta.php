@@ -62,6 +62,8 @@ if (isset($_POST["compañia"])){//Si ha introducido una compañía.
     $sqlVideojuegos .= " AND NOMBRE_COMPAÑIA LIKE '%".$compañia."%'";
 }
 
+$sqlVideojuegos .= " ORDER BY NOMBRE";
+
 //Limitar la búsqueda de juegos a 200.
 $sqlVideojuegos .= " LIMIT 200";
 //echo $sqlVideojuegos;

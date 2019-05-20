@@ -26,19 +26,19 @@ if ($sectorActual == 1){ //Si el sector es plataformas, el desplegable será de 
     
     if($empresa[1]){
       $contenidoHTML .= '<div class="col-md-4">';
-      $contenidoHTML .= '<a class="nav-link" href="#" style="color: inherit;" onclick="document.getElementById(\'inputActividad\').value=\'\';realizarBusquedaGrupo('.$numeroGrupo.',window.location.pathname.substring(window.location.pathname.lastIndexOf(\'/\')+1));">';
-      $contenidoHTML .= '<h4><span id="spanGrupo'.$numeroGrupo.'">'.$empresa[1]."</span></h4>";
-      $numeroActividad = 1;
+      $contenidoHTML .= '<a class="nav-link" href="#" style="color: inherit;" onclick="document.getElementById(\'inputPlataforma\').value=\'\';realizarBusquedaEmpresa('.$numeroGrupo.',window.location.pathname.substring(window.location.pathname.lastIndexOf(\'/\')+1));">';
+      $contenidoHTML .= '<h4><span id="spanEmpresa'.$numeroGrupo.'">'.$empresa[1]."</span></h4>";
+      $numeroPlataforma = 1;
       $contenidoHTML .= '</a>';
 
       foreach ($arrayPlataformas as &$plataformas) {
         if($plataformas[1] == $empresa[0]){
           $contenidoHTML .= '<span style="font-size:14px; line-height:0.9">';
-          $contenidoHTML .= '<a class="nav-link" href="#" style="color: inherit;" onclick="document.getElementById(\'inputGrupo\').value=\'\';realizarBusquedaActividad('.$numeroActividad.',window.location.pathname.substring(window.location.pathname.lastIndexOf(\'/\')+1));">';
-          $contenidoHTML .= '<span class="sidebar-normal" id="spanActividad'.$numeroActividad.'">'.$plataformas[2].'</span>';
+          $contenidoHTML .= '<a class="nav-link" href="#" style="color: inherit;" onclick="document.getElementById(\'inputEmpresa\').value=\'\';realizarBusquedaPlataforma('.$numeroPlataforma.',window.location.pathname.substring(window.location.pathname.lastIndexOf(\'/\')+1));">';
+          $contenidoHTML .= '<span class="sidebar-normal" id="spanPlataforma'.$numeroPlataforma.'">'.$plataformas[2].'</span>';
           $contenidoHTML .= '</a></span>';
         }
-        $numeroActividad ++;
+        $numeroPlataforma ++;
       }
       $numeroGrupo ++;
       $contenidoHTML .= '<hr></div>';
@@ -51,8 +51,8 @@ if ($sectorActual == 1){ //Si el sector es plataformas, el desplegable será de 
 
     if($compañia[1]){
       $contenidoHTML .= '<div class="col-md-4">';
-      $contenidoHTML .= '<a class="nav-link" href="#" style="color: inherit;" onclick="document.getElementById(\'inputActividad\').value=\'\';realizarBusquedaGrupo('.$numeroGrupo.',window.location.pathname.substring(window.location.pathname.lastIndexOf(\'/\')+1));">';
-      $contenidoHTML .= '<h4><span id="spanGrupo'.$numeroGrupo.'">'.$compañia[1]."</span></h4>";
+      $contenidoHTML .= '<a class="nav-link" href="#" style="color: inherit;" onclick="document.getElementById(\'inputCompañia\').value=\'\';realizarBusquedaCompañia('.$numeroGrupo.',window.location.pathname.substring(window.location.pathname.lastIndexOf(\'/\')+1));">';
+      $contenidoHTML .= '<h4><span id="spanCompañia'.$numeroGrupo.'">'.$compañia[1]."</span></h4>";
       $numeroActividad = 1;
       $contenidoHTML .= '</a>';
 
@@ -67,8 +67,8 @@ if ($sectorActual == 1){ //Si el sector es plataformas, el desplegable será de 
 
     if($genero[1]){
       $contenidoHTML .= '<div class="col-md-4">';
-      $contenidoHTML .= '<a class="nav-link" href="#" style="color: inherit;" onclick="document.getElementById(\'inputActividad\').value=\'\';realizarBusquedaGrupo('.$numeroGrupo.',window.location.pathname.substring(window.location.pathname.lastIndexOf(\'/\')+1));">';
-      $contenidoHTML .= '<h4><span id="spanGrupo'.$numeroGrupo.'">'.$genero[1]."</span></h4>";
+      $contenidoHTML .= '<a class="nav-link" href="#" style="color: inherit;" onclick="document.getElementById(\'inputGenero\').value=\'\';realizarBusquedaGenero('.$numeroGrupo.',window.location.pathname.substring(window.location.pathname.lastIndexOf(\'/\')+1));">';
+      $contenidoHTML .= '<h4><span id="spanGenero'.$numeroGrupo.'">'.$genero[1]."</span></h4>";
       $numeroActividad = 1;
       $contenidoHTML .= '</a>';
 
