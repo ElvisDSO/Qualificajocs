@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-05-2019 a las 03:45:08
+-- Tiempo de generación: 20-05-2019 a las 21:14:41
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -25784,6 +25784,7 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('Compañias', 'Compañias', 'Companies', 'Companhias'),
 ('Configuracion', 'Configuración', 'Settings', 'Configuração'),
 ('Consolas', 'Consolas', 'Consoles', 'Consolas'),
+('ConsultaDoscientos', 'La consulta ha generado más de 200 resultados. Se muestran únicamente los 200 primeros resultados.', 'Your query has generated more than 200 results. Only the first 200 results are displayed.', 'A consulta gerou mais de 200 resultados. Só são mostrados os primeiros 200 resultados.'),
 ('Contacta', '¡Contacta con nosotros!', 'Contact with us!', 'Contacte-nos!'),
 ('Criterios', 'Criterios de búsqueda seleccionados', 'Selected search criteria', 'Critérios de pesquisa selecionados'),
 ('Descubre', 'Descubre tu videojuego', 'Discover your videogame', 'Descobre o teo videojogo'),
@@ -25795,17 +25796,20 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('MejorValoradosDos', 'Los mejores de siempre.', 'The very best ever.', 'Os melhores de todos os tempos.'),
 ('MiColeccion', 'Mi colección', 'My collection', 'Minha coleção'),
 ('Nombre', 'Nombre', 'Name', 'Nome'),
+('Pagina', 'Página', 'Page', 'Página'),
 ('Perfil', 'Perfil', 'Profile', 'Perfil'),
 ('Plataforma', 'Plataforma', 'Platform', 'Plataforma'),
 ('Recomendacion', 'Basados en tus gustos.', 'Based on your tastes.', 'Baseado nos teus gostos'),
 ('RecomendacionDos', 'Descubre a qué jugar.', 'Find out what to play.', 'Descobre o que jogar.'),
 ('RedesSociales', 'Nuestras redes sociales.', 'Our social networks.', 'Nossas redes sociais.'),
+('ResultadosObtenidos', ' resultados obtenidos.', ' results returned.', ' resultados obtidos.'),
 ('Subtitulo', 'Juega, valora, descubre.', 'Play, rate, discover.', 'Joga, valoriza, descobre.'),
 ('TeRecomendamos', 'Te recomendamos', 'We recommend you', 'Recomendamos-te'),
 ('Titulo', 'Bienvenido a Qualificajocs.', 'Welcome to Qualificajocs.', 'Bem-vindo à Qualificajocs.'),
 ('TOP', 'Nuestro TOP', 'Our TOP', 'Nosso TOP'),
-('TuColeccion', 'Tus jugados, tus pendientes.', 'Your playeds, your pendings.', 'Teus jugados, teus pendentes.'),
+('TuColeccion', 'Tus jugados, tus pendientes.', 'Your played, your pending.', 'Teus jugados, teus pendentes.'),
 ('TuColeccionDos', 'Tu colección.', 'Your collection.', 'À tua coleção.'),
+('UnResultado', '1 resultado obtenido.', '1 result returned.', '1 resultado obtido.'),
 ('Videojuegos', 'Videojuegos', 'Videogames', 'Videojogos');
 
 -- --------------------------------------------------------

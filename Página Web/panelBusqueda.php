@@ -181,87 +181,135 @@
 
 <body style="margin-top:-20px">
   <div class="wrapper">
-    <form method="post" action="panelBusqueda.php">
-      <div class="sidebar" data-color="rose" data-background-color="black" data-image="images/sidebar-0.jpg">
-        <?php logo(); ?>
-        <div class="sidebar-wrapper">
-          <?php menuCategorias(); ?>
-        </div>
+    <div class="sidebar" data-color="rose" data-background-color="black" data-image="images/sidebar-0.jpg">
+      <?php logo(); ?>
+      <div class="sidebar-wrapper">
+        <?php menuCategorias(); ?>
       </div>
-
-      <div class="main-panel">      
-        <div class="row">
-          <div class="container col-lg-1 col-md-1 col-sm-1"></div><!-- Bloque vacío por cuestiones estéticas. -->
-          <div class="container col-lg-6 col-md-6 col-sm-6 border border-right-0" style="padding-left:40px">
-            <!-- Mostrador de criterios introducidos -->
-            <h5 style="line-height:0.6!important; margin: 20px 0 20px;"><font face="Tw Cen MT" color="#666666"><?php echo $arrayRecursosIdioma['Criterios']; ?></font></h5><hr>
-              <?php
-              if ($criterioNombre <> "" && $criterioNombre <> "undefined"){
-                echo "<h6 id='tituloCriterioNombre'>";
-                echo $arrayRecursosIdioma['Nombre'];
-                echo ": <b><span id='spanCriterioNombre'>".$criterioNombre."</span></b></h6>";
-              } else {
-                echo "<h6 id='tituloCriterioNombre' style='display:none'>";
-                echo $arrayRecursosIdioma['Nombre'];
-                echo ": <b><span id='spanCriterioNombre'></span></b></h6>";
-              }
-              if ($criterioGenero <> "" && $criterioGenero <> "undefined"){
-                echo "<h6 id='tituloCriterioGenero' >";
-                echo $arrayRecursosIdioma['Genero'];
-                echo ": <b><span id='spanCriterioGenero'>".$criterioGenero."</span></b></h6>";
-              } else {
-                echo "<h6 id='tituloCriterioGenero' style='display:none'>";
-                echo $arrayRecursosIdioma['Genero'];
-                echo ": <b><span id='spanCriterioGenero'></span></b></h6>";
-              }
-              if ($criterioCompañia <> "" && $criterioCompañia <> "undefined"){
-                echo "<h6 id='tituloCriterioCompañia' >";
-                echo $arrayRecursosIdioma['Compañia'];
-                echo ": <b><span id='spanCriterioCompañia'>".$criterioCompañia."</span></b></h6>";
-              } else {
-                echo "<h6 id='tituloCriterioCompañia' style='display:none'>";
-                echo $arrayRecursosIdioma['Compañia'];
-                echo ": <b><span id='spanCriterioCompañia'></span></b></h6>";
-              }
-              if ($criterioPlataforma <> "" && $criterioPlataforma <> "undefined"){
-                echo "<h6 id='tituloCriterioPlataforma' >";
-                echo $arrayRecursosIdioma['Plataforma'];
-                echo ": <b><span id='spanCriterioPlataforma'>".$criterioPlataforma."</span></b></h6>";
-              } else if ($criterioEmpresa <> "" && $criterioEmpresa <> "undefined"){
-                echo "<h6 id='tituloCriterioPlataforma' >";
-                echo $arrayRecursosIdioma['Empresa'];
-                echo ": <b><span id='spanCriterioPlataforma'>".$criterioEmpresa."</span></b></h6>";
-              } else {
-                echo "<h6 id='tituloCriterioPlataforma' style='display:none'>";
-                echo $arrayRecursosIdioma['Plataforma'];
-                echo ": <b><span id='spanCriterioPlataforma'></span></b></h6>";
-              }
-              ?>
-            </div>
-            <div class="container col-lg-2 col-md-2 col-sm-2"></div>
-          </div>
-          <div class="content" style="margin-top: 0px;">
-            <div class="container-fluid row">
-              <div class="col-lg-6 col-md-12 col-sm-12" id="paginacion" style="text-align: right"></div>
-              <div class="col-lg-6 col-md-12 col-sm-12" id="numResultados" style="text-align: right"></div>
-            </div>
-            <div class="container-fluid" id="gridResultados"></div>
-          </div>
-          <?php footer();?>
-        </div>
-      </form>
     </div>
 
+    <div class="main-panel">      
+      <div class="row">
+        <div class="container col-lg-1 col-md-1 col-sm-1"></div><!-- Bloque vacío por cuestiones estéticas. -->
+        <div class="container col-lg-6 col-md-6 col-sm-6 border border-right-0" style="padding-left:40px">
+          <!-- Mostrador de criterios introducidos -->
+          <h5 style="line-height:0.6!important; margin: 20px 0 20px;"><font face="Tw Cen MT" color="#666666"><?php echo $arrayRecursosIdioma['Criterios']; ?></font></h5><hr>
+          <?php
+            if ($criterioNombre <> "" && $criterioNombre <> "undefined"){
+              echo "<h6 id='tituloCriterioNombre'>";
+              echo $arrayRecursosIdioma['Nombre'];
+              echo ": <b><span id='spanCriterioNombre'>".$criterioNombre."</span></b></h6>";
+            } else {
+              echo "<h6 id='tituloCriterioNombre' style='display:none'>";
+              echo $arrayRecursosIdioma['Nombre'];
+              echo ": <b><span id='spanCriterioNombre'></span></b></h6>";
+            }
+            if ($criterioGenero <> "" && $criterioGenero <> "undefined"){
+              echo "<h6 id='tituloCriterioGenero' >";
+              echo $arrayRecursosIdioma['Genero'];
+              echo ": <b><span id='spanCriterioGenero'>".$criterioGenero."</span></b></h6>";
+            } else {
+              echo "<h6 id='tituloCriterioGenero' style='display:none'>";
+              echo $arrayRecursosIdioma['Genero'];
+              echo ": <b><span id='spanCriterioGenero'></span></b></h6>";
+            }
+            if ($criterioCompañia <> "" && $criterioCompañia <> "undefined"){
+              echo "<h6 id='tituloCriterioCompañia' >";
+              echo $arrayRecursosIdioma['Compañia'];
+              echo ": <b><span id='spanCriterioCompañia'>".$criterioCompañia."</span></b></h6>";
+            } else {
+              echo "<h6 id='tituloCriterioCompañia' style='display:none'>";
+              echo $arrayRecursosIdioma['Compañia'];
+              echo ": <b><span id='spanCriterioCompañia'></span></b></h6>";
+            }
+            if ($criterioPlataforma <> "" && $criterioPlataforma <> "undefined"){
+              echo "<h6 id='tituloCriterioPlataforma' >";
+              echo $arrayRecursosIdioma['Plataforma'];
+              echo ": <b><span id='spanCriterioPlataforma'>".$criterioPlataforma."</span></b></h6>";
+            } else if ($criterioEmpresa <> "" && $criterioEmpresa <> "undefined"){
+              echo "<h6 id='tituloCriterioPlataforma' >";
+              echo $arrayRecursosIdioma['Empresa'];
+              echo ": <b><span id='spanCriterioPlataforma'>".$criterioEmpresa."</span></b></h6>";
+            } else {
+              echo "<h6 id='tituloCriterioPlataforma' style='display:none'>";
+              echo $arrayRecursosIdioma['Plataforma'];
+              echo ": <b><span id='spanCriterioPlataforma'></span></b></h6>";
+            }
+          ?>
+        </div>
+        <div class="container col-lg-2 col-md-2 col-sm-2"></div>
+      </div>
+      <div class="content" style="margin-top: 0px;">
+        <div class="container-fluid row">
+          <div class="col-lg-6 col-md-12 col-sm-12" id="paginacion" style="text-align: right"></div>
+          <div class="col-lg-6 col-md-12 col-sm-12" id="numResultados" style="text-align: right"></div>
+        </div>
+        <div class="container-fluid" id="gridResultados"></div>
+      </div>
+      <?php footer();?>
+    </div>
+  </div>
+
 <script>
-/* Cambia el estado del puntero del ratón indicando al usuario que se presenta un botón "clickeable". */
+  //Para poder obtener en JavaScript una variable de PHP.
+  //La variable en cuestión es la que almacena el idioma.
+  var idioma = '<?php echo $idiomaActual;?>'
+  /* Salvapantallas de Cargando Datos (circulito que da vueltas).  */
   $(document).ready(function() {
-    $('.clickable').hover(function() {
-      $(this).css('cursor','pointer');
+    $( document ).ajaxStart(function() {
+      $('.ajax-loader').css('visibility', 'visible');
+    });
+    //Detiene el salvapantallas.
+    $( document ).ajaxStop(function() {
+      $('.ajax-loader').css('visibility', 'hidden');
+    });
+    //Esconde el desplegable de plataforma cuando se hace click fuera del bloque de plataforma.
+    $(window).click(function(e) {
+      $("#divPlataforma").hide("slow");
     });
 
+    // Inicializar variables con criterios de búsqueda
+    var criterioNombre = "<?php echo $criterioNombre; ?>";
+    var criterioCompañia = "<?php echo $criterioCompañia; ?>";
+    var criterioGenero = "<?php echo $criterioGenero; ?>";
+    var criterioPlataforma = "<?php echo $criterioPlataforma; ?>";
+    var criterioEmpresa = "<?php echo $criterioEmpresa; ?>";
+
+    // Actualizar inputs con criterios
+    $("#inputNombre").val(criterioNombre);
+    $("#inputCompañia").val(criterioCompañia);
+    $("#inputGenero").val(criterioGenero);
+    $("#inputPlataforma").val(criterioPlataforma);
+    $("#inputEmpresa").val(criterioEmpresa);
+
+    realizarBusqueda(window.location.pathname.substring(window.location.pathname.lastIndexOf('/')+1),'',idioma);
     md.initDashboardPageCharts();
 
-    /*Funciones propias de la plantilla utilizada.*/
+    $("#inputGenero").keyup(function (e) {
+      if (e.keyCode == 13) {
+        realizarBusqueda(window.location.pathname.substring(window.location.pathname.lastIndexOf('/')+1),'',idioma);
+        $("#spanCriterioGenero").html($("#inputGenero").val());
+        if ($("#inputGenero").val() != ""){
+          $("#tituloCriterioGenero").css("display", "block");
+        } else {
+          $("#tituloCriterioGenero").css("display", "none");
+        }
+      }
+    });
+
+    $("#inputNombre").keyup(function (e) {
+      if (e.keyCode == 13) {
+        realizarBusqueda(window.location.pathname.substring(window.location.pathname.lastIndexOf('/')+1),'',idioma);
+        $("#spanCriterioNombre").html($("#inputNombre").val());
+        if ($("#inputNombre").val() != ""){
+          $("#tituloCriterioNombre").css("display", "block");
+        } else {
+          $("#tituloCriterioNombre").css("display", "none");
+        }
+      }
+    });
+
+    /*Funciones propias de la plantilla usada.*/
     $().ready(function() {
       $sidebar = $('.sidebar');
       $sidebar_img_container = $sidebar.find('.sidebar-background');
@@ -269,15 +317,6 @@
       $sidebar_responsive = $('body > .navbar-collapse');
       window_width = $(window).width();
       fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
-
-      $(window).click(function(e) {
-        $("#divActividades").hide("slow");
-      });
-
-      $("#navbarDropdownMenuLink").click(function(e) {
-        $("#divActividades").hide("slow");
-      });
-
       if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
         if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
           $('.fixed-plugin .dropdown').addClass('open');
@@ -300,15 +339,12 @@
         $(this).siblings().removeClass('active');
         $(this).addClass('active');
         var new_color = $(this).data('color');
-
         if ($sidebar.length != 0) {
           $sidebar.attr('data-color', new_color);
         }
-
         if ($full_page.length != 0) {
           $full_page.attr('filter-color', new_color);
         }
-
         if ($sidebar_responsive.length != 0) {
           $sidebar_responsive.attr('data-color', new_color);
         }
@@ -331,6 +367,7 @@
         $(this).parent('li').siblings().removeClass('active');
         $(this).parent('li').addClass('active');
 
+
         var new_image = $(this).find("img").attr('src');
 
         if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
@@ -351,11 +388,9 @@
         if ($('.switch-sidebar-image input:checked').length == 0) {
           var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
           var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
           $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
           $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
         }
-
         if ($sidebar_responsive.length != 0) {
           $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
         }
@@ -364,13 +399,11 @@
       $('.switch-sidebar-image input').change(function() {
         $full_page_background = $('.full-page-background');
         $input = $(this);
-
         if ($input.is(':checked')) {
           if ($sidebar_img_container.length != 0) {
             $sidebar_img_container.fadeIn('fast');
             $sidebar.attr('data-image', '#');
           }
-
           if ($full_page_background.length != 0) {
             $full_page_background.fadeIn('fast');
             $full_page.attr('data-image', '#');
@@ -381,12 +414,10 @@
             $sidebar.removeAttr('data-image');
             $sidebar_img_container.fadeOut('fast');
           }
-
           if ($full_page_background.length != 0) {
             $full_page.removeAttr('data-image', '#');
             $full_page_background.fadeOut('fast');
           }
-
           background_image = false;
         }
       });
@@ -394,11 +425,9 @@
       $('.switch-sidebar-mini input').change(function() {
         $body = $('body');
         $input = $(this);
-
         if (md.misc.sidebar_mini_active == true) {
           $('body').removeClass('sidebar-mini');
           md.misc.sidebar_mini_active = false;
-
           $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
         } else {
           $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
@@ -407,7 +436,6 @@
             md.misc.sidebar_mini_active = true;
           }, 300);
         }
-
         // we simulate the window Resize so the charts will get updated in realtime.
         var simulateWindowResize = setInterval(function() {
           window.dispatchEvent(new Event('resize'));

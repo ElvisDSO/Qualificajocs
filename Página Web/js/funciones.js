@@ -171,7 +171,7 @@ function realizarBusqueda(nombrefichero,orden,idioma){
 				  codigoHTML = codigoHTML.concat("<input type='hidden' id='inputEmpresa' name='inputEmpresa' value='");
 				  codigoHTML = codigoHTML.concat(criterioEmpresa);
 				  codigoHTML = codigoHTML.concat("'>");					
-				  codigoHTML = codigoHTML.concat("<h3 class='card-title' style='cursor: pointer;' onmouseover=$(this).addClass('text-danger') onmouseout=$(this).removeClass('text-danger') ><span id='rotulo_nombre' onclick='formInfo");
+				  codigoHTML = codigoHTML.concat("<h3 class='card-title' style='cursor: pointer;' onmouseover=$(this).addClass('text-danger') onmouseout=$(this).removeClass('text-danger') ><span id='titulo_nombre' onclick='formInfo");
 				  codigoHTML = codigoHTML.concat(contadorElementos);	
 				  codigoHTML = codigoHTML.concat(".submit()'>");
 				  codigoHTML = codigoHTML.concat(resultadosBusqueda[contadorElementos][0]);
@@ -181,13 +181,8 @@ function realizarBusqueda(nombrefichero,orden,idioma){
 			  }
 			  //codigoHTML = codigoHTML.concat("</div>");
 			  codigoHTML = codigoHTML.concat("</div>");
-			  if(idioma == "ES"){
-			  	paginaIdioma = "PÁGINA";
-			  } else if(idioma == "EN" || idioma == "FR"){
-			  	paginaIdioma = "PAGE";
-			  } else{
-			  	paginaIdioma = "ORRI";
-			  }
+			  paginaIdioma = "<?php $arrayRecursosIdioma['Pagina']; ?>";
+
 			  if (numPagina > 1) { // Se introduce paginación
                  codigoHTMLpaginacion = "";
                  codigoHTMLpaginacion = codigoHTMLpaginacion.concat("<ul class='pagination'>");
@@ -224,43 +219,13 @@ function realizarBusqueda(nombrefichero,orden,idioma){
 
 			  $("#gridResultados").html(codigoHTML);
 			//  idiomaActual = "ES";
-			    if (idioma == "ES"){
-					if (resultadosBusqueda.length == 1){
-						//<?php echo $arrayRecursosIdioma['BuscarProducto']; ?>
-					  var textoResultados = "1 resultado obtenido.";
-				    } else {
-					  var textoResultados = "" + resultadosBusqueda.length + " resultados obtenidos";
-
-						if (resultadosBusqueda.length == 200) {
-						  	md.showNotification('top','right','La consulta ha generado más de 200 resultados. Se muestran únicamente los 200 primeros resultados.');
-						  //	notificacion = "";
-						  //	notificacion = notificacion.concat("<button type='button' aria-hidden='true' class='close' data-notify='dismiss' style='position: absolute; right: 10px; top: 50%; margin-top: -9px; z-index: 1033;'><i class='material-icons'>close</i></button><i data-notify='icon' class='material-icons'>add_alert</i><span data-notify='title'></span><span data-notify='message'>Welcome to <b>Material Dashboard Pro</b> - a beautiful admin panel for every web developer.</span><a href='#' target='_blank' data-notify='url'></a>");
-						}
-				    }
-				} else if (idioma == "EN"){
-					if (resultadosBusqueda.length == 1){
-					  var textoResultados = "1 result returned.";
-				    } else {
-					  var textoResultados = "" + resultadosBusqueda.length + " results returned.";
-
-						if (resultadosBusqueda.length == 200) {
-						  	md.showNotification('top','right','Your query has generated more than 200 results. Only the first 200 results are displayed.');
-						  //	notificacion = "";
-						  //	notificacion = notificacion.concat("<button type='button' aria-hidden='true' class='close' data-notify='dismiss' style='position: absolute; right: 10px; top: 50%; margin-top: -9px; z-index: 1033;'><i class='material-icons'>close</i></button><i data-notify='icon' class='material-icons'>add_alert</i><span data-notify='title'></span><span data-notify='message'>Welcome to <b>Material Dashboard Pro</b> - a beautiful admin panel for every web developer.</span><a href='#' target='_blank' data-notify='url'></a>");
-						}
-				    }
-				} else if (idioma == "PT"){
-					if (resultadosBusqueda.length == 1){
-					  var textoResultados = "1 resultado obtido.";
-				    } else {
-					  var textoResultados = "" + resultadosBusqueda.length + " resultados obtidos";
-
-						if (resultadosBusqueda.length == 200) {
-						  	md.showNotification('top','right','A consulta gerou mais de 200 resultados. Só são mostrados os primeiros 200 resultados.');
-						  //	notificacion = "";
-						  //	notificacion = notificacion.concat("<button type='button' aria-hidden='true' class='close' data-notify='dismiss' style='position: absolute; right: 10px; top: 50%; margin-top: -9px; z-index: 1033;'><i class='material-icons'>close</i></button><i data-notify='icon' class='material-icons'>add_alert</i><span data-notify='title'></span><span data-notify='message'>Welcome to <b>Material Dashboard Pro</b> - a beautiful admin panel for every web developer.</span><a href='#' target='_blank' data-notify='url'></a>");
-						}
-				    }
+				if (resultadosBusqueda.length == 1){
+					var textoResultados = "<?php echo $arrayRecursosIdioma['UnResultado']; ?>";
+				} else {
+					var textoResultados = "" + resultadosBusqueda.length + "<?php echo $arrayRecursosIdioma['ResultadosObtenidos']; ?>";
+					if(resultadosBusqueda.length == 200) {
+						md.showNotification('top','right','<?php echo $arrayRecursosIdioma["ConsultaDoscientos"]; ?>');
+					}
 				}
 			    $("#numResultados").html("<ul class='pagination'><li class='page-item' disabled><a class='page-link' style='cursor: default;'>"+textoResultados+"</a></li></ul>");
 				$("#paginacion").html(codigoHTMLpaginacion);
