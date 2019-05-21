@@ -172,24 +172,24 @@ function realizarBusqueda(nombrefichero,orden,idioma){
           codigoHTML = codigoHTML.concat(resultadosBusqueda[contadorElementos][3]);
           codigoHTML = codigoHTML.concat("</td><td>");
           codigoHTML = codigoHTML.concat(resultadosBusqueda[contadorElementos][4]);
-          codigoHMTL = codigoHTML.concat("</td><td class='text-right'>");
+          codigoHTML = codigoHTML.concat("<td class='text-right'>");
           codigoHTML = codigoHTML.concat("<a href='#' class='btn btn-link btn-info btn-just-icon like'><i class='material-icons'>favorite</i></a>");
           codigoHTML = codigoHTML.concat("<a href='#' class='btn btn-link btn-warning btn-just-icon edit'><i class='material-icons'>dvr</i></a>");
-          codigoHTML = codigoHTML.concat("<a href='#' class='btn btn-link btn-danger btn-just-icon remove'><i class='material-icons'>close</i>");
-          codigoHTML = codigoHTML.concat("</a></td></tr>");
+          codigoHTML = codigoHTML.concat("<a href='#' class='btn btn-link btn-danger btn-just-icon remove'><i class='material-icons'>close</i></a>");
+          codigoHTML = codigoHTML.concat("</td></td></tr>");
         }
 
         codigoHTML = codigoHTML.concat("</tbody></table></div></div></div></div></div></div></div>");
-        codigoHTML = codigoHTML.concat("</div>");
+        //codigoHTML = codigoHTML.concat("</div>");
 		    paginaIdioma = "<?php $arrayRecursosIdioma['Pagina']; ?>";
 
         $("#gridResultados").html(codigoHTML);
         if (resultadosBusqueda.length == 1){
-          var textoResultados = "<?php echo $arrayRecursosIdioma['UnResultado']; ?>";
+          var textoResultados = traducciones[8];
         } else {
-          var textoResultados = "" + resultadosBusqueda.length + "<?php echo $arrayRecursosIdioma['ResultadosObtenidos']; ?>";
+          var textoResultados = "" + resultadosBusqueda.length + "" + traducciones[7];
           if (resultadosBusqueda.length == 200) {
-            md.showNotification('top','right','<?php echo $arrayRecursosIdioma["ConsultaDoscientos"]; ?>');
+            md.showNotification('top','right',traducciones[2]);
           }
         }
         $("#numResultados").html("<ul class='pagination'><li class='page-item' disabled><a class='page-link' style='cursor: default;'>"+textoResultados+"</a></li></ul>");

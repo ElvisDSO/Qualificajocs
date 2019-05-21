@@ -13,6 +13,63 @@
   include_once 'functions/recursosIdioma.php'; //Traducción de los párrafos existentes
 
   $arrayRecursosIdioma = recursosIdioma($idiomaActual);
+
+  //Se almacenan todos los valores que el usuario ha introducido.   
+  if (isset($_POST["inputNombre"])) { 
+    $criterioNombre = $_POST["inputNombre"];
+  } else if (isset($_GET["inputNombre"])) {  //desde menú izquierdo
+    $criterioNombre = $_GET["inputNombre"];
+  } else {
+    $criterioNombre = "";
+  }
+
+  if (isset($_POST["inputGenero"])) {
+    $criterioGenero = $_POST["inputGenero"];
+  } else if (isset($_GET["inputGenero"])) {  // desde menú izquierdo
+    $criterioGenero = $_GET["inputGenero"];
+  } else {
+    $criterioGenero = "";
+  }
+  if (isset($_POST["inputCompañia"])) {
+    $criterioCompañia = $_POST["inputCompañia"];
+  } else if (isset($_GET["inputCompañia"])) {  // hemos llegado aquí desde menú izquierdo
+    $criterioCompañia = $_GET["inputCompañia"];
+  } else {
+    $criterioCompañia = "";
+  }
+
+  if (isset($_POST["inputPlataforma"])) {
+    $criterioPlataforma = $_POST["inputPlataforma"];
+  } else if (isset($_GET["inputPlataforma"])) {  // hemos llegado aquí desde menú izquierdo
+    $criterioPlataforma = $_GET["inputPlataforma"];
+  } else {
+    $criterioPlataforma = "";
+  }
+
+  if (isset($_POST["inputEmpresa"])) {
+    $criterioEmpresa = $_POST["inputEmpresa"];
+  } else if (isset($_GET["inputEmpresa"])) {  // hemos llegado aquí desde menú izquierdo
+    $criterioEmpresa = $_GET["inputEmpresa"];
+  } else {
+    $criterioEmpresa = "";
+  }
+
+  if (isset($_POST["inputTOP"])) {
+    $criterioTOP = $_POST["inputTOP"];
+  } else if (isset($_GET["inputTOP"])) {  // hemos llegado aquí desde menú izquierdo
+    $criterioTOP = $_GET["inputTOP"];
+  } else {
+    $criterioTOP = "";
+  }
+
+  if (isset($_POST["inputRecomendacion"])) {
+    $criterioRecomendacion = $_POST["inputRecomendacion"];
+  } else if (isset($_GET["inputRecomendacion"])) {  // hemos llegado aquí desde menú izquierdo
+    $criterioRecomendacion = $_GET["inputRecomendacion"];
+  } else {
+    $criterioRecomendacion = "";
+  }
+
 ?>
 <html lang="en">
 
@@ -21,7 +78,7 @@
   <link rel="icon" type="image/png" href="images/mando-de-consola.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Qualificajocs.
+    Qualificajocs - Info videojuego.
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->

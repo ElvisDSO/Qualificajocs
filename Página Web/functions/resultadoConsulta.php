@@ -62,7 +62,7 @@ if (isset($_POST["compañia"])){//Si ha introducido una compañía.
     $sqlVideojuegos .= " AND NOMBRE_COMPAÑIA LIKE '%".$compañia."%'";
 }
 
-$sqlVideojuegos .= " ORDER BY NOMBRE";
+$sqlVideojuegos .= " GROUP BY NOMBRE ORDER BY NOMBRE";
 
 //Limitar la búsqueda de juegos a 200.
 $sqlVideojuegos .= " LIMIT 200";
@@ -82,6 +82,19 @@ while($filaVideojuegos = mysqli_fetch_assoc($resultVideojuegos)){
 	$videojuegos[] = $filaVideojuegos['FECHA_LANZAMIENTO'];
 	$arrayResultados[] = $videojuegos;
 }
+/*
+$resultadoFinal = [];
+$max = sizeof($arrayResultados);
+for ( $i = 0; $i < $max; $i++ ) {
+	$generosMismoNombre = [];
+	for ( $j; $j < $max; $j++ ) {
+		if ( $i != $j ) {
+			if ( $arrayResultados[0][i] == $arrayResultados[0][j]) {
+				$generosMismoNombre .=
+			}
+		}
+	}
+}*/
 
 mysqli_free_result($resultVideojuegos);
 mysqli_close($connection);
