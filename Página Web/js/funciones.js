@@ -68,55 +68,9 @@ function verPagina(paginaver, cambiar, totalPaginas) {
   paginaFondo = paginaFondo.concat(paginaver);
   $("#"+paginaFondo).css("background-color", "#BAD8EF");
 	
-  if (cambiar == 1) { // cambiar paginación
-  	codigoHTMLpaginacion = "";
-	  codigoHTMLpaginacion = codigoHTMLpaginacion.concat("<ul class='pagination'>");
-	  codigoHTMLpaginacion = codigoHTMLpaginacion.concat("<li class='page-item' disabled><a class='page-link' style='cursor: default;'>PÁGINA</a></li>");
-  }
-	if (paginaver > 5){
-	  codigoHTMLpaginacion = codigoHTMLpaginacion.concat("<li class='page-item'><a class='page-link' href='#' onclick='verPagina(");
-	  paginainicioempresa = paginaver-5;
-	  codigoHTMLpaginacion = codigoHTMLpaginacion.concat(paginainicioempresa);
-	  codigoHTMLpaginacion = codigoHTMLpaginacion.concat(",1,");
-	  codigoHTMLpaginacion = codigoHTMLpaginacion.concat(numPagina);
-	  codigoHTMLpaginacion = codigoHTMLpaginacion.concat(")'>...</a></li>");
-	}
-
-	for (paginaactual = paginaver; paginaactual < totalPaginas; paginaactual++){
-	  // limitamos a 5 páginas
-	  if (paginaactual > paginaver + 4){
-        codigoHTMLpaginacion = codigoHTMLpaginacion.concat("<li class='page-item' id='pagina");
-        codigoHTMLpaginacion = codigoHTMLpaginacion.concat(paginaactual);
-        codigoHTMLpaginacion = codigoHTMLpaginacion.concat("'><a class='page-link' href='#' onclick='verPagina(");
-        codigoHTMLpaginacion = codigoHTMLpaginacion.concat(paginaactual);
-        codigoHTMLpaginacion = codigoHTMLpaginacion.concat(",1,");
-        codigoHTMLpaginacion = codigoHTMLpaginacion.concat(numPagina);
-        codigoHTMLpaginacion = codigoHTMLpaginacion.concat(")'>...</a></li>");
-        break;
-      }
-
-      if (paginaactual == paginaver){
-      	codigoHTMLpaginacion = codigoHTMLpaginacion.concat("<li class='page-item' id='pagina");
-        codigoHTMLpaginacion = codigoHTMLpaginacion.concat(paginaactual);
-        codigoHTMLpaginacion = codigoHTMLpaginacion.concat("' style='background-color:#BAD8EF'><a class='page-link' href='#' onclick='verPagina("); 
-      } else {
-        codigoHTMLpaginacion = codigoHTMLpaginacion.concat("<li class='page-item' id='pagina");
-        codigoHTMLpaginacion = codigoHTMLpaginacion.concat(paginaactual);
-        codigoHTMLpaginacion = codigoHTMLpaginacion.concat("'><a class='page-link' href='#' onclick='verPagina(");
-      }
-
-      codigoHTMLpaginacion = codigoHTMLpaginacion.concat(paginaactual);
-      codigoHTMLpaginacion = codigoHTMLpaginacion.concat(",0)'>");
-      codigoHTMLpaginacion = codigoHTMLpaginacion.concat(paginaactual);
-      codigoHTMLpaginacion = codigoHTMLpaginacion.concat("</a></li>");
-      codigoHTMLpaginacion = codigoHTMLpaginacion.concat("</ul>");
-
-      $("#paginacion").html(codigoHTMLpaginacion);
-  }
 }
 
 function realizarBusqueda(nombrefichero,orden,idioma){
-  var codigoHTMLpaginacion = "";
   $("#divPlataforma").hide("slow");
 
   criterioNombre = $("#inputNombre").val();
@@ -124,6 +78,15 @@ function realizarBusqueda(nombrefichero,orden,idioma){
   criterioGenero = $("#inputGenero").val();
   criterioPlataforma = $("#inputPlataforma").val();
   criterioEmpresa = $("#inputEmpresa").val();
+
+  if (idioma == "ES") {
+    traducciones = ['Acciones', 'Compañia', 'La consulta ha generado más de 200 resultados. Se muestran únicamente los 200 primeros resultados.', 'Fecha de lanzamiento', 'Género', 'Nombre', 'Resultado de la búsqueda.', ' resultados obtenidos', '1 resultado obtenido'];
+  } else if (idioma == "EN") {
+    traducciones = ['Actions', 'Company', 'Your query has generated more than 200 results. Only the first 200 results are displayed.', 'Launch date', 'Gender', 'Name', 'Result of the search.', ' results returned', '1 result returned'];
+  } else if (idioma == "PT") {
+    traducciones = ['Ações', 'Companhia', 'A consulta gerou mais de 200 resultados. Só são mostrados os primeiros 200 resultados.', 'Data de lançamento', 'Gênero', 'Nome', 'Resultado da busca.', ' resultados obtidos', '1 resultado obtido'];
+  }
+
 
   if ((nombrefichero === undefined) || (nombrefichero === 'panelBusqueda.php')) {  // lanzamos la búsqueda desde panelBusqueda
   	$.ajax({
@@ -139,18 +102,33 @@ function realizarBusqueda(nombrefichero,orden,idioma){
         paginaActiva = 1;
         codigoHTML = "";
 
-
-
         codigoHTML = codigoHTML.concat("<div class='content'><div class='container-fluid'><div class='row'><div class='col-md-12'><div class='card'>");
         codigoHTML = codigoHTML.concat("<div class='card-header card-header-primary card-header-icon'><div class='card-icon'><i class='material-icons'>assignment</i>");
-        codigoHTML = codigoHTML.concat("</div><h4 class='card-title'><?php echo $arrayRecursosIdioma['ResultadoBusqueda']; ?></h4></div><div class='card-body'><div class='toolbar'></div><div class='material-datatables'>");
+        codigoHTML = codigoHTML.concat("</div><h4 class='card-title'>");
+        codigoHTML = codigoHTML.concat(traducciones[6]);
+        codigoHTML = codigoHTML.concat("</h4></div><div class='card-body'><div class='toolbar'></div><div class='material-datatables'>");
         codigoHTML = codigoHTML.concat("<table id='datatables' class='table table-striped table-no-bordered table-hover' cellspacing='0' width='100%' style='width:100%'><thead>");
-        codigoHTML = codigoHTML.concat("<tr><th><?php echo $arrayRecursosIdioma['Nombre']; ?></th><th><?php echo $arrayRecursosIdioma['Compañia']; ?></th>");
-        codigoHTML = codigoHTML.concat("<th><?php echo $arrayRecursosIdioma['Genero']; ?></th><th>Rating</th><th><?php echo $arrayRecursosIdioma['FechaLanzamiento'];?></th>");
-        codigoHTML = codigoHTML.concat("<th class='disabled-sorting text-right'><?php echo $arrayRecursosIdioma['Acciones']; ?></th>");
-        codigoHTML = codigoHTML.concat("</tr></thead><tfoot><tr><th><?php echo $arrayRecursosIdioma['Nombre'];?></th><th><?php echo $arrayRecursosIdioma['Compañia']; ?>");
-        codigoHTML = codigoHTML.concat("</th><th><?php echo $arrayRecursosIdioma['Genero']; ?></th><th>Rating</th><th><?php echo $arrayRecursosIdioma['FechaLanzamiento'];?></th>");
-        codigoHTML = codigoHTML.concat("<th class='text-right'><?php echo $arrayRecursosIdioma['Acciones'];?></th></tr></tfoot>");
+        codigoHTML = codigoHTML.concat("<tr><th>");
+        codigoHTML = codigoHTML.concat(traducciones[5]);
+        codigoHTML = codigoHTML.concat("</th><th>");
+        codigoHTML = codigoHTML.concat(traducciones[1]);
+        codigoHTML = codigoHTML.concat("</th><th>");
+        codigoHTML = codigoHTML.concat(traducciones[4]);
+        codigoHTML = codigoHTML.concat("</th><th>Rating</th><th>");
+        codigoHTML = codigoHTML.concat(traducciones[3]);
+        codigoHTML = codigoHTML.concat("</th><th class='disabled-sorting text-right'>");
+        codigoHTML = codigoHTML.concat(traducciones[0]);
+        codigoHTML = codigoHTML.concat("</th></tr></thead><tfoot><tr><th>");
+        codigoHTML = codigoHTML.concat(traducciones[5]);
+        codigoHTML = codigoHTML.concat("</th><th>");
+        codigoHTML = codigoHTML.concat(traducciones[1]);
+        codigoHTML = codigoHTML.concat("</th><th>");
+        codigoHTML = codigoHTML.concat(traducciones[4]);
+        codigoHTML = codigoHTML.concat("</th><th>Rating</th><th>");
+        codigoHTML = codigoHTML.concat(traducciones[3]);
+        codigoHTML = codigoHTML.concat("</th><th class='text-right'>");
+        codigoHTML = codigoHTML.concat(traducciones[0]);
+        codigoHTML = codigoHTML.concat("</th></tr></tfoot>");
         codigoHTML = codigoHTML.concat("<tbody>");
         
         for (var contadorElementos = 0; contadorElementos < resultadosBusqueda.length; contadorElementos++){
@@ -215,7 +193,6 @@ function realizarBusqueda(nombrefichero,orden,idioma){
           }
         }
         $("#numResultados").html("<ul class='pagination'><li class='page-item' disabled><a class='page-link' style='cursor: default;'>"+textoResultados+"</a></li></ul>");
-        $("#paginacion").html(codigoHTMLpaginacion);
       }
     });
   } else {
