@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2019 a las 21:14:41
+-- Tiempo de generación: 21-05-2019 a las 03:42:03
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -25774,6 +25774,7 @@ CREATE TABLE `textos` (
 
 INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('AccedeLibreria', 'Accede a tu librería', 'Enter to your library', 'Aceda à sua livraria'),
+('Acciones', 'Acciones', 'Actions', 'Ações'),
 ('AvisoLegal', 'Aviso legal.', 'Legal notice.', 'Aviso legal.'),
 ('BuscarCompañia', 'Buscar por compañía', 'Search by company', 'Procurar por companhia'),
 ('BuscarGenero', 'Buscar por genero', 'Search by gender', 'Procurar por gênero'),
@@ -25789,6 +25790,7 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('Criterios', 'Criterios de búsqueda seleccionados', 'Selected search criteria', 'Critérios de pesquisa selecionados'),
 ('Descubre', 'Descubre tu videojuego', 'Discover your videogame', 'Descobre o teo videojogo'),
 ('Empresa', 'Empresa', 'Enterprise', 'Empresa'),
+('FechaLanzamiento', 'Fecha de lanzamiento', 'Launch date', 'Data de lançamento'),
 ('Genero', 'Género', 'Gender', 'Gênero'),
 ('Inicio', 'Inicio', 'Start', 'Início'),
 ('IntroduceNombre', 'Introduce un nombre', 'Insert a name', 'Indroduza um nome'),
@@ -25802,6 +25804,7 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('Recomendacion', 'Basados en tus gustos.', 'Based on your tastes.', 'Baseado nos teus gostos'),
 ('RecomendacionDos', 'Descubre a qué jugar.', 'Find out what to play.', 'Descobre o que jogar.'),
 ('RedesSociales', 'Nuestras redes sociales.', 'Our social networks.', 'Nossas redes sociais.'),
+('ResultadoBusqueda', 'Resultado de la búsqueda.', 'Search result.', 'Resultado da busca.'),
 ('ResultadosObtenidos', ' resultados obtenidos.', ' results returned.', ' resultados obtidos.'),
 ('Subtitulo', 'Juega, valora, descubre.', 'Play, rate, discover.', 'Joga, valoriza, descobre.'),
 ('TeRecomendamos', 'Te recomendamos', 'We recommend you', 'Recomendamos-te'),

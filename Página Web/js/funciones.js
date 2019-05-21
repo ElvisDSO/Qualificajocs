@@ -143,108 +143,68 @@ function realizarBusqueda(nombrefichero,orden,idioma){
 
         codigoHTML = codigoHTML.concat("<div class='content'><div class='container-fluid'><div class='row'><div class='col-md-12'><div class='card'>");
         codigoHTML = codigoHTML.concat("<div class='card-header card-header-primary card-header-icon'><div class='card-icon'><i class='material-icons'>assignment</i>");
-        codigoHTML = codigoHTML.concat("</div><h4 class='card-title'>Resultado de la búsqueda.</h4></div><div class='card-body'><div class='toolbar'></div><div class='material-datatables'>");
+        codigoHTML = codigoHTML.concat("</div><h4 class='card-title'><?php echo $arrayRecursosIdioma['ResultadoBusqueda']; ?></h4></div><div class='card-body'><div class='toolbar'></div><div class='material-datatables'>");
         codigoHTML = codigoHTML.concat("<table id='datatables' class='table table-striped table-no-bordered table-hover' cellspacing='0' width='100%' style='width:100%'><thead>");
-        codigoHTML = codigoHTML.concat("<tr><th>Name</th><th>Position</th><th>Office</th><th>Age</th><th>Date</th><th class='disabled-sorting text-right'>Actions</th>");
-        codigoHTML = codigoHTML.concat("</tr></thead><tfoot><tr><th>Name</th><th>Position</th><th>Office</th><th>Age</th><th>Start date</th><th class='text-right'>Actions</th>");
-        codigoHTML = codigoHTML.concat("</tr></tfoot><tbody><tr><td>Tiger Nixon</td><td>System Architect</td><td>Edinburgh</td><td>61</td><td>2011/04/25</td><td class='text-right'>");
-        codigoHTML = codigoHTML.concat("<a href='#' class='btn btn-link btn-info btn-just-icon like'><i class='material-icons'>favorite</i></a>");
-        codigoHTML = codigoHTML.concat("<a href='#' class='btn btn-link btn-warning btn-just-icon edit'><i class='material-icons'>dvr</i></a>");
-        codigoHTML = codigoHTML.concat("<a href='#' class='btn btn-link btn-danger btn-just-icon remove'><i class='material-icons'>close</i>");
-        codigoHTML = codigoHTML.concat("</a></td></tr></tbody></table></div></div></div></div></div></div></div>");
-
+        codigoHTML = codigoHTML.concat("<tr><th><?php echo $arrayRecursosIdioma['Nombre']; ?></th><th><?php echo $arrayRecursosIdioma['Compañia']; ?></th>");
+        codigoHTML = codigoHTML.concat("<th><?php echo $arrayRecursosIdioma['Genero']; ?></th><th>Rating</th><th><?php echo $arrayRecursosIdioma['FechaLanzamiento'];?></th>");
+        codigoHTML = codigoHTML.concat("<th class='disabled-sorting text-right'><?php echo $arrayRecursosIdioma['Acciones']; ?></th>");
+        codigoHTML = codigoHTML.concat("</tr></thead><tfoot><tr><th><?php echo $arrayRecursosIdioma['Nombre'];?></th><th><?php echo $arrayRecursosIdioma['Compañia']; ?>");
+        codigoHTML = codigoHTML.concat("</th><th><?php echo $arrayRecursosIdioma['Genero']; ?></th><th>Rating</th><th><?php echo $arrayRecursosIdioma['FechaLanzamiento'];?></th>");
+        codigoHTML = codigoHTML.concat("<th class='text-right'><?php echo $arrayRecursosIdioma['Acciones'];?></th></tr></tfoot>");
+        codigoHTML = codigoHTML.concat("<tbody>");
+        
         for (var contadorElementos = 0; contadorElementos < resultadosBusqueda.length; contadorElementos++){
-          if (contadorElementos % 9 == 0){
-            if (contadorElementos > 0){
-              codigoHTML = codigoHTML.concat("</div>");
-              codigoHTML = codigoHTML.concat("<div class='row paginaResultados' style='display:none' id='divPagina");
-            } else {
-              codigoHTML = codigoHTML.concat("<div class='row paginaResultados' id='divPagina");
-            }
-            codigoHTML = codigoHTML.concat(numPagina);
-            codigoHTML = codigoHTML.concat("'>");
-            numPagina = numPagina + 1; // se incrementa una página
-          } 
-          codigoHTML = codigoHTML.concat("<div class='col-lg-4 col-md-6 col-sm-6'><div class='card card-stats'>"); 
-          if(resultadosBusqueda[contadorElementos][3] == 5){
-            codigoHTML = codigoHTML.concat("<div class='card-header card-header-danger card-header-icon'><div class='card-icon'><i class='fas fa-home'></i></div><p class='card-category'>");
-          } else if(resultadosBusqueda[contadorElementos][3] == 6){
-            codigoHTML = codigoHTML.concat("<div class='card-header card-header-danger card-header-icon'><div class='card-icon'><i class='fas fa-home'></i></div><p class='card-category'>");
-          } else if(resultadosBusqueda[contadorElementos][3] == 7){
-            codigoHTML = codigoHTML.concat("<div class='card-header card-header-warning card-header-icon'><div class='card-icon'><i class='fas fa-user-alt'></i></div><p class='card-category'>");
-          } else if(resultadosBusqueda[contadorElementos][3] == 8){
-            codigoHTML = codigoHTML.concat("<div class='card-header card-header-info card-header-icon'><div class='card-icon'><i class='fas fa-mobile-alt'></i></div><p class='card-category'>");
-          }
-
+          codigoHTML = codigoHTML.concat("<tr><td>");
+          codigoHTML = codigoHTML.concat("<form id ='formInfo");
+          codigoHTML = codigoHTML.concat(contadorElementos);
+          codigoHTML = codigoHTML.concat("' name='formInfo");
+          codigoHTML = codigoHTML.concat(contadorElementos);
+          codigoHTML = codigoHTML.concat("' action='infoVideojuego.php'>");
+          codigoHTML = codigoHTML.concat("<input type='hidden' id='idNombre");
+          codigoHTML = codigoHTML.concat(contadorElementos);
+          codigoHTML = codigoHTML.concat("' name='idNombre");
+          codigoHTML = codigoHTML.concat(contadorElementos);
+          codigoHTML = codigoHTML.concat("' value='");
+          codigoHTML = codigoHTML.concat(contadorElementos);
+          codigoHTML = codigoHTML.concat("'>");
+          codigoHTML = codigoHTML.concat("<input type='hidden' id='inputNombre' name='inputNombre' value='");
+          codigoHTML = codigoHTML.concat(criterioNombre);
+          codigoHTML = codigoHTML.concat("'>");
+          codigoHTML = codigoHTML.concat("<input type='hidden' id='inputCompañia' name='inputCompañia' value='");
+          codigoHTML = codigoHTML.concat(criterioCompañia);
+          codigoHTML = codigoHTML.concat("'>");
+          codigoHTML = codigoHTML.concat("<input type='hidden' id='inputGenero' name='inputGenero' value='");
+          codigoHTML = codigoHTML.concat(criterioGenero);
+          codigoHTML = codigoHTML.concat("'>");
+          codigoHTML = codigoHTML.concat("<input type='hidden' id='inputPlataforma' name='inputPlataforma' value='");
+          codigoHTML = codigoHTML.concat(criterioPlataforma);
+          codigoHTML = codigoHTML.concat("'>"); 
+          codigoHTML = codigoHTML.concat("<input type='hidden' id='inputEmpresa' name='inputEmpresa' value='");
+          codigoHTML = codigoHTML.concat(criterioEmpresa);
+          codigoHTML = codigoHTML.concat("'>");         
+          codigoHTML = codigoHTML.concat("<h3 class='card-title' style='cursor: pointer;' onmouseover=$(this).addClass('text-danger') onmouseout=$(this).removeClass('text-danger') ><span id='titulo_nombre' onclick='formInfo");
+          codigoHTML = codigoHTML.concat(contadorElementos);  
+          codigoHTML = codigoHTML.concat(".submit()'>");
+          codigoHTML = codigoHTML.concat(resultadosBusqueda[contadorElementos][0]);
+          codigoHTML = codigoHTML.concat("</form></td><td>");
           codigoHTML = codigoHTML.concat(resultadosBusqueda[contadorElementos][1]);
-		 	    idActual = resultadosBusqueda[contadorElementos][4];
-    			codigoHTML = codigoHTML.concat("</p><form id='formInfo");
-    			codigoHTML = codigoHTML.concat(contadorElementos);
-    			codigoHTML = codigoHTML.concat("' name='formInfo");
-    			codigoHTML = codigoHTML.concat(contadorElementos);
-    			codigoHTML = codigoHTML.concat("' action='infoNombre.php'>");
-    			codigoHTML = codigoHTML.concat("<input type='hidden' id='idNombre");
-    			codigoHTML = codigoHTML.concat(contadorElementos);
-    			codigoHTML = codigoHTML.concat("' name='idNombre");
-    			codigoHTML = codigoHTML.concat(contadorElementos);
-    			codigoHTML = codigoHTML.concat("' value='");
-    			codigoHTML = codigoHTML.concat(idActual);
-    			codigoHTML = codigoHTML.concat("'>");
-    			codigoHTML = codigoHTML.concat("<input type='hidden' id='inputNombre' name='inputNombre' value='");
-    			codigoHTML = codigoHTML.concat(criterioNombre);
-    			codigoHTML = codigoHTML.concat("'>");
-    			codigoHTML = codigoHTML.concat("<input type='hidden' id='inputCompañia' name='inputCompañia' value='");
-    			codigoHTML = codigoHTML.concat(criterioCompañia);
-    			codigoHTML = codigoHTML.concat("'>");
-    			codigoHTML = codigoHTML.concat("<input type='hidden' id='inputGenero' name='inputGenero' value='");
-    			codigoHTML = codigoHTML.concat(criterioGenero);
-    			codigoHTML = codigoHTML.concat("'>");
-    			codigoHTML = codigoHTML.concat("<input type='hidden' id='inputPlataforma' name='inputPlataforma' value='");
-    			codigoHTML = codigoHTML.concat(criterioPlataforma);
-    			codigoHTML = codigoHTML.concat("'>");	
-    			codigoHTML = codigoHTML.concat("<input type='hidden' id='inputEmpresa' name='inputEmpresa' value='");
-    			codigoHTML = codigoHTML.concat(criterioEmpresa);
-    			codigoHTML = codigoHTML.concat("'>");					
-    			codigoHTML = codigoHTML.concat("<h3 class='card-title' style='cursor: pointer;' onmouseover=$(this).addClass('text-danger') onmouseout=$(this).removeClass('text-danger') ><span id='titulo_nombre' onclick='formInfo");
-    			codigoHTML = codigoHTML.concat(contadorElementos);	
-    			codigoHTML = codigoHTML.concat(".submit()'>");
-    			codigoHTML = codigoHTML.concat(resultadosBusqueda[contadorElementos][0]);
-    			codigoHTML = codigoHTML.concat("</span></h3></form></div><div class='card-footer'><div class='stats'><i class='material-icons'>place</i>");
-    			codigoHTML = codigoHTML.concat(resultadosBusqueda[contadorElementos][5]);
-    			codigoHTML = codigoHTML.concat("</div></div></div></div>");   
+          codigoHTML = codigoHTML.concat("</td><td>");
+          codigoHTML = codigoHTML.concat(resultadosBusqueda[contadorElementos][2]);
+          codigoHTML = codigoHTML.concat("</td><td>");
+          codigoHTML = codigoHTML.concat(resultadosBusqueda[contadorElementos][3]);
+          codigoHTML = codigoHTML.concat("</td><td>");
+          codigoHTML = codigoHTML.concat(resultadosBusqueda[contadorElementos][4]);
+          codigoHMTL = codigoHTML.concat("</td><td class='text-right'>");
+          codigoHTML = codigoHTML.concat("<a href='#' class='btn btn-link btn-info btn-just-icon like'><i class='material-icons'>favorite</i></a>");
+          codigoHTML = codigoHTML.concat("<a href='#' class='btn btn-link btn-warning btn-just-icon edit'><i class='material-icons'>dvr</i></a>");
+          codigoHTML = codigoHTML.concat("<a href='#' class='btn btn-link btn-danger btn-just-icon remove'><i class='material-icons'>close</i>");
+          codigoHTML = codigoHTML.concat("</a></td></tr>");
         }
+
+        codigoHTML = codigoHTML.concat("</tbody></table></div></div></div></div></div></div></div>");
         codigoHTML = codigoHTML.concat("</div>");
 		    paginaIdioma = "<?php $arrayRecursosIdioma['Pagina']; ?>";
 
-        if (numPagina > 1) { // Se introduce paginación
-          codigoHTMLpaginacion = "";
-          codigoHTMLpaginacion = codigoHTMLpaginacion.concat("<ul class='pagination'>");
-          codigoHTMLpaginacion = codigoHTMLpaginacion.concat("<li class='page-item' disabled><a class='page-link' style='cursor: default;'>PÁGINA</a></li>");
-          for (paginaactual = 1; paginaactual < numPagina; paginaactual++){
-            if (paginaactual > 5){
-              codigoHTMLpaginacion = codigoHTMLpaginacion.concat("<li class='page-item' id='pagina"+paginaactual+"'><a class='page-link' href='#' onclick='verPagina(")
-              codigoHTMLpaginacion = codigoHTMLpaginacion.concat(paginaactual);
-              codigoHTMLpaginacion = codigoHTMLpaginacion.concat(",1,");
-              codigoHTMLpaginacion = codigoHTMLpaginacion.concat(numPagina);
-              codigoHTMLpaginacion = codigoHTMLpaginacion.concat(")'>...</a></li>");
-              break;
-            }
-            if (paginaactual == 1){
-              codigoHTMLpaginacion = codigoHTMLpaginacion.concat("<li class='page-item' style='background-color:#BAD8EF' id='pagina");
-              codigoHTMLpaginacion = codigoHTMLpaginacion.concat(paginaactual);
-              codigoHTMLpaginacion = codigoHTMLpaginacion.concat("'><a class='page-link' href='#' onclick='verPagina("); 
-            } else {
-              codigoHTMLpaginacion = codigoHTMLpaginacion.concat("<li class='page-item' id='pagina");
-              codigoHTMLpaginacion = codigoHTMLpaginacion.concat(paginaactual);
-              codigoHTMLpaginacion = codigoHTMLpaginacion.concat("'><a class='page-link' href='#' onclick='verPagina("); 
-            }
-            codigoHTMLpaginacion = codigoHTMLpaginacion.concat(paginaactual);
-            codigoHTMLpaginacion = codigoHTMLpaginacion.concat(",0)'>");
-            codigoHTMLpaginacion = codigoHTMLpaginacion.concat(paginaactual);
-            codigoHTMLpaginacion = codigoHTMLpaginacion.concat("</a></li>");
-          }
-          codigoHTMLpaginacion = codigoHTMLpaginacion.concat("</ul>");
-        }
         $("#gridResultados").html(codigoHTML);
         if (resultadosBusqueda.length == 1){
           var textoResultados = "<?php echo $arrayRecursosIdioma['UnResultado']; ?>";
