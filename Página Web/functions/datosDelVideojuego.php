@@ -1,5 +1,6 @@
 <?php
-include '.../config/connection.php';
+include '../config/connection.php';
+include 'establecerIdioma.php'; 
 connect();
 
 //Iniciar variables de sesión.
@@ -23,57 +24,66 @@ $sqlDatos = "SELECT videojuegos.NOMBRE, compañia.NOMBRE_COMPAÑIA, videojuegos.
 $sqlDatos .= " FROM videojuegos JOIN compañia ON videojuegos.COMPAÑIA = compañia.ID_COMPAÑIA";
 $sqlDatos .= " WHERE";
 
-if (isset($_POST["id"])){
-	$id = $_POST["id"];
-	$sqlDatos .= " ID_VIDEOJUEGO = ".$id;
+$sqlGenero = "SELECT videojuegos.ID_VIDEOJUEGO, genero.NOMBRE_GENERO_". $idiomaActual;
+$sqlGenero .= " FROM videojuegos JOIN genero_videojuego ON videojuegos.ID_VIDEOJUEGO = genero_videojuego.ID_VIDEOJUEGO";
+$sqlGenero .= " LEFT JOIN genero ON genero_videojuego.ID_GENERO = genero.ID_GENERO WHERE";
+
+
+$sqlPlataforma = "SELECT videojuegos.ID_VIDEOJUEGO, plataforma.PLATAFORMA";
+$sqlPlataforma .= " FROM videojuegos JOIN plataforma_videojuego ON videojuegos.ID_VIDEOJUEGO = plataforma_videojuego.ID_VIDEOJUEGO";
+$sqlPlataforma .= " LEFT JOIN plataforma ON plataforma_videojuego.ID_PLATAFORMA = plataforma.ID_PLATAFORMA WHERE";
+
+if (isset($_POST["inputID"])){
+	$id = $_POST["inputID"];
+	$sqlDatos .= " ID_VIDEOJUEGO = $id";
+	$sqlGenero .= " videojuegos.ID_VIDEOJUEGO = $id";
+	$sqlPlataforma .= " videojuegos.ID_VIDEOJUEGO = $id";
 }
 
-$sqlGenero = "SELECT videojuegos.ID_VIDEOJUEGO, genero.NOMBRE_GENERO". $idiomaActual;
-$sqlGenero .= " FROM videojuegos JOIN genero_videojuego ON videojuegos.ID_VIDEOJUEGO = genero_videojuego.ID_VIDEOJUEGO";
-$sqlGenero .= " LEFT JOIN genero ON genero_videojuego.ID_GENERO = genero.ID_GENERO";
-$sqlGenero .= " WHERE ID_VIDEOJUEGO = ".$id;
-
-$sqlPlataforma = "SELECT videojuegos.ID_VIDEOJUEGO, plataforma.NOMBRE_PLATAFORMA";
-$sqlPlataforma .= " FROM videojuegos JOIN plataforma_videojuego ON videojuegos.ID_VIDEOJUEGO = plataforma_videojuego.ID_VIDEOJUEGO";
-$sqlPlataforma .= " LEFT JOIN plataforma ON plataforma_videojuego.ID_PLATAFORMA = plataforma.ID_PLATAFORMA";
-$sqlPlataforma .= " WHERE ID_VIDEOJUEGO = ".$id;
 
 
-$resultDatos = mysqli_query($connection, $sqlDatos); //Ejecución de la consulta
-$datosReturn = array();
-$resultGenero = mysqli_query($connection, $sqlGenero);
-$generoReturn = array();
-$resultPlataforma = mysqli_query($connection, $sqlPlataforma);
-$plataformaReturn = array();
+
 
 //Si hay resultados...
 $codigoHTML = "";
 $arrayResultados = [];
+$resultDatos = mysqli_query($connection, $sqlDatos);
+$datosReturn = array();
 $datos = array();
 
 while($filaDatos = mysqli_fetch_assoc($resultDatos)){
-	$datos['data'] = $filaDatos['NOMBRE'];
-	$datos['data'] = $filaDatos['NOMBRE_COMPAÑIA'];
-	$datos['data'] = $filaDatos['FECHA_LANZAMIENTO'];
-	$datos['data'] = $filaDatos['RATING'];
-	$datos['data'] = $filaDatos['RATING'];
-	$datos['data'] = $filaDatos['ID_VIDEOJUEGO'];
-	$arrayResultados[] = $datos;
+	$datos['data'][0] = $filaDatos['NOMBRE'];
+	$datos['data'][1] = $filaDatos['NOMBRE_COMPAÑIA'];
+	$datos['data'][2] = $filaDatos['FECHA_LANZAMIENTO'];
+	$datos['data'][3] = $filaDatos['N_JUGADORES'];
+	$datos['data'][4] = $filaDatos['RATING'];
+	$datos['data'][5] = $filaDatos['ID_VIDEOJUEGO'];
+	//$arrayResultados[] = $datos;
 }
-
-while($filaGenero = mysqli_fetch_assoc($resultGenero)){
-	$datos['gender'] = $filaGenero['NOMBRE_GENERO_'. $idiomaActual];
-	$arrayResultados[] = $datos;
-}
-
-while($filaPlataforma = mysqli_fetch_assoc($resultPlataforma)){
-	$datos['platform'] = $filaPlataforma['NOMBRE_PLATAFORMA'];
-	$arrayResultados[] = $datos;
-}
-
 mysqli_free_result($resultDatos);
+$resultGenero = mysqli_query($connection, $sqlGenero);
+$generoReturn = array();
+
+$i = 0;
+while($filaGenero = mysqli_fetch_assoc($resultGenero)){
+	$datos['gender'][$i] = $filaGenero['NOMBRE_GENERO_'. $idiomaActual];
+	$i = $i + 1;
+	//$arrayResultados[] = $datos;
+}
 mysqli_free_result($resultGenero);
+$resultPlataforma = mysqli_query($connection, $sqlPlataforma);
+$plataformaReturn = array();
+
+$i = 0;
+while($filaPlataforma = mysqli_fetch_assoc($resultPlataforma)){
+	$datos['platform'][$i] = $filaPlataforma['PLATAFORMA'];
+	$i = $i + 1;
+	//$arrayResultados[] = $datos;
+}
+$arrayResultados[] = $datos;
+
 mysqli_free_result($resultPlataforma);
+
 mysqli_close($connection);
 // Después de trabajar con la bbdd, cerramos la conexión (por seguridad, no hay que dejar conexiones abiertas)
 echo json_encode($arrayResultados);
