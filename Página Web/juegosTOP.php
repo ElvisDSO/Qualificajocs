@@ -89,7 +89,7 @@
   <script src="assets/demo/demo.js"></script>
   
   <!-- fichero javascript con funciones de búsqueda -->
-  <script src="js/funciones.js"></script>
+  <script src="js/panelBusqueda.js"></script>
   
   <!-- Script de carga del aviso de las cookies. -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
@@ -101,6 +101,7 @@
 
 <div id="divBusqueda" class="border shadow-lg p-4 mb-4 bg-light" style="display:none; padding:20px; background-color: #036397; z-index: 100000; position: absolute; top: 300px; left: 250px"></div>
 
+<input type="hidden" id="inputID" name="inputID">
 <input type="hidden" id="inputNombre" name="inputNombre"> 
 <input type="hidden" id="inputGenero" name="inputGenero">
 <input type="hidden" id="inputPlataforma" name="inputPlataforma"> 

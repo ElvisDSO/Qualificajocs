@@ -16,14 +16,7 @@ $compañia = "";
 $text = '';
 $codigoHTML = "";
 
-/*
-SELECT videojuegos.NOMBRE, compañia.NOMBRE_COMPAÑIA, genero.NOMBRE_GENERO_ES, videojuegos.RATING, videojuegos.FECHA_LANZAMIENTO 
-FROM videojuegos JOIN compañia ON videojuegos.COMPAÑIA = compañia.ID_COMPAÑIA LEFT JOIN genero_videojuego ON videojuegos.ID_VIDEOJUEGO = genero_videojuego.ID_VIDEOJUEGO LEFT JOIN genero ON genero_videojuego.ID_GENERO = genero.ID_GENERO LEFT JOIN plataforma_videojuego ON plataforma_videojuego.ID_VIDEOJUEGO = videojuegos.ID_VIDEOJUEGO LEFT JOIN plataforma ON plataforma.ID_PLATAFORMA = plataforma_videojuego.ID_PLATAFORMA LEFT JOIN empresa ON empresa.ID_EMPRESA = plataforma.ID_EMPRESA
-WHERE 1 AND NOMBRE LIKE '%NOM%' AND NOMBRE_COMPAÑIA LIKE '%MAX%' AND NOMBRE_GENERO_ES  LIKE '%AVEN%' AND plataforma.PLATAFORMA LIKE '%P%' AND empresa.NOMBRE_EMPRESA LIKE '%P%';
-*/
-
-
-$sqlVideojuegos =  "SELECT videojuegos.NOMBRE, compañia.NOMBRE_COMPAÑIA, genero.NOMBRE_GENERO_". $idiomaActual .", videojuegos.RATING, videojuegos.FECHA_LANZAMIENTO"; 
+$sqlVideojuegos =  "SELECT videojuegos.NOMBRE, compañia.NOMBRE_COMPAÑIA, genero.NOMBRE_GENERO_". $idiomaActual .", videojuegos.RATING, videojuegos.FECHA_LANZAMIENTO, videojuegos.ID_VIDEOJUEGO"; 
 $sqlVideojuegos .= " FROM videojuegos JOIN compañia ON videojuegos.COMPAÑIA = compañia.ID_COMPAÑIA";
 $sqlVideojuegos .= " LEFT JOIN genero_videojuego ON videojuegos.ID_VIDEOJUEGO = genero_videojuego.ID_VIDEOJUEGO";
 $sqlVideojuegos .= " LEFT JOIN genero ON genero_videojuego.ID_GENERO = genero.ID_GENERO";
@@ -62,7 +55,7 @@ if (isset($_POST["compañia"])){//Si ha introducido una compañía.
     $sqlVideojuegos .= " AND NOMBRE_COMPAÑIA LIKE '%".$compañia."%'";
 }
 
-$sqlVideojuegos .= " GROUP BY NOMBRE ORDER BY NOMBRE";
+$sqlVideojuegos .= " GROUP BY ID_VIDEOJUEGO ORDER BY NOMBRE";
 
 //Limitar la búsqueda de juegos a 200.
 $sqlVideojuegos .= " LIMIT 200";
@@ -80,21 +73,9 @@ while($filaVideojuegos = mysqli_fetch_assoc($resultVideojuegos)){
 	$videojuegos[] = $filaVideojuegos['NOMBRE_GENERO_'. $idiomaActual];
 	$videojuegos[] = $filaVideojuegos['RATING'];
 	$videojuegos[] = $filaVideojuegos['FECHA_LANZAMIENTO'];
+	$videojuegos[] = $filaVideojuegos['ID_VIDEOJUEGO'];
 	$arrayResultados[] = $videojuegos;
 }
-/*
-$resultadoFinal = [];
-$max = sizeof($arrayResultados);
-for ( $i = 0; $i < $max; $i++ ) {
-	$generosMismoNombre = [];
-	for ( $j; $j < $max; $j++ ) {
-		if ( $i != $j ) {
-			if ( $arrayResultados[0][i] == $arrayResultados[0][j]) {
-				$generosMismoNombre .=
-			}
-		}
-	}
-}*/
 
 mysqli_free_result($resultVideojuegos);
 mysqli_close($connection);

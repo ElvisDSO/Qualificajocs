@@ -15,6 +15,14 @@
   $arrayRecursosIdioma = recursosIdioma($idiomaActual);
 
   //Se almacenan todos los valores que el usuario ha introducido.   
+  if (isset($_POST["inputID"])) { 
+    $criterioID = $_POST["inputID"];
+  } else if (isset($_GET["inputID"])) {  //desde menú izquierdo
+    $criterioID = $_GET["inputID"];
+  } else {
+    $criterioID = "";
+  }
+
   if (isset($_POST["inputNombre"])) { 
     $criterioNombre = $_POST["inputNombre"];
   } else if (isset($_GET["inputNombre"])) {  //desde menú izquierdo
@@ -146,7 +154,7 @@
   <script src="assets/demo/demo.js"></script>
   
   <!-- fichero javascript con funciones de búsqueda -->
-  <script src="js/funciones.js"></script>
+  <script src="js/panelBusqueda.js"></script>
   
   <!-- Script de carga del aviso de las cookies. -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
@@ -158,6 +166,7 @@
 
 <div id="divBusqueda" class="border shadow-lg p-4 mb-4 bg-light" style="display:none; padding:20px; background-color: #036397; z-index: 100000; position: absolute; top: 300px; left: 250px"></div>
 
+<input type="hidden" id="inputID" name="inputID">
 <input type="hidden" id="inputNombre" name="inputNombre"> 
 <input type="hidden" id="inputGenero" name="inputGenero">
 <input type="hidden" id="inputPlataforma" name="inputPlataforma"> 
@@ -181,7 +190,12 @@
         <div style="margin-top: 70px; padding: 45px 15px 2px">
           <div class="container-fluid">
             <div class="row">
-              
+              <!-- Carga todos los valores introducidos por el usuario. -->
+              <input type="hidden" id="inputComercio" name="inputComercio" value="<?php echo $criterioComercio; ?>">
+              <input type="hidden" id="inputProducto" name="inputProducto" value="<?php echo $criterioProducto; ?>">
+              <input type="hidden" id="inputGeografico" name="inputGeografico" value="<?php echo $criterioGeografico; ?>">
+              <input type="hidden" id="inputActividad" name="inputActividad" value="<?php echo $criterioActividad; ?>">
+              <input type="hidden" id="inputGrupo" name="inputGrupo" value="<?php echo $criterioGrupo; ?>">
             </div>
           </div>
         </div>

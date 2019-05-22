@@ -73,6 +73,7 @@ function verPagina(paginaver, cambiar, totalPaginas) {
 function realizarBusqueda(nombrefichero,orden,idioma){
   $("#divPlataforma").hide("slow");
 
+  criterioID = $("#inputID").val();
   criterioNombre = $("#inputNombre").val();
   criterioCompañia = $("#inputCompañia").val();
   criterioGenero = $("#inputGenero").val();
@@ -93,7 +94,7 @@ function realizarBusqueda(nombrefichero,orden,idioma){
   	  type: "POST",
       dataType: "json",
 		  url: "functions/resultadoConsulta.php",
-		  data: {nombre: criterioNombre, compañia: criterioCompañia, genero: criterioGenero, plataforma: criterioPlataforma, empresa: criterioEmpresa, orden: orden},
+		  data: {id: criterioID, nombre: criterioNombre, compañia: criterioCompañia, genero: criterioGenero, plataforma: criterioPlataforma, empresa: criterioEmpresa, orden: orden},
 		  success: function (data) {
         $("#divPlataforma").hide("slow");
 		    resultadosBusqueda = data;
@@ -138,12 +139,8 @@ function realizarBusqueda(nombrefichero,orden,idioma){
           codigoHTML = codigoHTML.concat("' name='formInfo");
           codigoHTML = codigoHTML.concat(contadorElementos);
           codigoHTML = codigoHTML.concat("' action='infoVideojuego.php'>");
-          codigoHTML = codigoHTML.concat("<input type='hidden' id='idNombre");
-          codigoHTML = codigoHTML.concat(contadorElementos);
-          codigoHTML = codigoHTML.concat("' name='idNombre");
-          codigoHTML = codigoHTML.concat(contadorElementos);
-          codigoHTML = codigoHTML.concat("' value='");
-          codigoHTML = codigoHTML.concat(contadorElementos);
+          codigoHTML = codigoHTML.concat("<input type='hidden' id='inputID' name='inputID' value='");
+          codigoHTML = codigoHTML.concat(resultadosBusqueda[contadorElementos][5]);
           codigoHTML = codigoHTML.concat("'>");
           codigoHTML = codigoHTML.concat("<input type='hidden' id='inputNombre' name='inputNombre' value='");
           codigoHTML = codigoHTML.concat(criterioNombre);
@@ -196,6 +193,6 @@ function realizarBusqueda(nombrefichero,orden,idioma){
       }
     });
   } else {
-    window.location = "panelBusqueda.php?inputNombre="+criterioNombre+"&inputCompañia="+criterioCompañia+"&inputGenero="+criterioGenero+"&inputPlataforma="+criterioPlataforma+"&inputEmpresa="+criterioEmpresa;
+    window.location = "panelBusqueda.php?inputID="+criterioID+"&inputNombre="+criterioNombre+"&inputCompañia="+criterioCompañia+"&inputGenero="+criterioGenero+"&inputPlataforma="+criterioPlataforma+"&inputEmpresa="+criterioEmpresa;
   }
 }
