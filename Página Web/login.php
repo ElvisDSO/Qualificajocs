@@ -5,7 +5,7 @@
 
   include 'functions/flags.php'; //Banderas para cambiar el idioma.
   include 'functions/userButton.php'; //Botón usuario.
-  include 'functions/footer.php'; //Footer
+  include 'functions/footerPagsExtra.php'; //Footer
   include 'functions/menuCategorias.php'; //Buscar por categoría. Buscador en el menú lateral.
   include 'functions/navbar.php'; //Bloque navbar.
   include 'functions/cookies.php'; //Función de aviso de cookies.
@@ -21,7 +21,7 @@
   <link rel="icon" type="image/png" href="images/mando-de-consola.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Qualificajocs - Página error.
+    Qualificajocs - Página login.
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -104,7 +104,7 @@
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
     <div class="container">
       <div class="navbar-wrapper">
-        <a class="navbar-brand" href="#">Volver atrás</a>
+        <a class="navbar-brand" href="#">Login page</a>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
         <span class="sr-only">Toggle navigation</span>
@@ -131,18 +131,60 @@
 
   <!-- End Navbar -->
   <div class="wrapper wrapper-full-page">
-    <div class="page-header error-page header-filter" style="background-image: url('images/fondos/fondoPagError.png')">
+    <div class="page-header error-page header-filter" style="background-image: url('images/fondos/fondoPagLogin.jpg')">
       <!--   you can change the color of the filter page using: data-color="blue | green | orange | red | purple" -->
-      <div class="content-center">
+      <div class="container">
         <div class="row">
-          <div class="col-md-12">
-            <h1 class="title">404</h1>
-            <h2>Page not found :(</h2>
-            <h4>Ooooups! Looks like you got lost.</h4>
+          <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+            <form class="form" method="" action="">
+              <div class="card card-login card-hidden">
+                <div class="card-header card-header-primary text-center">
+                  <h4 class="card-title">Login</h4>
+                  <div class="social-line">
+                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                      <i class="fa fa-facebook-square"></i>
+                    </a>
+                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                      <i class="fa fa-google-plus"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body ">
+                  <p class="card-description text-center">Or Be Classical</p>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="material-icons">face</i>
+                        </span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="First Name...">
+                    </div>
+                  </span>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="material-icons">lock_outline</i>
+                        </span>
+                      </div>
+                      <input type="password" class="form-control" placeholder="Password...">
+                    </div>
+                  </span>
+                </div>
+                <div class="card-footer justify-content-center">
+                  <a href="#pablo" class="btn btn-primary btn-link btn-lg">Ok</a>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-      <?php footerPagsError(); ?>
+      <?php footerPagsExtra(); ?>
+      
     </div>
   </div>
   <!--   Core JS Files   -->
