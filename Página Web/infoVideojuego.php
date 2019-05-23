@@ -181,94 +181,35 @@
 
 <body style="margin-top:-20px">
   <div class="wrapper">
-    <form method="post" action="panelBusqueda.php">
-      <div class="sidebar" data-color="rose" data-background-color="black" data-image="images/sidebar-0.jpg">
-        <?php logo(); ?>
-        <div class="sidebar-wrapper">
-          <?php menuCategorias();?>
-        </div>
+    <div class="sidebar" data-color="rose" data-background-color="black" data-image="images/sidebar-0.jpg">
+      <?php logo(); ?>
+      <div class="sidebar-wrapper">
+        <?php menuCategorias();?>
       </div>
+    </div>
 
-      <div class="main-panel">
-        <!-- Navbar -->
-        <?php navbar();?>
-        <!-- End Navbar -->
-        <div style="margin-top: 70px; padding: 45px 15px 2px">
-          <div class="container-fluid">
-            <div class="row">
-              <!-- Carga todos los valores introducidos por el usuario. -->
-              <input type="hidden" id="inputID" name="inputID" value="<?php echo $criterioID; ?>">
-              <input type="hidden" id="inputComercio" name="inputComercio" value="<?php echo $criterioComercio; ?>">
-              <input type="hidden" id="inputProducto" name="inputProducto" value="<?php echo $criterioProducto; ?>">
-              <input type="hidden" id="inputGeografico" name="inputGeografico" value="<?php echo $criterioGeografico; ?>">
-              <input type="hidden" id="inputActividad" name="inputActividad" value="<?php echo $criterioActividad; ?>">
-              <input type="hidden" id="inputGrupo" name="inputGrupo" value="<?php echo $criterioGrupo; ?>">
-            </div>
-          </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <?php navbar();?>
+      <!-- End Navbar -->
+      <div style="margin-top: 90px; padding: 45px 15px 2px">
+        <div class="container-fluid">
+          <!-- Carga todos los valores introducidos por el usuario. -->
+          <input type="hidden" id="inputID" name="inputID" value="<?php echo $criterioID; ?>">
+          <input type="hidden" id="inputComercio" name="inputComercio" value="<?php echo $criterioComercio; ?>">
+          <input type="hidden" id="inputProducto" name="inputProducto" value="<?php echo $criterioProducto; ?>">
+          <input type="hidden" id="inputGeografico" name="inputGeografico" value="<?php echo $criterioGeografico; ?>">
+          <input type="hidden" id="inputActividad" name="inputActividad" value="<?php echo $criterioActividad; ?>">
+          <input type="hidden" id="inputGrupo" name="inputGrupo" value="<?php echo $criterioGrupo; ?>">
           <div class="container-fluid" id="gridDatosVideojuego"></div>
         </div>
-        <?php footer();?>
       </div>
-    </form>
+      <?php footer();?>
+    </div>
   </div>
 
 <script>
-  function desplegarVideojuego(idVideojuego) {
-  var criterioIdVideojuego = idVideojuego;
-  $.ajax({
-    type: "POST",
-    dataType: "json",
-    url: "functions/datosDelVideojuego.php",
-    data: {inputID: criterioIdVideojuego},
-    success: function(data) {
-      resultadosBusqueda = data;
-
-      codigoHTML = "";
-      codigoHTML = codigoHTML.concat("<div class='col-md-8'><div class='card'><div class='card-header card-header-icon card-header-rose'>");
-      codigoHTML = codigoHTML.concat("<div class='card-icon'><i class='material-icons'>perm_identity</i></div><h4 class='card-title'>Datos del videojuego: ");
-      codigoHTML = codigoHTML.concat("</h4></div><div class='card-body'><form><div class='row'><div class='col-md-5'><div class='form-group'>");
-      codigoHTML = codigoHTML.concat("<label class='bmd-label-floating'>Nombre: ");
-      codigoHTML = codigoHTML.concat(resultadosBusqueda[0]['data'][0]);
-      codigoHTML = codigoHTML.concat("</label><input type='text' class='form-control'></div></div><div class='col-md-3'>");
-      codigoHTML = codigoHTML.concat("<div class='form-group'><label class='bmd-label-floating'>Compañía: ");
-      codigoHTML = codigoHTML.concat(resultadosBusqueda[0]['data'][1]);
-      codigoHTML = codigoHTML.concat("</label><input type='text' class='form-control'></div></div><div class='col-md-4'><div class='form-group'>");
-      codigoHTML = codigoHTML.concat("<label class='bmd-label-floating'>Género: ");
-
-      for (var i = 0; i < resultadosBusqueda[0]['gender'].lenght; i++) {
-        codigoHTML = codigoHTML.concat(resultadosBusqueda[0]['gender'][i]);  
-      }
-      
-      codigoHTML = codigoHTML.concat("</label><input type='email' class='form-control'></div></div></div><div class='row'><div class='col-md-6'>");
-      codigoHTML = codigoHTML.concat("<div class='form-group'><label class='bmd-label-floating'>Plataforma: ");
-
-      for (var i = 0; i < resultadosBusqueda[0]['platform'].lenght; i++) {
-        codigoHTML = codigoHTML.concat(resultadosBusqueda[0]['platform'][i]);  
-      }
-
-      codigoHTML = codigoHTML.concat("</label><input type='text' class='form-control'></div></div><div class='col-md-6'><div class='form-group'>");
-      codigoHTML = codigoHTML.concat("<label class='bmd-label-floating'>Fecha de lanzamiento: ");
-      codigoHTML = codigoHTML.concat(resultadosBusqueda[0]['data'][2]);
-      codigoHTML = codigoHTML.concat("</label><input type='text' class='form-control'></div></div></div><div class='row'>");
-      codigoHTML = codigoHTML.concat("<div class='col-md-12'><div class='form-group'><label class='bmd-label-floating'>Número de jugadores: ");
-      codigoHTML = codigoHTML.concat(resultadosBusqueda[0]['data'][3]);
-      codigoHTML = codigoHTML.concat("</label><input type='text' class='form-control'></div></div></div><div class='row'><div class='col-md-4'>");
-      codigoHTML = codigoHTML.concat("<div class='form-group'><label class='bmd-label-floating'>Rating: ");
-      codigoHTML = codigoHTML.concat(resultadosBusqueda[0]['data'][4]);
-      codigoHTML = codigoHTML.concat("</label><input type='text' class='form-control'></div></div><div class='col-md-4'><div class='form-group'>");
-      codigoHTML = codigoHTML.concat("<label class='bmd-label-floating'>Country</label><input type='text' class='form-control'></div></div>");
-      codigoHTML = codigoHTML.concat("<div class='col-md-4'><div class='form-group'><label class='bmd-label-floating'>Postal Code</label>");
-      codigoHTML = codigoHTML.concat("<input type='text' class='form-control'></div></div></div><div class='row'><div class='col-md-12'>");
-      codigoHTML = codigoHTML.concat("<div class='form-group'><label>About Me</label><div class='form-group'><label class='bmd-label-floating'>");
-      codigoHTML = codigoHTML.concat("Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label><textarea class='form-control' rows='5'>");
-      codigoHTML = codigoHTML.concat("</textarea></div></div></div></div><button type='submit' class='btn btn-rose pull-right'>Update Profile</button>");
-      codigoHTML = codigoHTML.concat("<div class='clearfix'></div></form></div></div></div>");
-      $("#gridDatosVideojuego").html(codigoHTML);
-    }
-  });
-}
-
-/* Cambia el estado del puntero del ratón indicando al usuario que se presenta un botón "clickeable". */
+  /* Cambia el estado del puntero del ratón indicando al usuario que se presenta un botón "clickeable". */
 
   $(document).ready(function() {
 
@@ -439,5 +380,7 @@
     });
   });
 </script>
+   
+
 </body>
 </html>
