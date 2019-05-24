@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2019 a las 00:50:57
+-- Tiempo de generación: 24-05-2019 a las 02:39:10
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -25775,6 +25775,9 @@ CREATE TABLE `textos` (
 INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('AccedeLibreria', 'Accede a tu librería', 'Enter to your library', 'Aceda à sua livraria'),
 ('Acciones', 'Acciones', 'Actions', 'Ações'),
+('AceptasTerminosDos', 'términos y condiciones', 'terms and conditions', 'termos y condições'),
+('AceptasTerminosTres', 'de la página)', 'of the page)', 'da página)'),
+('AceptasTerminosUno', '(Pulsando el botón de registro se entiende que estás de acuerdo con los', '(Pressing the register button means that you agree with the', '(A o pressionar no botão entende-se que você está de acordo com os'),
 ('AvisoLegal', 'Aviso legal.', 'Legal notice.', 'Aviso legal.'),
 ('BuscarCompañia', 'Buscar por compañía', 'Search by company', 'Procurar por companhia'),
 ('BuscarGenero', 'Buscar por genero', 'Search by gender', 'Procurar por gênero'),
@@ -25787,6 +25790,7 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('Consolas', 'Consolas', 'Consoles', 'Consolas'),
 ('ConsultaDoscientos', 'La consulta ha generado más de 200 resultados. Se muestran únicamente los 200 primeros resultados.', 'Your query has generated more than 200 results. Only the first 200 results are displayed.', 'A consulta gerou mais de 200 resultados. Só são mostrados os primeiros 200 resultados.'),
 ('Contacta', '¡Contacta con nosotros!', 'Contact with us!', 'Contacte-nos!'),
+('Contraseña', 'Contraseña', 'Password', 'Contrasenha'),
 ('Criterios', 'Criterios de búsqueda seleccionados', 'Selected search criteria', 'Critérios de pesquisa selecionados'),
 ('Descubre', 'Descubre tu videojuego', 'Discover your videogame', 'Descobre o teo videojogo'),
 ('Empresa', 'Empresa', 'Enterprise', 'Empresa'),
@@ -25794,16 +25798,21 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('Genero', 'Género', 'Gender', 'Gênero'),
 ('Inicio', 'Inicio', 'Start', 'Início'),
 ('IntroduceNombre', 'Introduce un nombre', 'Insert a name', 'Indroduza um nome'),
+('ManeraClasica', '... o sé clásico', '...or be classical', '...ou sê clássico'),
 ('MejorValorados', 'Conoce los mejores juegos.', 'Know the games with best review.', 'Conheça os melhores jogos.'),
 ('MejorValoradosDos', 'Los mejores de siempre.', 'The very best ever.', 'Os melhores de todos os tempos.'),
 ('MiColeccion', 'Mi colección', 'My collection', 'Minha coleção'),
 ('Nombre', 'Nombre', 'Name', 'Nome'),
+('NombreUsuario', 'Nombre del usuario', 'User name', 'Nome do usuário'),
 ('Pagina', 'Página', 'Page', 'Página'),
+('PaginaNoEncontrada', 'Página no encontrada :(', 'Page not found :(', 'Página não encontrada :('),
+('Perdido', 'Parece que estás perdido.', 'Looks like you got lost.', 'Parece que estás perdido.'),
 ('Perfil', 'Perfil', 'Profile', 'Perfil'),
 ('Plataforma', 'Plataforma', 'Platform', 'Plataforma'),
 ('Recomendacion', 'Basados en tus gustos.', 'Based on your tastes.', 'Baseado nos teus gostos'),
 ('RecomendacionDos', 'Descubre a qué jugar.', 'Find out what to play.', 'Descobre o que jogar.'),
 ('RedesSociales', 'Nuestras redes sociales.', 'Our social networks.', 'Nossas redes sociais.'),
+('Registrarse', 'Registrarse', 'Register', 'Registrarse'),
 ('ResultadoBusqueda', 'Resultado de la búsqueda.', 'Search result.', 'Resultado da busca.'),
 ('ResultadosObtenidos', ' resultados obtenidos.', ' results returned.', ' resultados obtidos.'),
 ('Subtitulo', 'Juega, valora, descubre.', 'Play, rate, discover.', 'Joga, valoriza, descobre.'),
@@ -25813,7 +25822,8 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('TuColeccion', 'Tus jugados, tus pendientes.', 'Your played, your pending.', 'Teus jugados, teus pendentes.'),
 ('TuColeccionDos', 'Tu colección.', 'Your collection.', 'À tua coleção.'),
 ('UnResultado', '1 resultado obtenido.', '1 result returned.', '1 resultado obtido.'),
-('Videojuegos', 'Videojuegos', 'Videogames', 'Videojogos');
+('Videojuegos', 'Videojuegos', 'Videogames', 'Videojogos'),
+('VolverAtras', 'Volver atrás', 'Get back', 'Retornar');
 
 -- --------------------------------------------------------
 

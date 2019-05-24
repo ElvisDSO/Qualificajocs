@@ -21,7 +21,7 @@
   <link rel="icon" type="image/png" href="images/mando-de-consola.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Qualificajocs - Página error.
+    Qualificajocs - Página registro.
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -105,14 +105,72 @@
 
   <!-- End Navbar -->
   <div class="wrapper wrapper-full-page">
-    <div class="page-header error-page header-filter" style="background-image: url('images/fondos/fondoPagError.png')">
-      <!--   you can change the color of the filter page using: data-color="blue | green | orange | red | purple" -->
-      <div class="content-center">
+    <div class="page-header error-page header-filter" style="background-image: url('images/fondos/fondoPagRegistro.jpg')">
+      <div class="container">
         <div class="row">
-          <div class="col-md-12">
-            <h1 class="title">404</h1>
-            <h2><?php echo $arrayRecursosIdioma['PaginaNoEncontrada']; ?></h2>
-            <h4><?php echo $arrayRecursosIdioma['Perdido']; ?></h4>
+          <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+            <form class="form" method="" action="">
+              <div class="card card-login card-hidden">
+                <div class="card-header card-header-primary text-center">
+                  <h4 class="card-title"><?php echo $arrayRecursosIdioma['Registrarse']; ?></h4>
+
+
+                  <div class="social-line">
+                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                      <i class="fa fa-facebook-square"></i>
+                    </a>
+                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                      <i class="fa fa-google-plus"></i>
+                    </a>
+                  </div>
+                </div>
+
+
+                <div class="card-body ">
+                  <p class="card-description text-center"><?php echo $arrayRecursosIdioma['ManeraClasica']; ?></p>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="material-icons">face</i>
+                        </span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="<?php echo $arrayRecursosIdioma['NombreUsuario']; ?>...">
+                    </div>
+                  </span>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="material-icons">email</i>
+                        </span>
+                      </div>
+                      <input type="email" class="form-control" placeholder="Email...">
+                    </div>
+                  </span>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="material-icons">lock_outline</i>
+                        </span>
+                      </div>
+                      <input type="password" class="form-control" placeholder="<?php echo $arrayRecursosIdioma['Contraseña']; ?>...">
+                    </div>
+                  </span>
+                  <div class="form-check">
+                    <label class="form-check-label"><?php echo $arrayRecursosIdioma['AceptasTerminosUno']; ?> 
+                      <a href="#"><?php echo $arrayRecursosIdioma['AceptasTerminosDos']; ?></a> <?php echo $arrayRecursosIdioma['AceptasTerminosTres']; ?></label>
+                  </div>
+                </div>
+                <div class="card-footer justify-content-center">
+                  <a href="index.php" class="btn btn-primary btn-link btn-lg"><?php echo $arrayRecursosIdioma['Registrarse']; ?></a>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>

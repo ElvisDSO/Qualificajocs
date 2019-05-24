@@ -17,7 +17,7 @@ function userButton(){
 			<a class="dropdown-item" href="./perfilUsuario.php"><?php echo $arrayRecursosIdioma['Perfil']; ?></a>
 			<a class="dropdown-item" href="./perfilUsuario.php"><?php echo $arrayRecursosIdioma['Configuracion']; ?></a>
 			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#"><?php echo $arrayRecursosIdioma['CerrarSesion']; ?></a>
+			<a class="dropdown-item" href="login.php"><?php echo $arrayRecursosIdioma['CerrarSesion']; ?></a>
     	</div>
 	</li>
 
