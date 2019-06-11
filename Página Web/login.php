@@ -49,7 +49,6 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js" ></script>
   <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <!--<script src="assets/js/core/jquery.min.js"></script>-->
   <script src="assets/js/core/popper.min.js"></script>
   <script src="assets/js/core/bootstrap-material-design.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -117,13 +116,13 @@
 
                   <div class="social-line">
                     <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                      <i class="fa fa-facebook-square"></i>
+                      <em class="fa fa-facebook-square"></em>
                     </a>
                     <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                      <i class="fa fa-twitter"></i>
+                      <em class="fa fa-twitter"></em>
                     </a>
                     <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                      <i class="fa fa-google-plus"></i>
+                      <em class="fa fa-google-plus"></em>
                     </a>
                   </div>
                 </div>
@@ -135,7 +134,7 @@
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text">
-                          <i class="material-icons">face</i>
+                          <em class="material-icons">face</em>
                         </span>
                       </div>
                       <input type="text" class="form-control" placeholder="<?php echo $arrayRecursosIdioma['NombreUsuario']; ?>">
@@ -145,7 +144,7 @@
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text">
-                          <i class="material-icons">lock_outline</i>
+                          <em class="material-icons">lock_outline</em>
                         </span>
                       </div>
                       <input type="password" class="form-control" placeholder="<?php echo $arrayRecursosIdioma['Contraseña']; ?>...">

@@ -13,69 +13,90 @@
 
   $arrayRecursosIdioma = recursosIdioma($idiomaActual);
 
+  $ID = "inputID";
+  $nombre = "inputNombre";
+  $genero = "inputGenero";
+  $compañia = "inputCompañia";
+  $plataforma = "inputPlataforma";
+  $empresa = "inputEmpresa";
+  $TOP = "inputTOP";
+  $recomendacion = "inputRecomendacion";
+  
+  $indefinido = "undefined";
+  $finCabeceras = "</span></b></h6>";
+
   //Se almacenan todos los valores que el usuario ha introducido.   
-  if (isset($_POST["inputID"])) { 
-    $criterioID = $_POST["inputID"];
-  } else if (isset($_GET["inputID"])) {  //desde menú izquierdo
-    $criterioID = $_GET["inputID"];
+  if (isset($_POST[$ID])) { 
+    $criterioID = $_POST[$ID];
+  } else if (isset($_GET[$ID])) {  //desde menú izquierdo
+    $criterioID = $_GET[$ID];
   } else {
     $criterioID = "";
   }
 
-  if (isset($_POST["inputNombre"])) { 
-    $criterioNombre = $_POST["inputNombre"];
-  } else if (isset($_GET["inputNombre"])) {  //desde menú izquierdo
-    $criterioNombre = $_GET["inputNombre"];
+  if (isset($_POST[$nombre])) { 
+    $criterioNombre = $_POST[$nombre];
+  } else if (isset($_GET[$nombre])) {  //desde menú izquierdo
+    $criterioNombre = $_GET[$nombre];
   } else {
     $criterioNombre = "";
   }
 
-  if (isset($_POST["inputGenero"])) {
-    $criterioGenero = $_POST["inputGenero"];
-  } else if (isset($_GET["inputGenero"])) {  // desde menú izquierdo
-    $criterioGenero = $_GET["inputGenero"];
+  if (isset($_POST[$genero])) {
+    $criterioGenero = $_POST[$genero];
+  } else if (isset($_GET[$genero])) {  // desde menú izquierdo
+    $criterioGenero = $_GET[$genero];
   } else {
     $criterioGenero = "";
   }
-  if (isset($_POST["inputCompañia"])) {
-    $criterioCompañia = $_POST["inputCompañia"];
-  } else if (isset($_GET["inputCompañia"])) {  // hemos llegado aquí desde menú izquierdo
-    $criterioCompañia = $_GET["inputCompañia"];
+  if (isset($_POST[$compañia])) {
+    $criterioCompañia = $_POST[$compañia];
+  } else if (isset($_GET[$compañia])) {  // hemos llegado aquí desde menú izquierdo
+    $criterioCompañia = $_GET[$compañia];
   } else {
     $criterioCompañia = "";
   }
 
-  if (isset($_POST["inputPlataforma"])) {
-    $criterioPlataforma = $_POST["inputPlataforma"];
-  } else if (isset($_GET["inputPlataforma"])) {  // hemos llegado aquí desde menú izquierdo
-    $criterioPlataforma = $_GET["inputPlataforma"];
+  if (isset($_POST[$plataforma])) {
+    $criterioPlataforma = $_POST[$plataforma];
+  } else if (isset($_GET[$plataforma])) {  // hemos llegado aquí desde menú izquierdo
+    $criterioPlataforma = $_GET[$plataforma];
   } else {
     $criterioPlataforma = "";
   }
 
-  if (isset($_POST["inputEmpresa"])) {
-    $criterioEmpresa = $_POST["inputEmpresa"];
-  } else if (isset($_GET["inputEmpresa"])) {  // hemos llegado aquí desde menú izquierdo
-    $criterioEmpresa = $_GET["inputEmpresa"];
+  if (isset($_POST[$empresa])) {
+    $criterioEmpresa = $_POST[$empresa];
+  } else if (isset($_GET[$empresa])) {  // hemos llegado aquí desde menú izquierdo
+    $criterioEmpresa = $_GET[$empresa];
   } else {
     $criterioEmpresa = "";
   }
 
-  if (isset($_POST["inputTOP"])) {
-    $criterioTOP = $_POST["inputTOP"];
-  } else if (isset($_GET["inputTOP"])) {  // hemos llegado aquí desde menú izquierdo
-    $criterioTOP = $_GET["inputTOP"];
+  if (isset($_POST[$TOP])) {
+    $criterioTOP = $_POST[$TOP];
+  } else if (isset($_GET[$TOP])) {  // hemos llegado aquí desde menú izquierdo
+    $criterioTOP = $_GET[$TOP];
   } else {
     $criterioTOP = "";
   }
 
-  if (isset($_POST["inputRecomendacion"])) {
-    $criterioRecomendacion = $_POST["inputRecomendacion"];
-  } else if (isset($_GET["inputRecomendacion"])) {  // hemos llegado aquí desde menú izquierdo
-    $criterioRecomendacion = $_GET["inputRecomendacion"];
+  if (isset($_POST[$recomendacion])) {
+    $criterioRecomendacion = $_POST[$recomendacion];
+  } else if (isset($_GET[$recomendacion])) {  // hemos llegado aquí desde menú izquierdo
+    $criterioRecomendacion = $_GET[$recomendacion];
   } else {
     $criterioRecomendacion = "";
   }
+
+  //Variables de seguridad, almacenan los criterios anteriormente guardados.
+  $safeCriterioNombre = htmlspecialchars($criterioNombre);
+  $safeCriterioGenero = htmlspecialchars($criterioGenero);
+  $safeCriterioCompañia = htmlspecialchars($criterioCompañia);
+  $safeCriterioPlataforma = htmlspecialchars($criterioPlataforma);
+  $safeCriterioEmpresa = htmlspecialchars($criterioEmpresa);
+  $safeCriterioTOP = htmlspecialchars($criterioTOP);
+  $safeCriterioRecomendacion = htmlspecialchars($criterioRecomendacion);
 
 ?>
 <html lang="en">
@@ -113,7 +134,6 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js" ></script>
   <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <!--<script src="assets/js/core/jquery.min.js"></script>-->
   <script src="assets/js/core/popper.min.js"></script>
   <script src="assets/js/core/bootstrap-material-design.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -151,10 +171,8 @@
   <script src="assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="assets/demo/demo.js"></script>
-  
   <!-- fichero javascript con funciones de búsqueda -->
   <script src="js/panelBusqueda.js"></script>
-  
   <!-- Script de carga del aviso de las cookies. -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
   <?php cookies(); ?>
@@ -182,7 +200,7 @@
 </head>
 
 <div class="ajax-loader" id="ajax-loader">
-  <img src="images/cargando.gif" class="img-responsive" />
+  <img alt="cargando" src="images/cargando.gif" class="img-responsive" />
 </div>
 
 <div id="divBusqueda" class="border shadow-lg p-4 mb-4 bg-light" style="display:none; padding:20px; background-color: #FFFFFF; z-index: 100000; position: absolute; top: 300px; left: 250px"></div>
@@ -208,47 +226,51 @@
         <div class="container col-lg-1 col-md-1 col-sm-1"></div><!-- Bloque vacío por cuestiones estéticas. -->
         <div class="container col-lg-6 col-md-6 col-sm-6 border border-right-0" style="padding-left:40px">
           <!-- Mostrador de criterios introducidos -->
-          <h5 style="line-height:0.6!important; margin: 20px 0 20px;"><font face="Tw Cen MT" color="#666666"><?php echo $arrayRecursosIdioma['Criterios']; ?></font></h5><hr>
+          <h5 style="line-height:0.6!important; margin: 20px 0 20px;">
+            <?php echo $arrayRecursosIdioma['Criterios']; ?> 
+          </h5>
+          <hr>
           <?php
-            if ($criterioNombre <> "" && $criterioNombre <> "undefined"){
+            if ($safeCriterioNombre <> "" && $safeCriterioNombre <> $indefinido){
               echo "<h6 id='tituloCriterioNombre'>";
               echo $arrayRecursosIdioma['Nombre'];
-              echo ": <b><span id='spanCriterioNombre'>".$criterioNombre."</span></b></h6>";
+              echo ": <b><span id='spanCriterioNombre'>".$safeCriterioNombre."".$finCabeceras;
             } else {
               echo "<h6 id='tituloCriterioNombre' style='display:none'>";
               echo $arrayRecursosIdioma['Nombre'];
-              echo ": <b><span id='spanCriterioNombre'></span></b></h6>";
+              echo ": <b><span id='spanCriterioNombre'>".$finCabeceras;
             }
-            if ($criterioGenero <> "" && $criterioGenero <> "undefined"){
+            if ($safeCriterioGenero <> "" && $safeCriterioGenero <> $indefinido){
               echo "<h6 id='tituloCriterioGenero' >";
               echo $arrayRecursosIdioma['Genero'];
-              echo ": <b><span id='spanCriterioGenero'>".$criterioGenero."</span></b></h6>";
+              echo ": <b><span id='spanCriterioGenero'>".$safeCriterioGenero."".$finCabeceras;
             } else {
               echo "<h6 id='tituloCriterioGenero' style='display:none'>";
               echo $arrayRecursosIdioma['Genero'];
-              echo ": <b><span id='spanCriterioGenero'></span></b></h6>";
+              echo ": <b><span id='spanCriterioGenero'>".$finCabeceras;
             }
-            if ($criterioCompañia <> "" && $criterioCompañia <> "undefined"){
+            if ($safeCriterioCompañia <> "" && $safeCriterioCompañia <> $indefinido){
               echo "<h6 id='tituloCriterioCompañia' >";
               echo $arrayRecursosIdioma['Compañia'];
-              echo ": <b><span id='spanCriterioCompañia'>".$criterioCompañia."</span></b></h6>";
+              echo ": <b><span id='spanCriterioCompañia'>".$safeCriterioCompañia."".$finCabeceras;
             } else {
               echo "<h6 id='tituloCriterioCompañia' style='display:none'>";
               echo $arrayRecursosIdioma['Compañia'];
-              echo ": <b><span id='spanCriterioCompañia'></span></b></h6>";
+              echo ": <b><span id='spanCriterioCompañia'>".$finCabeceras;
             }
-            if ($criterioPlataforma <> "" && $criterioPlataforma <> "undefined"){
+            $spanPlataforma = ": <b><span id='spanCriterioPlataforma'>";
+            if ($safeCriterioPlataforma <> "" && $safeCriterioPlataforma <> $indefinido){
               echo "<h6 id='tituloCriterioPlataforma' >";
               echo $arrayRecursosIdioma['Plataforma'];
-              echo ": <b><span id='spanCriterioPlataforma'>".$criterioPlataforma."</span></b></h6>";
-            } else if ($criterioEmpresa <> "" && $criterioEmpresa <> "undefined"){
+              echo $spanPlataforma."".$safeCriterioPlataforma."".$finCabeceras;
+            } else if ($safeCriterioEmpresa <> "" && $safeCriterioEmpresa <> $indefinido){
               echo "<h6 id='tituloCriterioPlataforma' >";
               echo $arrayRecursosIdioma['Empresa'];
-              echo ": <b><span id='spanCriterioPlataforma'>".$criterioEmpresa."</span></b></h6>";
+              echo $spanPlataforma."".$safeCriterioEmpresa."".$finCabeceras;
             } else {
               echo "<h6 id='tituloCriterioPlataforma' style='display:none'>";
               echo $arrayRecursosIdioma['Plataforma'];
-              echo ": <b><span id='spanCriterioPlataforma'></span></b></h6>";
+              echo $spanPlataforma."".$finCabeceras;
             }
           ?>
         </div>
@@ -259,7 +281,7 @@
           <div class="col-lg-6 col-md-12 col-sm-12" id="paginacion" style="text-align: right"></div>
           <div class="col-lg-6 col-md-12 col-sm-12" id="numResultados" style="text-align: right"></div>
         </div>
-        <div class="container-fluid" id="gridResultados"></div> <!-- El ID gridResultados determina el bloque donde se impriman todos los resultados generados en funciones.js (más concretamente en la variable "codigoHTML") -->
+        <div class="container-fluid" id="gridResultados"></div> <!-- El ID gridResultados determina el bloque donde se impriman los resultados generados en funciones.js (más concretamente en la variable "codigoHTML") -->
       </div>
       <?php footer();?>
     </div>
@@ -284,11 +306,11 @@
     });
 
     // Inicializar variables con criterios de búsqueda
-    var criterioNombre = "<?php echo $criterioNombre; ?>";
-    var criterioCompañia = "<?php echo $criterioCompañia; ?>";
-    var criterioGenero = "<?php echo $criterioGenero; ?>";
-    var criterioPlataforma = "<?php echo $criterioPlataforma; ?>";
-    var criterioEmpresa = "<?php echo $criterioEmpresa; ?>";
+    var criterioNombre = "<?php echo $safeCriterioNombre; ?>";
+    var criterioCompañia = "<?php echo $safeCriterioCompañia; ?>";
+    var criterioGenero = "<?php echo $safeCriterioGenero; ?>";
+    var criterioPlataforma = "<?php echo $safeCriterioPlataforma; ?>";
+    var criterioEmpresa = "<?php echo $safeCriterioEmpresa; ?>";
 
     // Actualizar inputs con criterios
     $("#inputNombre").val(criterioNombre);

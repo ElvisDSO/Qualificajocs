@@ -62,10 +62,10 @@ function desplegarVideojuego(idVideojuego) {
       codigoHTML = codigoHTML.concat(resultadosBusqueda[0]['data'][1]);
       codigoHTML = codigoHTML.concat("</h4><p class='card-description'>");
       codigoHTML = codigoHTML.concat("It was so nice throwing big parties. Jumping to the pool from the balcony. Everyone swimming in a champagne sea.");
-      codigoHTML = codigoHTML.concat("And there are no rules when you show up here. Bass beat rattling the chandelier. Feeling so Gatsby for that whole year. ");
-      codigoHTML = codigoHTML.concat("So why'd you have to rain on my parade? I'm shaking my head. I'm locking the gates. This is why we can't have nice things, darling");
-      codigoHTML = codigoHTML.concat("Because you break them. I had to take them away. This is why we can't have nice things, honey");
-      codigoHTML = codigoHTML.concat("Did you think I wouldn't hear all the things you said about me? This is why we can't have nice things. ");
+      codigoHTML = codigoHTML.concat(" And there are no rules when you show up here. Bass beat rattling the chandelier. Feeling so Gatsby for that whole year.");
+      codigoHTML = codigoHTML.concat(" So why'd you have to rain on my parade? I'm shaking my head. I'm locking the gates. This is why we can't have nice things, darling.");
+      codigoHTML = codigoHTML.concat(" Because you break them. I had to take them away. This is why we can't have nice things, honey.");
+      codigoHTML = codigoHTML.concat(" Did you think I wouldn't hear all the things you said about me? This is why we can't have nice things.");
       codigoHTML = codigoHTML.concat("</p><a href='#' class='btn btn-primary btn-round'>X / 10</a></div></div></div></div>");
 
       $("#gridDatosVideojuego").html(codigoHTML);

@@ -50,7 +50,6 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js" ></script>
   <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <!--<script src="assets/js/core/jquery.min.js"></script>-->
   <script src="assets/js/core/popper.min.js"></script>
   <script src="assets/js/core/bootstrap-material-design.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -132,7 +131,7 @@
                 <div class="card card-stats">
                   <div class="card-header card-header-warning card-header-icon">
                     <div class="card-icon">
-                      <i class="material-icons">star</i>
+                      <em class="material-icons">star</em>
                     </div>
                     <p class="card-category"><?php echo $arrayRecursosIdioma['MejorValoradosDos']; ?></p>
                     <h3 class="card-title"><?php echo $arrayRecursosIdioma['MejorValorados']; ?></h3>
@@ -149,7 +148,7 @@
                 <div class="card card-stats">
                   <div class="card-header card-header-danger card-header-icon">
                     <div class="card-icon">
-                      <i class="material-icons">library_books</i>
+                      <em class="material-icons">library_books</em>
                     </div>
                     <p class="card-category"><?php echo $arrayRecursosIdioma['TuColeccionDos']; ?></p>
                     <h3 class="card-title"><?php echo $arrayRecursosIdioma['TuColeccion']; ?></h3>
@@ -166,7 +165,7 @@
                 <div class="card card-stats">
                   <div class="card-header card-header-success card-header-icon">
                     <div class="card-icon">
-                      <i class="material-icons">find_in_page</i>
+                      <em class="material-icons">find_in_page</em>
                     </div>
                     <p class="card-category"><?php echo $arrayRecursosIdioma['RecomendacionDos']; ?></p>
                     <h3 class="card-title"><?php echo $arrayRecursosIdioma['Recomendacion']; ?></h3>

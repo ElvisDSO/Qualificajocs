@@ -13,6 +13,14 @@
   include_once 'functions/recursosIdioma.php'; //Traducción de los párrafos existentes
 
   $arrayRecursosIdioma = recursosIdioma($idiomaActual);
+  $ID = "inputID";
+  $nombre = "inputNombre";
+  $genero = "inputGenero";
+  $compañia = "inputCompañia";
+  $plataforma = "inputPlataforma";
+  $empresa = "inputEmpresa";
+  $TOP = "inputTOP";
+  $recomendacion = "inputRecomendacion";
 
   foreach($_GET as $key => $value) {
     if (strpos($key, 'inputID') === 0) {
@@ -20,69 +28,17 @@
     }
   }
 
+  $criterioID = "";
+
   //Se almacenan todos los valores que el usuario ha introducido.   
-  if (isset($_POST["inputID"])) { 
-    $criterioID = $_POST["inputID"];
-  } else if (isset($_GET["inputID"])) {  //desde menú izquierdo
-    $criterioID = $_GET["inputID"];
-  } else {
-    $criterioID = "";
+  if (isset($_POST[$ID])) { 
+    $criterioID = $_POST[$ID];
+  } else if (isset($_GET[$ID])) {  //desde menú izquierdo
+    $criterioID = $_GET[$ID];
   }
 
-  if (isset($_POST["inputNombre"])) { 
-    $criterioNombre = $_POST["inputNombre"];
-  } else if (isset($_GET["inputNombre"])) {  //desde menú izquierdo
-    $criterioNombre = $_GET["inputNombre"];
-  } else {
-    $criterioNombre = "";
-  }
-
-  if (isset($_POST["inputGenero"])) {
-    $criterioGenero = $_POST["inputGenero"];
-  } else if (isset($_GET["inputGenero"])) {  // desde menú izquierdo
-    $criterioGenero = $_GET["inputGenero"];
-  } else {
-    $criterioGenero = "";
-  }
-  if (isset($_POST["inputCompañia"])) {
-    $criterioCompañia = $_POST["inputCompañia"];
-  } else if (isset($_GET["inputCompañia"])) {  // hemos llegado aquí desde menú izquierdo
-    $criterioCompañia = $_GET["inputCompañia"];
-  } else {
-    $criterioCompañia = "";
-  }
-
-  if (isset($_POST["inputPlataforma"])) {
-    $criterioPlataforma = $_POST["inputPlataforma"];
-  } else if (isset($_GET["inputPlataforma"])) {  // hemos llegado aquí desde menú izquierdo
-    $criterioPlataforma = $_GET["inputPlataforma"];
-  } else {
-    $criterioPlataforma = "";
-  }
-
-  if (isset($_POST["inputEmpresa"])) {
-    $criterioEmpresa = $_POST["inputEmpresa"];
-  } else if (isset($_GET["inputEmpresa"])) {  // hemos llegado aquí desde menú izquierdo
-    $criterioEmpresa = $_GET["inputEmpresa"];
-  } else {
-    $criterioEmpresa = "";
-  }
-
-  if (isset($_POST["inputTOP"])) {
-    $criterioTOP = $_POST["inputTOP"];
-  } else if (isset($_GET["inputTOP"])) {  // hemos llegado aquí desde menú izquierdo
-    $criterioTOP = $_GET["inputTOP"];
-  } else {
-    $criterioTOP = "";
-  }
-
-  if (isset($_POST["inputRecomendacion"])) {
-    $criterioRecomendacion = $_POST["inputRecomendacion"];
-  } else if (isset($_GET["inputRecomendacion"])) {  // hemos llegado aquí desde menú izquierdo
-    $criterioRecomendacion = $_GET["inputRecomendacion"];
-  } else {
-    $criterioRecomendacion = "";
-  }
+  //Variables de seguridad, almacenan los criterios anteriormente guardados.
+  $safeCriterioID = htmlspecialchars($criterioID);
 
 ?>
 <html lang="en">
@@ -120,7 +76,6 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js" ></script>
   <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <!--<script src="assets/js/core/jquery.min.js"></script>-->
   <script src="assets/js/core/popper.min.js"></script>
   <script src="assets/js/core/bootstrap-material-design.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -194,13 +149,8 @@
       <!-- End Navbar -->
       <div style="margin-top: 90px; padding: 45px 15px 2px">
         <div class="container-fluid">
-          <!-- Carga todos los valores introducidos por el usuario. -->
-          <input type="hidden" id="inputID" name="inputID" value="<?php echo $criterioID; ?>">
-          <input type="hidden" id="inputComercio" name="inputComercio" value="<?php echo $criterioComercio; ?>">
-          <input type="hidden" id="inputProducto" name="inputProducto" value="<?php echo $criterioProducto; ?>">
-          <input type="hidden" id="inputGeografico" name="inputGeografico" value="<?php echo $criterioGeografico; ?>">
-          <input type="hidden" id="inputActividad" name="inputActividad" value="<?php echo $criterioActividad; ?>">
-          <input type="hidden" id="inputGrupo" name="inputGrupo" value="<?php echo $criterioGrupo; ?>">
+          <!-- Carga los valores introducidos por el usuario. -->
+          <input type="hidden" id="inputID" name="inputID" value="<?php echo $safeCriterioID; ?>">
           <div class="container-fluid" id="gridDatosVideojuego"></div>
         </div>
       </div>
