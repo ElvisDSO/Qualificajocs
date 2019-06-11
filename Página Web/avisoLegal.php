@@ -125,7 +125,57 @@
         <div style="margin-top: 70px; padding: 45px 15px 2px">
           <div class="container-fluid">
             <div class="row">
-              
+              <div class="col-md-12">
+                <h2>Aviso Legal</h2>
+              </div>
+              <div class="col-md-12">
+                <h3></h3>
+                <p></p>
+              </div>
+              <div class="col-md-12">
+                <h3></h3>
+                <p></p>
+              </div>
+              <div class="col-md-12">
+                <h3></h3>
+                <p></p>
+              </div>
+              <div class="col-md-12">
+                <h3></h3>
+                <p></p>
+              </div>
+              <div class="col-md-12">
+                <h3></h3>
+                <p></p>
+              </div>
+              <div class="col-md-12">
+                <h3></h3>
+                <p></p>
+              </div>
+              <div class="col-md-12">
+                <h3></h3>
+                <p></p>
+              </div>
+              <div class="col-md-12">
+                <h3></h3>
+                <p></p>
+              </div>
+              <div class="col-md-12">
+                <h3></h3>
+                <p></p>
+              </div>
+              <div class="col-md-12">
+                <h3></h3>
+                <p></p>
+              </div>
+              <div class="col-md-12">
+                <h3></h3>
+                <p></p>
+              </div>
+              <div class="col-md-12">
+                <h3></h3>
+                <p></p>
+              </div>              
             </div>
           </div>
         </div>
