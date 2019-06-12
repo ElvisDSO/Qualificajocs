@@ -4,9 +4,7 @@
 function obtenerSectores() {
   global $connection;
   //Variable que contendrá el resultado de la búsqueda
-  $text = '';
   connect();
-  $codigoHTML = "";
   //Contulta para recoger la información de todas las actividades
   $sqlSector = "SELECT ID_SECTOR, NOMBRE_SECTOR FROM sector";
   $resultSector = mysqli_query($connection, $sqlSector); //Ejecución de la consulta
@@ -35,9 +33,7 @@ function obtenerEmpresa() {
   global $connection;
 
   //Variable que contendrá el resultado de la búsqueda
-  $text = '';
   connect();
-  $codigoHTML = "";
   //Consulta para recoger la información de todas las plataformas
   $sqlEmpresa = "SELECT ID_EMPRESA, NOMBRE_EMPRESA FROM empresa ORDER BY ID_EMPRESA";
   $resultEmpresa = mysqli_query($connection, $sqlEmpresa); //Ejecución de la consulta
@@ -66,9 +62,7 @@ function obtenerPlataforma() {
   global $connection;
 
   //Variable que contendrá el resultado de la búsqueda
-  $text = '';
   connect();
-  $codigoHTML = "";
   //Consulta para recoger la información de todas las plataformas
   $sqlPlataforma = "SELECT ID_PLATAFORMA, ID_EMPRESA, PLATAFORMA FROM plataforma ORDER BY ID_PLATAFORMA";
   $resultPlataforma = mysqli_query($connection, $sqlPlataforma); //Ejecución de la consulta
@@ -98,9 +92,7 @@ function obtenerCompañia() {
   global $connection;
 
   //Variable que contendrá el resultado de la búsqueda
-  $text = '';
   connect();
-  $codigoHTML = "";
   //Consulta para recoger la información de todas las plataformas
   $sqlCompañia = "SELECT ID_COMPAÑIA, NOMBRE_COMPAÑIA FROM compañia ORDER BY NOMBRE_COMPAÑIA";
   $resultCompañia = mysqli_query($connection, $sqlCompañia); //Ejecución de la consulta
@@ -132,9 +124,7 @@ function obtenerGenero() {
   include 'establecerIdioma.php'; 
 
   //Variable que contendrá el resultado de la búsqueda
-  $text = '';
   connect();
-  $codigoHTML = "";
   //Contulta para recoger la información de todas las actividades
   $sqlGenero = "SELECT ID_GENERO, NOMBRE_GENERO_". $idiomaActual ." FROM genero ORDER BY NOMBRE_GENERO_". $idiomaActual;
   $resultGenero = mysqli_query($connection, $sqlGenero); //Ejecución de la consulta

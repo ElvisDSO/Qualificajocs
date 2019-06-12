@@ -36,22 +36,21 @@ if (isset($_POST["genero"])){//Si ha introducido un género.
     $sqlVideojuegos .= " AND NOMBRE_GENERO_". $idiomaActual ." LIKE '%".$genero."%'";
 }
 
-if (isset($_POST["plataforma"])){//Si ha introducido una plataforma
-	if ($_POST["plataforma"] <> "undefined"){
-		$plataforma = $_POST["plataforma"];
-		$sqlVideojuegos .= " AND plataforma.PLATAFORMA LIKE '%".$plataforma."%'";
-
-	}
+$p = "plataforma";
+if (isset($_POST[$p]) && $_POST[$p] <> "undefined"){//Si ha introducido una plataforma
+	$plataforma = $_POST[$p];
+	$sqlVideojuegos .= " AND plataforma.PLATAFORMA LIKE '%".$plataforma."%'";
 }
-if (isset($_POST["empresa"])){//Si ha introducido una empresa.
-	if ($_POST["empresa"] <> "undefined"){
-        $empresa = $_POST["empresa"];
-        $sqlVideojuegos .= " AND empresa.NOMBRE_EMPRESA LIKE '%".$empresa."%'";
 
-	}
+$e = "empresa";
+if (isset($_POST[$e]) && $_POST[$e] <> "undefined"){//Si ha introducido una empresa.
+    $empresa = $_POST[$e];
+    $sqlVideojuegos .= " AND empresa.NOMBRE_EMPRESA LIKE '%".$empresa."%'";
 }
-if (isset($_POST["compañia"])){//Si ha introducido una compañía.
-    $compañia = $_POST["compañia"];
+
+$c = "compañia";
+if (isset($_POST[$c])){//Si ha introducido una compañía.
+    $compañia = $_POST[$c];
     $sqlVideojuegos .= " AND NOMBRE_COMPAÑIA LIKE '%".$compañia."%'";
 }
 
@@ -59,7 +58,6 @@ $sqlVideojuegos .= " GROUP BY ID_VIDEOJUEGO ORDER BY NOMBRE";
 
 //Limitar la búsqueda de juegos a 200.
 $sqlVideojuegos .= " LIMIT 200";
-//echo $sqlVideojuegos;
 
 $resultVideojuegos = mysqli_query($connection, $sqlVideojuegos); //Ejecución de la consulta
 $videojuegosReturn = array();

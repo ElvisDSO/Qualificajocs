@@ -15,12 +15,12 @@ function navbarPagsExtra(){
         <ul class="navbar-nav">
           <li class="nav-item ">
             <a href="registro.php" class="nav-link">
-              <i class="material-icons">person_add</i> <?php echo $arrayRecursosIdioma['Registrarse']; ?>
+              <em class="material-icons">person_add</em> <?php echo $arrayRecursosIdioma['Registrarse']; ?>
             </a>
           </li>
           <li class="nav-item ">
             <a href="login.php" class="nav-link">
-              <i class="material-icons">fingerprint</i> Login
+              <em class="material-icons">fingerprint</em> Login
             </a>
           </li>
           <div class="navbar-collapse collapse justify-content-end">

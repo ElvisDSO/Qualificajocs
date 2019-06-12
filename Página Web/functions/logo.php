@@ -7,7 +7,7 @@
 ?>
 <div class="logo">
 	<a href="./index.php" class="simple-text logo-normal">
-		<img src="images/logo.png">
+		<img src="images/logo.png" alt="Logo de Qualificajocs.">
 	</a>
 </div>
 

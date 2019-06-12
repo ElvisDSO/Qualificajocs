@@ -1,0 +1,185 @@
+Environment variables:
+  - =C:=C:\Users\Elvis\Documents\GitHub\Qualificajocs
+  - ALLUSERSPROFILE=C:\ProgramData
+  - APPDATA=C:\Users\Elvis\AppData\Roaming
+  - COMPUTERNAME=DESKTOP-QII8V56
+  - ComSpec=C:\Windows\system32\cmd.exe
+  - CommonProgramFiles=C:\Program Files\Common Files
+  - CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+  - CommonProgramW6432=C:\Program Files\Common Files
+  - DriverData=C:\Windows\System32\Drivers\DriverData
+  - ERROR_CODE=0
+  - HOMEDRIVE=C:
+  - HOMEPATH=\Users\Elvis
+  - JAVA_EXEC="C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\bin\..\jre\bin\java.exe"
+  - JAVA_HOME=C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\bin\..\jre
+  - LOCALAPPDATA=C:\Users\Elvis\AppData\Local
+  - LOGONSERVER=\\DESKTOP-QII8V56
+  - NUMBER_OF_PROCESSORS=6
+  - OS=Windows_NT
+  - OneDrive=C:\Users\Elvis\OneDrive
+  - OneDriveConsumer=C:\Users\Elvis\OneDrive
+  - PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+  - PROCESSOR_ARCHITECTURE=AMD64
+  - PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+  - PROCESSOR_LEVEL=6
+  - PROCESSOR_REVISION=9e0a
+  - PROJECT_HOME=C:\Users\Elvis\Documents\GitHub\Qualificajocs
+  - PROMPT=$P$G
+  - PSModulePath=C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files\Intel\Wired Networking\
+  - PUBLIC=C:\Users\Public
+  - Path=C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Symfony;C:\Program Files\Java\jdk1.8.0_181\bin;C:\wamp\bin\php\php5.4.3;C:\wamp64\bin\php\php5.6.40;C:\Program Files\Git\cmd;C:\ProgramData\ComposerSetup\bin;C:\PHP7;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Users\Elvis\AppData\Local\Microsoft\WindowsApps;C:\Users\Elvis\AppData\Local\GitHubDesktop\bin;C:\Users\Elvis\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Elvis\AppData\Roaming\Composer\vendor\bin;C:\Users\Elvis\AppData\Roaming\npm;C:\Users\Elvis\AppData\Local\Yarn\bin;C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\bin;
+  - ProgramData=C:\ProgramData
+  - ProgramFiles=C:\Program Files
+  - ProgramFiles(x86)=C:\Program Files (x86)
+  - ProgramW6432=C:\Program Files
+  - SESSIONNAME=Console
+  - SONAR_SCANNER_HOME=C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\bin\..
+  - SystemDrive=C:
+  - SystemRoot=C:\Windows
+  - TEMP=C:\Users\Elvis\AppData\Local\Temp
+  - TMP=C:\Users\Elvis\AppData\Local\Temp
+  - USERDOMAIN=DESKTOP-QII8V56
+  - USERDOMAIN_ROAMINGPROFILE=DESKTOP-QII8V56
+  - USERNAME=Elvis
+  - USERPROFILE=C:\Users\Elvis
+  - VBOX_MSI_INSTALL_PATH=C:\Program Files\Oracle\VirtualBox\
+  - scriptdir=C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\bin
+  - use_embedded_jre=true
+  - windir=C:\Windows
+System properties:
+  - awt.toolkit=sun.awt.windows.WToolkit
+  - file.encoding=Cp1252
+  - file.encoding.pkg=sun.io
+  - file.separator=\
+  - java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment
+  - java.awt.headless=true
+  - java.awt.printerjob=sun.awt.windows.WPrinterJob
+  - java.class.path=C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\bin\..\lib\sonar-scanner-cli-3.3.0.1492.jar
+  - java.class.version=52.0
+  - java.endorsed.dirs=C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\jre\lib\endorsed
+  - java.ext.dirs=C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\jre\lib\ext;C:\Windows\Sun\Java\lib\ext
+  - java.home=C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\jre
+  - java.io.tmpdir=C:\Users\Elvis\AppData\Local\Temp\
+  - java.library.path=C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Symfony;C:\Program Files\Java\jdk1.8.0_181\bin;C:\wamp\bin\php\php5.4.3;C:\wamp64\bin\php\php5.6.40;C:\Program Files\Git\cmd;C:\ProgramData\ComposerSetup\bin;C:\PHP7;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Users\Elvis\AppData\Local\Microsoft\WindowsApps;C:\Users\Elvis\AppData\Local\GitHubDesktop\bin;C:\Users\Elvis\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Elvis\AppData\Roaming\Composer\vendor\bin;C:\Users\Elvis\AppData\Roaming\npm;C:\Users\Elvis\AppData\Local\Yarn\bin;C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\bin;;.
+  - java.runtime.name=Java(TM) SE Runtime Environment
+  - java.runtime.version=1.8.0_121-b13
+  - java.specification.name=Java Platform API Specification
+  - java.specification.vendor=Oracle Corporation
+  - java.specification.version=1.8
+  - java.vendor=Oracle Corporation
+  - java.vendor.url=http://java.oracle.com/
+  - java.vendor.url.bug=http://bugreport.sun.com/bugreport/
+  - java.version=1.8.0_121
+  - java.vm.info=mixed mode
+  - java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+  - java.vm.specification.name=Java Virtual Machine Specification
+  - java.vm.specification.vendor=Oracle Corporation
+  - java.vm.specification.version=1.8
+  - java.vm.vendor=Oracle Corporation
+  - java.vm.version=25.121-b13
+  - line.separator=
+
+  - os.arch=amd64
+  - os.name=Windows 10
+  - os.version=10.0
+  - path.separator=;
+  - project.home=C:\Users\Elvis\Documents\GitHub\Qualificajocs
+  - scanner.home=C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\bin\..
+  - sun.arch.data.model=64
+  - sun.boot.class.path=C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\jre\lib\resources.jar;C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\jre\lib\rt.jar;C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\jre\lib\sunrsasign.jar;C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\jre\lib\jsse.jar;C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\jre\lib\jce.jar;C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\jre\lib\charsets.jar;C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\jre\lib\jfr.jar;C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\jre\classes
+  - sun.boot.library.path=C:\Users\Elvis\Documents\sonar-scanner-3.3.0.1492-windows\jre\bin
+  - sun.cpu.endian=little
+  - sun.cpu.isalist=amd64
+  - sun.desktop=windows
+  - sun.io.unicode.encoding=UnicodeLittle
+  - sun.java.command=org.sonarsource.scanner.cli.Main -Dsonar.projectKey=ElvisDSO_Qualificajocs -Dsonar.organization=elvisdso-github -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=29066dff0b94749a33cfadfbeaf5bb13921eb842 -X
+  - sun.java.launcher=SUN_STANDARD
+  - sun.jnu.encoding=Cp1252
+  - sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+  - sun.os.patch.level=
+  - sun.stderr.encoding=cp850
+  - sun.stdout.encoding=cp850
+  - user.country=ES
+  - user.dir=C:\Users\Elvis\Documents\GitHub\Qualificajocs
+  - user.home=C:\Users\Elvis
+  - user.language=es
+  - user.name=Elvis
+  - user.script=
+  - user.timezone=Europe/Paris
+  - user.variant=
+SonarQube plugins:
+  - SonarCSS 1.0.3.724 (cssfamily)
+  - SonarPLSQL 3.4.1.2576 (plsql)
+  - SonarScala 1.5.0.315 (sonarscala)
+  - SonarC# 7.14.0.8411 (csharp)
+  - Vulnerability Analysis 7.8.0.4451 (security)
+  - SonarJava 5.13.0.18197 (java)
+  - SonarHTML 3.1.0.1615 (web)
+  - SonarFlex 2.4.0.1222 (flex)
+  - SonarXML 2.0.1.2020 (xml)
+  - SonarTS 1.9.0.3766 (typescript)
+  - SonarVB 7.14.0.8411 (vbnet)
+  - SonarSwift 4.1.0.3087 (swift)
+  - SonarCFamily 6.2.0.11201 (cpp)
+  - SonarPython 1.13.0.2922 (python)
+  - JaCoCo 1.0.1.143 (jacoco)
+  - Mercurial 1.1.2 (scmmercurial)
+  - SonarGo 1.1.1.2000 (go)
+  - SonarKotlin 1.5.0.315 (kotlin)
+  - SonarTSQL 1.4.0.3334 (tsql)
+  - SonarApex 1.5.0.315 (sonarapex)
+  - SonarJS 5.1.1.7506 (javascript)
+  - SonarRuby 1.5.0.315 (ruby)
+  - Vulnerability Rules for C# 7.8.0.4451 (securitycsharpfrontend)
+  - Vulnerability Rules for Java 7.8.0.4451 (securityjavafrontend)
+  - License for SonarLint 7.8.0.25899 (license)
+  - SonarCOBOL 4.4.0.3403 (cobol)
+  - Git 1.9.0.1679 (scmgit)
+  - SonarPHP 3.1.1.4762 (php)
+  - SonarABAP 3.8.0.2034 (abap)
+  - Vulnerability Rules for PHP 7.8.0.4451 (securityphpfrontend)
+Global server settings:
+  - email.from=noreply@sonarcloud.io
+  - email.fromName=SonarCloud
+  - email.prefix=[SonarCloud]
+  - sonar.auth.bitbucket.enabled=true
+  - sonar.auth.microsoft.enabled=true
+  - sonar.core.id=BD367519-AWHW8ct9-T_TB3XqouNu
+  - sonar.core.serverBaseURL=https://sonarcloud.io
+  - sonar.core.startTime=2019-06-10T14:07:40+0200
+  - sonar.cpd.cross_project=false
+  - sonar.dbcleaner.weeksBeforeDeletingAllSnapshots=480
+  - sonar.dbcleaner.weeksBeforeKeepingOnlyOneSnapshotByMonth=4
+  - sonar.dbcleaner.weeksBeforeKeepingOnlyOneSnapshotByWeek=1
+  - sonar.java.collectAnalysisErrors=true
+  - sonar.leak.period=30
+  - sonar.lf.aboutText=<div class="boxed-group" style="border: none; border-radius: 3px;">
+  <div class="boxed-group-inner clearfix" style="padding: 30px; border-radius: 3px; border: #e6e6e6 1px solid; background: #f3f3f3;">
+    <div style="overflow: hidden; line-height: 1.5; font-size: 16px;">
+      <p>
+Analyze your open source and private projects on SonarCloud.
+Select your <a href="https://about.sonarcloud.io">plan</a> and start improving. 
+      </p>
+    </div>
+  </div>
+</div>
+  - sonar.lf.enableGravatar=true
+  - sonar.lf.logoWidthPx=105
+  - sonar.organizations.anyoneCanCreate=true
+  - sonar.organizations.createPersonalOrg=true
+  - sonar.plsql.file.suffixes=sql,tab,pkb
+  - sonar.tsql.file.suffixes=.tsql
+Project server settings:
+Project scanner properties:
+  - sonar.host.url=https://sonarcloud.io
+  - sonar.login=******
+  - sonar.organization=elvisdso-github
+  - sonar.projectBaseDir=C:\Users\Elvis\Documents\GitHub\Qualificajocs
+  - sonar.projectKey=ElvisDSO_Qualificajocs
+  - sonar.scanner.app=ScannerCli
+  - sonar.scanner.appVersion=3.3.0.1492
+  - sonar.sourceEncoding=windows-1252
+  - sonar.sources=.
+  - sonar.verbose=true
+  - sonar.working.directory=C:\Users\Elvis\Documents\GitHub\Qualificajocs\.scannerwork

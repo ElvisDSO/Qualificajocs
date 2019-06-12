@@ -15,9 +15,9 @@ function navbar(){
   	    <div class="row">
           	<div class="col-md-12">
 				<!-- Título que aparece si la pantalla es grande. -->
-			  	<span id="textotitulogrande"><h3 style="line-height:0.9!important; margin: 20px 0 20px"><font face="Tw Cen MT"><?php echo $arrayRecursosIdioma['Titulo']; ?></font></h3><h4 style="line-height:0.9!important; font-family: 'Happy Monkey', cursive; color:#2A59AA;"><?php echo $arrayRecursosIdioma['Subtitulo']; ?></h4></span>
+			  	<span id="textotitulogrande"><h3 style="line-height:0.9!important; margin: 20px 0 20px"><?php echo $arrayRecursosIdioma['Titulo']; ?></h3><h4 style="line-height:0.9!important; font-family: 'Happy Monkey', cursive; color:#2A59AA;"><?php echo $arrayRecursosIdioma['Subtitulo']; ?></h4></span>
 			  	<!-- Título que aparece si la pantalla es pequeña. -->
-         	  	<span id="textotitulopeque"><h5 style="line-height:0.9!important; margin: 20px 0 20px"><font face="Tw Cen MT"><?php echo $arrayRecursosIdioma['Titulo']; ?></font></h5><h6 style="line-height:0.9!important; font-family: 'Happy Monkey', cursive; color:#2A59AA;"><?php echo $arrayRecursosIdioma['Subtitulo']; ?></h6></span>
+         	  	<span id="textotitulopeque"><h5 style="line-height:0.9!important; margin: 20px 0 20px"><?php echo $arrayRecursosIdioma['Titulo']; ?></h5><h6 style="line-height:0.9!important; font-family: 'Happy Monkey', cursive; color:#2A59AA;"><?php echo $arrayRecursosIdioma['Subtitulo']; ?></h6></span>
           	</div>
         </div>	 	
 	  	

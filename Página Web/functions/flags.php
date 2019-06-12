@@ -1,12 +1,11 @@
 <?php
-//session_start();
 /* Variable de sesión que contiene el idioma. */
 function flags(){
 	include 'establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
 ?>	
 
 <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
-<li class="nav-item dropdown">
+<ul class="nav-item dropdown">
 	<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		<?php //Impresión de bandera en la parte superior de la página dependiendo del idioma seleccionado.
 		if ($idiomaActual == "ES"){ //Bandera España.
@@ -34,7 +33,7 @@ function flags(){
         <a class="dropdown-item" onclick="definirIdioma('EN');"><img src="images/uk.png" width="25" height="25" alt="Inglés">&nbsp;UK</a>
         <a class="dropdown-item" onclick="definirIdioma('PT');"><img src="images/pt.png" width="25" height="25" alt="Portugués">&nbsp;PT</a>
     </div>
-</li>
+</ul>
 <?php 
 	}
 ?>

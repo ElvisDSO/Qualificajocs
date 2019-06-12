@@ -18,17 +18,17 @@ function footer(){
 	  	  <nav class="float-left">
 	  	  	<ul style="line-height: 0;">
 	  	  	  <li>
-	  	  	  	<i class="material-icons"></i>
-	  	  	  	<a href="#" target="_blank" class="icoFacebook a-circle" title="Facebook"><i class="fa fa-facebook"></i></a>
+	  	  	  	<em class="material-icons"></em>
+	  	  	  	<a href="#" target="_blank" class="icoFacebook a-circle" title="Facebook"><em class="fa fa-facebook"></em></a>
             </li>
             <li>
-              <a href="#" class="icoTwitter a-circle" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="icoTwitter a-circle" target="_blank" title="Twitter"><em class="fa fa-twitter"></em></a>
             </li>
             <li>
-              <a href="#" class="icoInstagram a-circle" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="icoInstagram a-circle" target="_blank" title="Instagram"><em class="fa fa-instagram"></em></a>
             </li>
             <li>
-              <a href="#" class="icoMail a-circle" title="E-mail"><i class="fa fa-envelope-o"></i></a>
+              <a href="#" class="icoMail a-circle" title="E-mail"><em class="fa fa-envelope-o"></em></a>
             </li>
             <li>
               <p class="card-category"><?php echo $arrayRecursosIdioma['Contacta']; ?></p>
@@ -57,7 +57,7 @@ function footer(){
         <nav id="iconosFooter">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <img src="images/logo.png">
+              <img src="images/logo.png" alt="Logo de Qualificajocs.">
             </li>
           </ul>
         </nav>

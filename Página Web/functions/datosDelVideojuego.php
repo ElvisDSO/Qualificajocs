@@ -28,7 +28,6 @@ $sqlGenero = "SELECT videojuegos.ID_VIDEOJUEGO, genero.NOMBRE_GENERO_". $idiomaA
 $sqlGenero .= " FROM videojuegos JOIN genero_videojuego ON videojuegos.ID_VIDEOJUEGO = genero_videojuego.ID_VIDEOJUEGO";
 $sqlGenero .= " LEFT JOIN genero ON genero_videojuego.ID_GENERO = genero.ID_GENERO WHERE";
 
-
 $sqlPlataforma = "SELECT videojuegos.ID_VIDEOJUEGO, plataforma.PLATAFORMA";
 $sqlPlataforma .= " FROM videojuegos JOIN plataforma_videojuego ON videojuegos.ID_VIDEOJUEGO = plataforma_videojuego.ID_VIDEOJUEGO";
 $sqlPlataforma .= " LEFT JOIN plataforma ON plataforma_videojuego.ID_PLATAFORMA = plataforma.ID_PLATAFORMA WHERE";
@@ -39,10 +38,6 @@ if (isset($_POST["inputID"])){
 	$sqlGenero .= " videojuegos.ID_VIDEOJUEGO = $id";
 	$sqlPlataforma .= " videojuegos.ID_VIDEOJUEGO = $id";
 }
-
-
-
-
 
 //Si hay resultados...
 $codigoHTML = "";
@@ -58,8 +53,8 @@ while($filaDatos = mysqli_fetch_assoc($resultDatos)){
 	$datos['data'][3] = $filaDatos['N_JUGADORES'];
 	$datos['data'][4] = $filaDatos['RATING'];
 	$datos['data'][5] = $filaDatos['ID_VIDEOJUEGO'];
-	//$arrayResultados[] = $datos;
 }
+
 mysqli_free_result($resultDatos);
 $resultGenero = mysqli_query($connection, $sqlGenero);
 $generoReturn = array();
@@ -68,8 +63,8 @@ $i = 0;
 while($filaGenero = mysqli_fetch_assoc($resultGenero)){
 	$datos['gender'][$i] = $filaGenero['NOMBRE_GENERO_'. $idiomaActual];
 	$i = $i + 1;
-	//$arrayResultados[] = $datos;
 }
+
 mysqli_free_result($resultGenero);
 $resultPlataforma = mysqli_query($connection, $sqlPlataforma);
 $plataformaReturn = array();
@@ -78,12 +73,10 @@ $i = 0;
 while($filaPlataforma = mysqli_fetch_assoc($resultPlataforma)){
 	$datos['platform'][$i] = $filaPlataforma['PLATAFORMA'];
 	$i = $i + 1;
-	//$arrayResultados[] = $datos;
 }
+
 $arrayResultados[] = $datos;
-
 mysqli_free_result($resultPlataforma);
-
 mysqli_close($connection);
 // Después de trabajar con la bbdd, cerramos la conexión (por seguridad, no hay que dejar conexiones abiertas)
 echo json_encode($arrayResultados);
