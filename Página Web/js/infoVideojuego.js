@@ -6,8 +6,8 @@ function desplegarVideojuego(idVideojuego) {
     url: "functions/datosDelVideojuego.php",
     data: {inputID: criterioIdVideojuego},
     success: function(data) {
-      resultadosBusqueda = data;
-      codigoHTML = "";
+      var resultadosBusqueda = data;
+      var codigoHTML = "";
       codigoHTML = codigoHTML.concat("<div class='row'><div class='col-md-8'><div class='card'><div class='card-header card-header-icon card-header-rose'>");
       codigoHTML = codigoHTML.concat("<div class='card-icon'><i class='material-icons'>perm_identity</i></div><h4 class='card-title'>Datos del videojuego: ");
       codigoHTML = codigoHTML.concat("</h4></div><div class='card-body'><form><div class='row'><div class='col-md-5'><div class='form-group'>");
@@ -34,7 +34,7 @@ function desplegarVideojuego(idVideojuego) {
       codigoHTML = codigoHTML.concat("</label><input type='text' class='form-control'></div></div><div class='col-md-12'>");
       codigoHTML = codigoHTML.concat("<div class='form-group'><label class='bmd-label-floating'>Género: ");
       
-      var i = 0;
+      i = 0;
       while (resultadosBusqueda[0]['gender'][i] != null) {
         codigoHTML = codigoHTML.concat(resultadosBusqueda[0]['gender'][i]);
         codigoHTML = codigoHTML.concat(" ");

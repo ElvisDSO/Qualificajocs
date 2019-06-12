@@ -73,15 +73,15 @@ function verPagina(paginaver, cambiar, totalPaginas) {
 function realizarBusqueda(nombrefichero,orden,idioma){
   $("#divPlataforma").hide("slow");
 
-  criterioID = $("#inputID").val();
-  criterioNombre = $("#inputNombre").val();
-  criterioCompañia = $("#inputCompañia").val();
-  criterioGenero = $("#inputGenero").val();
-  criterioPlataforma = $("#inputPlataforma").val();
-  criterioEmpresa = $("#inputEmpresa").val();
+  var criterioID = $("#inputID").val();
+  var criterioNombre = $("#inputNombre").val();
+  var criterioCompañia = $("#inputCompañia").val();
+  var criterioGenero = $("#inputGenero").val();
+  var criterioPlataforma = $("#inputPlataforma").val();
+  var criterioEmpresa = $("#inputEmpresa").val();
 
   if (idioma == "ES") {
-    traducciones = ['Acciones', 'Compañia', 'La consulta ha generado más de 200 resultados. Se muestran únicamente los 200 primeros resultados.', 'Fecha de lanzamiento', 'Género', 'Nombre', 'Resultado de la búsqueda.', ' resultados obtenidos', '1 resultado obtenido'];
+    var  traducciones = ['Acciones', 'Compañia', 'La consulta ha generado más de 200 resultados. Se muestran únicamente los 200 primeros resultados.', 'Fecha de lanzamiento', 'Género', 'Nombre', 'Resultado de la búsqueda.', ' resultados obtenidos', '1 resultado obtenido'];
   } else if (idioma == "EN") {
     traducciones = ['Actions', 'Company', 'Your query has generated more than 200 results. Only the first 200 results are displayed.', 'Launch date', 'Gender', 'Name', 'Result of the search.', ' results returned', '1 result returned'];
   } else if (idioma == "PT") {
@@ -97,11 +97,8 @@ function realizarBusqueda(nombrefichero,orden,idioma){
 		  data: {id: criterioID, nombre: criterioNombre, compañia: criterioCompañia, genero: criterioGenero, plataforma: criterioPlataforma, empresa: criterioEmpresa, orden: orden},
 		  success: function (data) {
         $("#divPlataforma").hide("slow");
-		    resultadosBusqueda = data;
-        numElementos = 0;
-        numPagina = 1;
-        paginaActiva = 1;
-        codigoHTML = "";
+		    var resultadosBusqueda = data;
+        var codigoHTML = "";
 
         codigoHTML = codigoHTML.concat("<div class='content'><div class='container-fluid'><div class='row'><div class='col-md-12'><div class='card'>");
         codigoHTML = codigoHTML.concat("<div class='card-header card-header-primary card-header-icon'><div class='card-icon'><i class='material-icons'>assignment</i>");
@@ -177,14 +174,12 @@ function realizarBusqueda(nombrefichero,orden,idioma){
         }
 
         codigoHTML = codigoHTML.concat("</tbody></table></div></div></div></div></div></div></div>");
-        //codigoHTML = codigoHTML.concat("</div>");
-		    paginaIdioma = "<?php $arrayRecursosIdioma['Pagina']; ?>";
 
         $("#gridResultados").html(codigoHTML);
         if (resultadosBusqueda.length == 1){
           var textoResultados = traducciones[8];
         } else {
-          var textoResultados = "" + resultadosBusqueda.length + "" + traducciones[7];
+          textoResultados = "" + resultadosBusqueda.length + "" + traducciones[7];
           if (resultadosBusqueda.length == 200) {
             md.showNotification('top','right',traducciones[2]);
           }

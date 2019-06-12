@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$menu = $('#menu').find('ul').find('li');
+	var $menu = $('#menu').find('ul').find('li');
 
 	$menu.hover(function() {
 		$(this).children('ul').stop();
