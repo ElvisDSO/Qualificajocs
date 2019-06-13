@@ -2,6 +2,8 @@
  //PHP include with the database access defines
  include 'config.php';
 
+ $link = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
+
 // Function to connect with the DB
 function connect(){
   global $connection;

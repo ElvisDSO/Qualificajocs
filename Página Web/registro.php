@@ -1,3 +1,7 @@
+<?php include("login.php");
+$returnUrl = $_GET["returnUrl"];
+?>
+
 <!DOCTYPE html>
 <?php
   include_once 'config/connection.php';   //Establecer conexión con la base de datos 
@@ -13,6 +17,7 @@
   include_once 'functions/recursosIdioma.php'; //Traducción de los párrafos existentes
 
   $arrayRecursosIdioma = recursosIdioma($idiomaActual);
+  
 ?>
 <html lang="en">
 
@@ -98,22 +103,19 @@
   <link rel="stylesheet" type="text/css" href="assets/css/ajusteTamPantalla.css">
 </head>
 
-<body class="off-canvas-sidebar">
+<body class="off-canvas-sidebar">  
   <!-- Navbar -->
   <?php navbarPagsExtra(); ?>
-
   <!-- End Navbar -->
   <div class="wrapper wrapper-full-page">
     <div class="page-header error-page header-filter" style="background-image: url('images/fondos/fondoPagRegistro.jpg')">
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-            <form class="form" method="" action="">
+            <form class="navbar-form" method="post">
               <div class="card card-login card-hidden">
                 <div class="card-header card-header-primary text-center">
-                  <h4 class="card-title"><?php echo $arrayRecursosIdioma['Registrarse']; ?></h4>
-
-
+                  <h4 class="card-title">Login</h4>
                   <div class="social-line">
                     <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
                       <em class="fa fa-facebook-square"></em>
@@ -126,20 +128,24 @@
                     </a>
                   </div>
                 </div>
-
-
                 <div class="card-body ">
+                    <?php
+                    if (isset($returnUrl)) {
+                    ?><div class="form-group">
+                        <input name="returnUrl" type="hidden" value="<?php echo htmlentities($returnUrl) ?>" />
+                    </div>
+                    <?php } ?>
                   <p class="card-description text-center"><?php echo $arrayRecursosIdioma['ManeraClasica']; ?></p>
-                  <span class="bmd-form-group">
+                  <!--<span class="bmd-form-group">
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text">
                           <em class="material-icons">face</em>
                         </span>
                       </div>
-                      <input type="text" class="form-control" placeholder="<?php echo $arrayRecursosIdioma['NombreUsuario']; ?>...">
+                      <input type="username" name="loginusername" class="form-control" placeholder="Username" value="<?php echo addslashes($_POST['loginusername']);?>"/>
                     </div>
-                  </span>
+                  </span> -->
                   <span class="bmd-form-group">
                     <div class="input-group">
                       <div class="input-group-prepend">
@@ -147,7 +153,7 @@
                           <em class="material-icons">email</em>
                         </span>
                       </div>
-                      <input type="email" class="form-control" placeholder="Email...">
+                      <input type="email" name="loginemail" class="form-control" placeholder="Email" value="<?php echo addslashes($_POST['loginemail']);?>"/>
                     </div>
                   </span>
                   <span class="bmd-form-group">
@@ -157,16 +163,12 @@
                           <em class="material-icons">lock_outline</em>
                         </span>
                       </div>
-                      <input type="password" class="form-control" placeholder="<?php echo $arrayRecursosIdioma['Contraseña']; ?>...">
+                      <input type="password" name="loginpassword" class="form-control" placeholder="Contraseña" value="<?php echo addslashes($_POST['loginpassword']); ?>">
                     </div>
                   </span>
-                  <div class="form-check">
-                    <label class="form-check-label"><?php echo $arrayRecursosIdioma['AceptasTerminosUno']; ?> 
-                      <a href="#"><?php echo $arrayRecursosIdioma['AceptasTerminosDos']; ?></a> <?php echo $arrayRecursosIdioma['AceptasTerminosTres']; ?></label>
-                  </div>
                 </div>
                 <div class="card-footer justify-content-center">
-                  <a href="index.php" class="btn btn-primary btn-link btn-lg"><?php echo $arrayRecursosIdioma['Registrarse']; ?></a>
+                  <input type="submit" name="submit" value="Acceder" class="btn btn-primary btn-link btn-lg" >
                 </div>
               </div>
             </form>
@@ -176,7 +178,9 @@
       <?php footerPagsExtra(); ?>
     </div>
   </div>
-  <!--   Core JS Files   -->
+
+
+<!--   Core JS Files   -->
   <script src="../../assets/js/core/jquery.min.js"></script>
   <script src="../../assets/js/core/popper.min.js"></script>
   <script src="../../assets/js/core/bootstrap-material-design.min.js"></script>

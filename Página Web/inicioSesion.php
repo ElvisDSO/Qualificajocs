@@ -1,9 +1,9 @@
+<?php include("login.php");
+$returnUrl = $_GET["returnUrl"];
+?>
+
 <!DOCTYPE html>
 <?php
-  session_start();
-  require("Auth.php");
-  $userId = Authorize();
-  
   include_once 'config/connection.php';   //Establecer conexión con la base de datos 
   include 'functions/establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
 
@@ -17,6 +17,7 @@
   include_once 'functions/recursosIdioma.php'; //Traducción de los párrafos existentes
 
   $arrayRecursosIdioma = recursosIdioma($idiomaActual);
+  
 ?>
 <html lang="en">
 
@@ -25,7 +26,7 @@
   <link rel="icon" type="image/png" href="images/mando-de-consola.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Qualificajocs - Página error.
+    Qualificajocs - Página inicio de Sesión.
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -102,26 +103,74 @@
   <link rel="stylesheet" type="text/css" href="assets/css/ajusteTamPantalla.css">
 </head>
 
-<body class="off-canvas-sidebar">
+<body class="off-canvas-sidebar">  
   <!-- Navbar -->
   <?php navbarPagsExtra(); ?>
-
   <!-- End Navbar -->
   <div class="wrapper wrapper-full-page">
-    <div class="page-header error-page header-filter" style="background-image: url('images/fondos/fondoPagError.png')">
-      <div class="content-center">
+    <div class="page-header error-page header-filter" style="background-image: url('images/fondos/fondoPagLogin.jpg')">
+      <div class="container">
         <div class="row">
-          <div class="col-md-12">
-            <h1 class="title">404</h1>
-            <h2><?php echo $arrayRecursosIdioma['PaginaNoEncontrada']; ?></h2>
-            <h4><?php echo $arrayRecursosIdioma['Perdido']; ?></h4>
+          <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+            <form class="navbar-form" method="post">
+              <div class="card card-login card-hidden">
+                <div class="card-header card-header-primary text-center">
+                  <h4 class="card-title">Login</h4>
+                  <div class="social-line">
+                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                      <em class="fa fa-facebook-square"></em>
+                    </a>
+                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                      <em class="fa fa-twitter"></em>
+                    </a>
+                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                      <em class="fa fa-google-plus"></em>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body ">
+                    <?php
+                    if (isset($returnUrl)) {
+                    ?><div class="form-group">
+                        <input name="returnUrl" type="hidden" value="<?php echo htmlentities($returnUrl) ?>" />
+                    </div>
+                    <?php } ?>
+                  <p class="card-description text-center"><?php echo $arrayRecursosIdioma['ManeraClasica']; ?></p>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <em class="material-icons">face</em>
+                        </span>
+                      </div>
+                      <input type="email" name="loginemail" class="form-control" placeholder="Email" value="<?php echo addslashes($_POST['loginemail']);?>"/>
+                    </div>
+                  </span>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <em class="material-icons">lock_outline</em>
+                        </span>
+                      </div>
+                      <input type="password" name="loginpassword" class="form-control" placeholder="Contraseña" value="<?php echo addslashes($_POST['loginpassword']); ?>">
+                    </div>
+                  </span>
+                </div>
+                <div class="card-footer justify-content-center">
+                  <input type="submit" name="submit" value="Acceder" class="btn btn-primary btn-link btn-lg" >
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
       <?php footerPagsExtra(); ?>
     </div>
   </div>
-  <!--   Core JS Files   -->
+
+
+<!--   Core JS Files   -->
   <script src="../../assets/js/core/jquery.min.js"></script>
   <script src="../../assets/js/core/popper.min.js"></script>
   <script src="../../assets/js/core/bootstrap-material-design.min.js"></script>

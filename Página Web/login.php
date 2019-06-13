@@ -1,386 +1,69 @@
-<!DOCTYPE html>
 <?php
-  include_once 'config/connection.php';   //Establecer conexión con la base de datos 
-  include 'functions/establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
+session_start();
+$returnUrl = $_POST["returnUrl"];
+if (is_null($returnUrl)) {
+    $returnUrl = "index.php";
+}
+//echo "Cierro 1:" . $_GET["logout"];
+//echo "id: " . $_SESSION['id'];
+if ($_GET["logout"]==1 AND $_SESSION['ID_USUARIO']) {
+    session_destroy();
+    $message = "Has cerrado la sesión correctamente";
+}
 
-  include 'functions/flags.php'; //Banderas para cambiar el idioma.
-  include 'functions/userButton.php'; //Botón usuario.
-  include 'functions/footerPagsExtra.php'; //Footer
-  include 'functions/menuCategorias.php'; //Buscar por categoría. Buscador en el menú lateral.
-  include 'functions/navbarPagsExtra.php'; //Bloque navbar.
-  include 'functions/cookies.php'; //Función de aviso de cookies.
-  include 'functions/logo.php'; //Logo de Qualificajocs.
-  include_once 'functions/recursosIdioma.php'; //Traducción de los párrafos existentes
+require_once("config/connection.php");
 
-  $arrayRecursosIdioma = recursosIdioma($idiomaActual);
-?>
-<html lang="en">
+if ($_POST['submit']=="Registrar"){ //Registro
+    //Comprobar mail
+    if (!$_POST['email']) $error.="<br />Por favor, introduzca su mail";
+    else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) $error.="<br />Por favor, introduzca un mail v&aacute;lido";
 
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" type="image/png" href="images/mando-de-consola.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Qualificajocs - Página login.
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link href="https://fonts.googleapis.com/css?family=Happy+Monkey" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <!-- CSS Files -->
-  <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="assets/demo/demo.css" rel="stylesheet" />
-  <link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.css" rel="stylesheet"/>
+    //Comprobar password
+    if (!$_POST['password']) $error.="<br />Por favor, introduzca su contrase&ntilde;a";
+    else{
+        if (strlen($_POST['password']) < 6) $error.="<br />La contrase&ntilde;a debe tener un m&iacute;nimo de 6 car&aacute;cteres, la tuya tiene " . strlen($_POST['password']);
+    }
 
-  <!-- Cookies -->
-  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
-  <!-- Librerías de bootstrap --> 
-  <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-  <!-- Librería de iconos. -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  
-  <!--   Core JS Files   -->
-  <script src="js/jquery-2.1.1.js"></script>
-  <script src="js/main.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js" ></script>
-  <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="assets/js/core/popper.min.js"></script>
-  <script src="assets/js/core/bootstrap-material-design.min.js"></script>
-  <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!-- Plugin for the momentJs  -->
-  <script src="assets/js/plugins/moment.min.js"></script>
-  <!--  Plugin for Sweet Alert -->
-  <script src="assets/js/plugins/sweetalert2.js"></script>
-  <!-- Forms Validations Plugin -->
-  <script src="assets/js/plugins/jquery.validate.min.js"></script>
-  <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-  <script src="assets/js/plugins/jquery.bootstrap-wizard.js"></script>
-  <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-  <script src="assets/js/plugins/bootstrap-selectpicker.js"></script>
-  <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-  <script src="assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-  <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-  <script src="assets/js/plugins/jquery.dataTables.min.js"></script>
-  <!--  Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-  <script src="assets/js/plugins/bootstrap-tagsinput.js"></script>
-  <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-  <script src="assets/js/plugins/jasny-bootstrap.min.js"></script>
-  <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-  <script src="assets/js/plugins/fullcalendar.min.js"></script>
-  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="assets/js/plugins/nouislider.min.js"></script>
-  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-  <!-- Library for adding dinamically elements -->
-  <script src="assets/js/plugins/arrive.min.js"></script>
-  <!-- Chartist JS -->
-  <script src="assets/js/plugins/chartist.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
-  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  <script src="assets/demo/demo.js"></script>
-  
-  <!-- fichero javascript con funciones de búsqueda -->
-  <script src="js/panelBusqueda.js"></script>
-  
-  <!-- Script de carga del aviso de las cookies. -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
-  <?php cookies(); ?>
-
-  <!-- Estilos para la modificación de la página en su versión web -->
-  <link rel="stylesheet" type="text/css" href="assets/css/ajusteTamPantalla.css">
-</head>
-
-<body class="off-canvas-sidebar">
-  <!-- Navbar -->
-  <?php navbarPagsExtra(); ?>
-
-  <!-- End Navbar -->
-  <div class="wrapper wrapper-full-page">
-    <div class="page-header error-page header-filter" style="background-image: url('images/fondos/fondoPagLogin.jpg')">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-            <form class="form" method="" action="">
-              <div class="card card-login card-hidden">
-                <div class="card-header card-header-primary text-center">
-                  <h4 class="card-title">Login</h4>
-
-
-                  <div class="social-line">
-                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                      <em class="fa fa-facebook-square"></em>
-                    </a>
-                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                      <em class="fa fa-twitter"></em>
-                    </a>
-                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                      <em class="fa fa-google-plus"></em>
-                    </a>
-                  </div>
-                </div>
-
-
-                <div class="card-body ">
-                  <p class="card-description text-center"><?php echo $arrayRecursosIdioma['ManeraClasica']; ?></p>
-                  <span class="bmd-form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <em class="material-icons">face</em>
-                        </span>
-                      </div>
-                      <input type="text" class="form-control" placeholder="<?php echo $arrayRecursosIdioma['NombreUsuario']; ?>">
-                    </div>
-                  </span>
-                  <span class="bmd-form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <em class="material-icons">lock_outline</em>
-                        </span>
-                      </div>
-                      <input type="password" class="form-control" placeholder="<?php echo $arrayRecursosIdioma['Contraseña']; ?>...">
-                    </div>
-                  </span>
-                </div>
-                <div class="card-footer justify-content-center">
-                  <a href="index.php" class="btn btn-primary btn-link btn-lg">Ok</a>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <?php footerPagsExtra(); ?>
-    </div>
-  </div>
-  <!--   Core JS Files   -->
-  <script src="../../assets/js/core/jquery.min.js"></script>
-  <script src="../../assets/js/core/popper.min.js"></script>
-  <script src="../../assets/js/core/bootstrap-material-design.min.js"></script>
-  <script src="../../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!-- Plugin for the momentJs  -->
-  <script src="../../assets/js/plugins/moment.min.js"></script>
-  <!--  Plugin for Sweet Alert -->
-  <script src="../../assets/js/plugins/sweetalert2.js"></script>
-  <!-- Forms Validations Plugin -->
-  <script src="../../assets/js/plugins/jquery.validate.min.js"></script>
-  <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-  <script src="../../assets/js/plugins/jquery.bootstrap-wizard.js"></script>
-  <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-  <script src="../../assets/js/plugins/bootstrap-selectpicker.js"></script>
-  <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-  <script src="../../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-  <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-  <script src="../../assets/js/plugins/jquery.dataTables.min.js"></script>
-  <!--  Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-  <script src="../../assets/js/plugins/bootstrap-tagsinput.js"></script>
-  <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-  <script src="../../assets/js/plugins/jasny-bootstrap.min.js"></script>
-  <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-  <script src="../../assets/js/plugins/fullcalendar.min.js"></script>
-  <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-  <script src="../../assets/js/plugins/jquery-jvectormap.js"></script>
-  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="../../assets/js/plugins/nouislider.min.js"></script>
-  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-  <!-- Library for adding dinamically elements -->
-  <script src="../../assets/js/plugins/arrive.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chartist JS -->
-  <script src="../../assets/js/plugins/chartist.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="../../assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../../assets/js/material-dashboard.js?v=2.1.0" type="text/javascript"></script>
-  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  <script src="../../assets/demo/demo.js"></script>
-  <script>
-    $(document).ready(function() {
-      $().ready(function() {
-        $sidebar = $('.sidebar');
-
-        $sidebar_img_container = $sidebar.find('.sidebar-background');
-
-        $full_page = $('.full-page');
-
-        $sidebar_responsive = $('body > .navbar-collapse');
-
-        window_width = $(window).width();
-
-        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
-
-        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
-          if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
-            $('.fixed-plugin .dropdown').addClass('open');
-          }
-
+    if ($error) {  //Hay errores
+        $error = "Hay error(es) en el registro: $error";
+    }
+    else { //Todo OK
+        $query= "SELECT * FROM `usuario` WHERE EMAIL ='".mysqli_real_escape_string($link, $_POST['email'])."'";
+        $result = mysqli_query($link, $query);
+        $num_results = mysqli_num_rows($result);
+        if ($num_results) { //Compruebo si el mail ya existe en la BD
+            $error = "Este email ya est&aacute; registrado. &iquest;Quieres hacer login?";
         }
+        else { //No existe el mail en la BD, todo OK
+            $query = "INSERT INTO `usuario` (EMAIL, CONTRASEÑA, USERNAME) VALUES ('".mysqli_real_escape_string($link, $_POST['email'])."', '".md5(md5($_POST['email']).$_POST['password'])."', '".mysqli_real_escape_string($link, $_POST['email'])."')";
+            mysqli_query($link, $query);
+            $message = "Registro completado";
 
-        $('.fixed-plugin a').click(function(event) {
-          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-          if ($(this).hasClass('switch-trigger')) {
-            if (event.stopPropagation) {
-              event.stopPropagation();
-            } else if (window.event) {
-              window.event.cancelBubble = true;
-            }
-          }
-        });
+            $_SESSION['id_user']=mysqli_insert_id($link);
+            //print_r($_SESSION);
 
-        $('.fixed-plugin .active-color span').click(function() {
-          $full_page_background = $('.full-page-background');
+            //Redirigir a la página de logged
+            header("Location:" . $returnUrl);
+        }
+    }
+}
 
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
+else if ($_POST['submit'] == "Acceder")  //Login
+{
+    //Uso md5 por seguridad
+    $query="SELECT * FROM `usuario` WHERE EMAIL='".mysqli_real_escape_string($link, $_POST['loginemail'])."' AND PASSWORD='".$_POST['loginpassword']."' LIMIT 1";
+    //echo $query;
+    $result = mysqli_query($link, $query);
+    $row = mysqli_fetch_array($result);
+    if ($row){  //Login correcto, actualizo log
+        $_SESSION['id_user']=$row['id_user'];
+        $queryLastLogin = "UPDATE `usuario` SET ULTIMO_LOGIN = now() WHERE ID_USUARIO = " . $row['id_user'];
+        mysqli_query($link, $queryLastLogin);
 
-          var new_color = $(this).data('color');
-
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-color', new_color);
-          }
-
-          if ($full_page.length != 0) {
-            $full_page.attr('filter-color', new_color);
-          }
-
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.attr('data-color', new_color);
-          }
-        });
-
-        $('.fixed-plugin .background-color .badge').click(function() {
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
-
-          var new_color = $(this).data('background-color');
-
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-background-color', new_color);
-          }
-        });
-
-        $('.fixed-plugin .img-holder').click(function() {
-          $full_page_background = $('.full-page-background');
-
-          $(this).parent('li').siblings().removeClass('active');
-          $(this).parent('li').addClass('active');
-
-
-          var new_image = $(this).find("img").attr('src');
-
-          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            $sidebar_img_container.fadeOut('fast', function() {
-              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-              $sidebar_img_container.fadeIn('fast');
-            });
-          }
-
-          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-            $full_page_background.fadeOut('fast', function() {
-              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-              $full_page_background.fadeIn('fast');
-            });
-          }
-
-          if ($('.switch-sidebar-image input:checked').length == 0) {
-            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-          }
-
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
-          }
-        });
-
-        $('.switch-sidebar-image input').change(function() {
-          $full_page_background = $('.full-page-background');
-
-          $input = $(this);
-
-          if ($input.is(':checked')) {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar_img_container.fadeIn('fast');
-              $sidebar.attr('data-image', '#');
-            }
-
-            if ($full_page_background.length != 0) {
-              $full_page_background.fadeIn('fast');
-              $full_page.attr('data-image', '#');
-            }
-
-            background_image = true;
-          } else {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar.removeAttr('data-image');
-              $sidebar_img_container.fadeOut('fast');
-            }
-
-            if ($full_page_background.length != 0) {
-              $full_page.removeAttr('data-image', '#');
-              $full_page_background.fadeOut('fast');
-            }
-
-            background_image = false;
-          }
-        });
-
-        $('.switch-sidebar-mini input').change(function() {
-          $body = $('body');
-
-          $input = $(this);
-
-          if (md.misc.sidebar_mini_active == true) {
-            $('body').removeClass('sidebar-mini');
-            md.misc.sidebar_mini_active = false;
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-
-          } else {
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
-            setTimeout(function() {
-              $('body').addClass('sidebar-mini');
-
-              md.misc.sidebar_mini_active = true;
-            }, 300);
-          }
-
-          // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function() {
-            window.dispatchEvent(new Event('resize'));
-          }, 180);
-
-          // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function() {
-            clearInterval(simulateWindowResize);
-          }, 1000);
-
-        });
-      });
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      md.checkFullPageBackgroundImage();
-    });
-  </script>
-</body>
-
-</html>
+        header("Location:" . $returnUrl);
+    }
+    else{
+        $error = "Acceso incorrecto. Vuelva a intentarlo";
+    }
+}
+?>
