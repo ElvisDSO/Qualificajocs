@@ -1,12 +1,9 @@
-<?php include("login.php");
-$returnUrl = $_GET["returnUrl"];
-?>
-
 <!DOCTYPE html>
 <?php
   include_once 'config/connection.php';   //Establecer conexión con la base de datos 
   include 'functions/establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
 
+  include 'functions/code_register.php'; //Script con la funcionalidad de registro.
   include 'functions/flags.php'; //Banderas para cambiar el idioma.
   include 'functions/userButton.php'; //Botón usuario.
   include 'functions/footerPagsExtra.php'; //Footer
@@ -17,7 +14,6 @@ $returnUrl = $_GET["returnUrl"];
   include_once 'functions/recursosIdioma.php'; //Traducción de los párrafos existentes
 
   $arrayRecursosIdioma = recursosIdioma($idiomaActual);
-  
 ?>
 <html lang="en">
 
@@ -103,19 +99,22 @@ $returnUrl = $_GET["returnUrl"];
   <link rel="stylesheet" type="text/css" href="assets/css/ajusteTamPantalla.css">
 </head>
 
-<body class="off-canvas-sidebar">  
+<body class="off-canvas-sidebar">
   <!-- Navbar -->
   <?php navbarPagsExtra(); ?>
+
   <!-- End Navbar -->
   <div class="wrapper wrapper-full-page">
     <div class="page-header error-page header-filter" style="background-image: url('images/fondos/fondoPagRegistro.jpg')">
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-            <form class="navbar-form" method="post">
+            <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SHELF"]); ?>" method="post">
               <div class="card card-login card-hidden">
                 <div class="card-header card-header-primary text-center">
-                  <h4 class="card-title">Login</h4>
+                  <h4 class="card-title"><?php echo $arrayRecursosIdioma['Registrarse']; ?></h4>
+
+
                   <div class="social-line">
                     <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
                       <em class="fa fa-facebook-square"></em>
@@ -128,24 +127,20 @@ $returnUrl = $_GET["returnUrl"];
                     </a>
                   </div>
                 </div>
+
                 <div class="card-body ">
-                    <?php
-                    if (isset($returnUrl)) {
-                    ?><div class="form-group">
-                        <input name="returnUrl" type="hidden" value="<?php echo htmlentities($returnUrl) ?>" />
-                    </div>
-                    <?php } ?>
                   <p class="card-description text-center"><?php echo $arrayRecursosIdioma['ManeraClasica']; ?></p>
-                  <!--<span class="bmd-form-group">
+                  <span class="bmd-form-group">
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text">
                           <em class="material-icons">face</em>
                         </span>
                       </div>
-                      <input type="username" name="loginusername" class="form-control" placeholder="Username" value="<?php echo addslashes($_POST['loginusername']);?>"/>
+                      <input type="text" class="form-control" placeholder="<?php echo $arrayRecursosIdioma['NombreUsuario']; ?>..." name="username">
                     </div>
-                  </span> -->
+                    <span class="msg-error"><?php echo $username_err; ?></span>
+                  </span>
                   <span class="bmd-form-group">
                     <div class="input-group">
                       <div class="input-group-prepend">
@@ -153,8 +148,9 @@ $returnUrl = $_GET["returnUrl"];
                           <em class="material-icons">email</em>
                         </span>
                       </div>
-                      <input type="email" name="loginemail" class="form-control" placeholder="Email" value="<?php echo addslashes($_POST['loginemail']);?>"/>
+                      <input type="email" class="form-control" placeholder="Email..." name="email">
                     </div>
+                    <span class="msg-error"><?php echo $email_err; ?></span>
                   </span>
                   <span class="bmd-form-group">
                     <div class="input-group">
@@ -163,12 +159,17 @@ $returnUrl = $_GET["returnUrl"];
                           <em class="material-icons">lock_outline</em>
                         </span>
                       </div>
-                      <input type="password" name="loginpassword" class="form-control" placeholder="Contraseña" value="<?php echo addslashes($_POST['loginpassword']); ?>">
+                      <input type="password" class="form-control" placeholder="<?php echo $arrayRecursosIdioma['Contraseña']; ?>..." name="password">
                     </div>
+                    <span class="msg-error"><?php echo $password_err; ?></span>
                   </span>
+                  <div class="form-check">
+                    <label class="form-check-label"><?php echo $arrayRecursosIdioma['AceptasTerminosUno']; ?> 
+                      <a href="#"><?php echo $arrayRecursosIdioma['AceptasTerminosDos']; ?></a> <?php echo $arrayRecursosIdioma['AceptasTerminosTres']; ?></label>
+                  </div>
                 </div>
                 <div class="card-footer justify-content-center">
-                  <input type="submit" name="submit" value="Acceder" class="btn btn-primary btn-link btn-lg" >
+                  <input type="submit" class="btn btn-primary btn-link btn-lg" value="<?php echo $arrayRecursosIdioma['Registrarse']; ?>">
                 </div>
               </div>
             </form>
@@ -179,50 +180,6 @@ $returnUrl = $_GET["returnUrl"];
     </div>
   </div>
 
-
-<!--   Core JS Files   -->
-  <script src="../../assets/js/core/jquery.min.js"></script>
-  <script src="../../assets/js/core/popper.min.js"></script>
-  <script src="../../assets/js/core/bootstrap-material-design.min.js"></script>
-  <script src="../../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!-- Plugin for the momentJs  -->
-  <script src="../../assets/js/plugins/moment.min.js"></script>
-  <!--  Plugin for Sweet Alert -->
-  <script src="../../assets/js/plugins/sweetalert2.js"></script>
-  <!-- Forms Validations Plugin -->
-  <script src="../../assets/js/plugins/jquery.validate.min.js"></script>
-  <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-  <script src="../../assets/js/plugins/jquery.bootstrap-wizard.js"></script>
-  <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-  <script src="../../assets/js/plugins/bootstrap-selectpicker.js"></script>
-  <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-  <script src="../../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-  <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-  <script src="../../assets/js/plugins/jquery.dataTables.min.js"></script>
-  <!--  Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-  <script src="../../assets/js/plugins/bootstrap-tagsinput.js"></script>
-  <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-  <script src="../../assets/js/plugins/jasny-bootstrap.min.js"></script>
-  <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-  <script src="../../assets/js/plugins/fullcalendar.min.js"></script>
-  <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-  <script src="../../assets/js/plugins/jquery-jvectormap.js"></script>
-  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="../../assets/js/plugins/nouislider.min.js"></script>
-  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-  <!-- Library for adding dinamically elements -->
-  <script src="../../assets/js/plugins/arrive.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chartist JS -->
-  <script src="../../assets/js/plugins/chartist.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="../../assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../../assets/js/material-dashboard.js?v=2.1.0" type="text/javascript"></script>
-  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  <script src="../../assets/demo/demo.js"></script>
   <script>
     $(document).ready(function() {
       $().ready(function() {

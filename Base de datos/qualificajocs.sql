@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2019 a las 14:57:41
+-- Tiempo de generación: 22-06-2019 a las 01:56:23
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -25833,9 +25833,9 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 
 CREATE TABLE `usuario` (
   `ID_USUARIO` int(11) NOT NULL,
-  `CONTRASEÑA` varchar(20) NOT NULL,
+  `PASSWORD` varchar(20) NOT NULL,
   `NOMBRE_USUARIO` varchar(20) NOT NULL,
-  `APELLIDOS_USUARIO` varchar(40) NOT NULL,
+  `NOMBRE_REAL_USUARIO` varchar(40) NOT NULL,
   `EMAIL` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -25843,7 +25843,7 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`ID_USUARIO`, `CONTRASEÑA`, `NOMBRE_USUARIO`, `APELLIDOS_USUARIO`, `EMAIL`) VALUES
+INSERT INTO `usuario` (`ID_USUARIO`, `PASSWORD`, `NOMBRE_USUARIO`, `NOMBRE_REAL_USUARIO`, `EMAIL`) VALUES
 (1, '1', 'Nombre_Usuario_1', 'Apellido_Usuario_1', 'email_1@email.com'),
 (2, '2', 'Nombre_Usuario_2', 'Apellido_Usuario_2', 'email_2@email.com'),
 (3, '3', 'Nombre_Usuario_3', 'Apellido_Usuario_3', 'email_3@email.com'),
@@ -26343,7 +26343,8 @@ INSERT INTO `usuario` (`ID_USUARIO`, `CONTRASEÑA`, `NOMBRE_USUARIO`, `APELLIDOS
 (497, '497', 'Nombre_Usuario_497', 'Apellido_Usuario_497', 'email_497@email.com'),
 (498, '498', 'Nombre_Usuario_498', 'Apellido_Usuario_498', 'email_498@email.com'),
 (499, '499', 'Nombre_Usuario_499', 'Apellido_Usuario_499', 'email_499@email.com'),
-(500, '500', 'Nombre_Usuario_500', 'Apellido_Usuario_500', 'email_500@email.com');
+(500, '500', 'Nombre_Usuario_500', 'Apellido_Usuario_500', 'email_500@email.com'),
+(501, '$2y$10$8Wko558hWiyj0', 'Elvis', '', 'elvis@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -28437,7 +28438,8 @@ ALTER TABLE `textos`
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`ID_USUARIO`);
+  ADD PRIMARY KEY (`ID_USUARIO`),
+  ADD UNIQUE KEY `NOMBRE_USUARIO` (`NOMBRE_USUARIO`);
 
 --
 -- Indices de la tabla `videojuegos`
@@ -28472,7 +28474,7 @@ ALTER TABLE `plataforma`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=501;
+  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=502;
 
 --
 -- AUTO_INCREMENT de la tabla `videojuegos`

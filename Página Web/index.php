@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <?php
-  session_start();
-  require("Auth.php");
-  $userId = Authorize();
-  
   include_once 'config/connection.php';   //Establecer conexión con la base de datos 
   include 'functions/establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
 

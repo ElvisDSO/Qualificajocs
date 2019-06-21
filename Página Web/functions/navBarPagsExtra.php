@@ -19,7 +19,7 @@ function navbarPagsExtra(){
             </a>
           </li>
           <li class="nav-item ">
-            <a href="inicioSesion.php" class="nav-link">
+            <a href="login.php" class="nav-link">
               <em class="material-icons">fingerprint</em> Login
             </a>
           </li>
