@@ -11,8 +11,10 @@
 	require_once "config/conexion.php";
 	$username = $password = "";
 	$username_err = $password_err = "";
+	$controlador = 0;
 
 	if ($_SERVER["REQUEST_METHOD"] === "POST") {
+		$controlador = 1;
 		if(empty(trim($_POST["username"]))) {
 			$username_err = "Introduzca su nombre de usuario";
 		} else {
@@ -26,7 +28,7 @@
 		}
 	}
 	//Validación de credenciales.
-	if (empty($username_err) && empty($password_err)) {
+	if (empty($username_err) && empty($password_err) &&  $controlador == 1) {
 		$sql = "SELECT ID_USUARIO, PASSWORD, NOMBRE_USUARIO, EMAIL FROM usuario WHERE NOMBRE_USUARIO = ?";
 		if ($stmt = mysqli_prepare($link, $sql)) {
 			mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -37,13 +39,14 @@
 			}
 
 			if (mysqli_stmt_num_rows($stmt) == 1) {
-				mysqli_stmt_bind_result($stmt, $ID_USUARIO, $param_password, $NOMBRE_USUARIO, $EMAIL);
+				mysqli_stmt_bind_result($stmt, $id_usuario, $hashed_password, $username, $email);
 				if (mysqli_stmt_fetch($stmt)) {
-					if (password_verify($password, $param_password)) {
+					if (password_verify($password, $hashed_password)) {
+						echo "nada";
 						session_start();
 						//Almacenar datos en variables de sesión
 						$_SESSION["loggedin"] = true;
-						$_SESSION["id"] = $id;
+						$_SESSION["id_usuario"] = $id_usuario;
 						$_SESSION["username"] = $username;
 
 						header("location: index.php");

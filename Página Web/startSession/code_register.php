@@ -59,7 +59,7 @@
 		} else if(strlen(trim($_POST["password"])) < 4) {
 			$password_err = "La contraseña debe tener al menos 4 caracteres";
 		} else {
-			$param_password = trim($_POST["password"]);
+			$password = trim($_POST["password"]);
 		}
 
 		//Comprobar los errores de entrada antes de insertar información en la base de datos.
@@ -68,7 +68,12 @@
 			if ($stmt = mysqli_prepare($link, $sql)) {
 				mysqli_stmt_bind_param($stmt, "sss", $param_password, $param_username, $param_email);
 				//Estableciendo parámetros
-				$param_password = password_hash($password, PASSWORD_DEFAULT); //Para encriptar la contraseña.
+
+				$opciones = [
+    				'cost' => 12,
+				];
+				$param_password = password_hash($password, PASSWORD_BCRYPT, $opciones);
+				//$param_password = password_hash($password, PASSWORD_DEFAULT); //Para encriptar la contraseña.
 				$param_username = $username;
 				$param_email = $email;
 
