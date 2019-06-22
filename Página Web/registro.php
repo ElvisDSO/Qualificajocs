@@ -2,15 +2,13 @@
 <?php
   include_once 'config/connection.php';   //Establecer conexión con la base de datos 
   include 'functions/establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
-
-  include 'functions/code_register.php'; //Script con la funcionalidad de registro.
+  include 'startSession/code_register.php'; //Script con la funcionalidad de registro.
   include 'functions/flags.php'; //Banderas para cambiar el idioma.
   include 'functions/userButton.php'; //Botón usuario.
   include 'functions/footerPagsExtra.php'; //Footer
   include 'functions/menuCategorias.php'; //Buscar por categoría. Buscador en el menú lateral.
   include 'functions/navbarPagsExtra.php'; //Bloque navbar.
   include 'functions/cookies.php'; //Función de aviso de cookies.
-  include 'functions/logo.php'; //Logo de Qualificajocs.
   include_once 'functions/recursosIdioma.php'; //Traducción de los párrafos existentes
 
   $arrayRecursosIdioma = recursosIdioma($idiomaActual);
@@ -109,7 +107,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-            <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SHELF"]); ?>" method="post">
+            <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
               <div class="card card-login card-hidden">
                 <div class="card-header card-header-primary text-center">
                   <h4 class="card-title"><?php echo $arrayRecursosIdioma['Registrarse']; ?></h4>

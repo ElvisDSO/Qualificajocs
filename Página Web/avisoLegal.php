@@ -1,3 +1,10 @@
+<?php 
+  session_start();
+    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+      header("location: login.php");
+    }
+?>
+
 <!DOCTYPE html>
 <?php
   include_once 'config/connection.php';   //Establecer conexión con la base de datos 

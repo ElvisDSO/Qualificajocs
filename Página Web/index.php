@@ -1,3 +1,10 @@
+<?php 
+  session_start();
+    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+      header("location: login.php");
+    }
+?>
+
 <!DOCTYPE html>
 <?php
   include_once 'config/connection.php';   //Establecer conexión con la base de datos 
@@ -94,7 +101,6 @@
   <!-- Script de carga del aviso de las cookies. -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
   <?php cookies(); ?>
-
 
   <!-- Estilos para la modificación de la página en su versión web -->
   <link rel="stylesheet" type="text/css" href="assets/css/ajusteTamPantalla.css">

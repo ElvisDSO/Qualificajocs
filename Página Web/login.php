@@ -2,7 +2,7 @@
 <?php
   include_once 'config/connection.php';   //Establecer conexión con la base de datos 
   include 'functions/establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
-
+  require 'startSession/code_login.php'; //Procesa el login del usuario
   include 'functions/flags.php'; //Banderas para cambiar el idioma.
   include 'functions/userButton.php'; //Botón usuario.
   include 'functions/footerPagsExtra.php'; //Footer
@@ -20,7 +20,7 @@
   <link rel="icon" type="image/png" href="images/mando-de-consola.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Qualificajocs.
+    Qualificajocs - Página de Login.
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -107,7 +107,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-            <form class="form" method="" action="">
+            <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
               <div class="card card-login card-hidden">
                 <div class="card-header card-header-primary text-center">
                   <h4 class="card-title">Login</h4>
@@ -136,8 +136,9 @@
                           <em class="material-icons">face</em>
                         </span>
                       </div>
-                      <input type="text" class="form-control" placeholder="<?php echo $arrayRecursosIdioma['NombreUsuario']; ?>">
+                      <input type="text" class="form-control" placeholder="<?php echo $arrayRecursosIdioma['NombreUsuario']; ?>" name="username">
                     </div>
+                    <span class="msg-error"><?php echo $username_err; ?></span>
                   </span>
                   <span class="bmd-form-group">
                     <div class="input-group">
@@ -146,12 +147,13 @@
                           <em class="material-icons">lock_outline</em>
                         </span>
                       </div>
-                      <input type="password" class="form-control" placeholder="<?php echo $arrayRecursosIdioma['Contraseña']; ?>...">
+                      <input type="password" class="form-control" placeholder="<?php echo $arrayRecursosIdioma['Contraseña']; ?>..." name="password">
                     </div>
+                    <span class="msg-error"><?php echo $password_err; ?></span>
                   </span>
                 </div>
                 <div class="card-footer justify-content-center">
-                  <a href="index.php" class="btn btn-primary btn-link btn-lg">Ok</a>
+                  <input type="submit" class="btn btn-primary btn-link btn-lg" value="Ok">
                 </div>
               </div>
             </form>
