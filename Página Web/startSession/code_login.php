@@ -42,7 +42,6 @@
 				mysqli_stmt_bind_result($stmt, $id_usuario, $hashed_password, $username, $email);
 				if (mysqli_stmt_fetch($stmt)) {
 					if (password_verify($password, $hashed_password)) {
-						echo "nada";
 						session_start();
 						//Almacenar datos en variables de sesión
 						$_SESSION["loggedin"] = true;

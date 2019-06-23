@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-06-2019 a las 01:56:23
+-- Tiempo de generación: 23-06-2019 a las 23:43:51
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -25833,7 +25833,7 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 
 CREATE TABLE `usuario` (
   `ID_USUARIO` int(11) NOT NULL,
-  `PASSWORD` varchar(20) NOT NULL,
+  `PASSWORD` varchar(255) NOT NULL,
   `NOMBRE_USUARIO` varchar(20) NOT NULL,
   `NOMBRE_REAL_USUARIO` varchar(40) NOT NULL,
   `EMAIL` varchar(30) NOT NULL
@@ -26344,7 +26344,9 @@ INSERT INTO `usuario` (`ID_USUARIO`, `PASSWORD`, `NOMBRE_USUARIO`, `NOMBRE_REAL_
 (498, '498', 'Nombre_Usuario_498', 'Apellido_Usuario_498', 'email_498@email.com'),
 (499, '499', 'Nombre_Usuario_499', 'Apellido_Usuario_499', 'email_499@email.com'),
 (500, '500', 'Nombre_Usuario_500', 'Apellido_Usuario_500', 'email_500@email.com'),
-(501, '$2y$10$8Wko558hWiyj0', 'Elvis', '', 'elvis@gmail.com');
+(506, '$2y$12$etMILUJ5OIS1NcaeR0di7.J0cxp00vJ6lkV57Oc8bpEETRyhKMHMa', 'elvis', '', 'elvis@gmail.com'),
+(507, '$2y$12$/Mv43i22IAq7xiYRgjl25OOj3P7AzjPBHba7b7jIfc9CPUUKFjMUi', 'zotes', '', 'zotes@marica.com'),
+(508, '$2y$12$xlV0Fyoprjp1lkV2Gs/O3.Ag9J5UbyS02f9NRqsK2VwvW/Ou7ta7e', 'puchi', '', 'puchi@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -28474,7 +28476,7 @@ ALTER TABLE `plataforma`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=502;
+  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=509;
 
 --
 -- AUTO_INCREMENT de la tabla `videojuegos`

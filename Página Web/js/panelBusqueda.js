@@ -114,8 +114,6 @@ function realizarBusqueda(nombrefichero,orden,idioma){
         codigoHTML = codigoHTML.concat(traducciones[4]);
         codigoHTML = codigoHTML.concat("</th><th>Rating</th><th>");
         codigoHTML = codigoHTML.concat(traducciones[3]);
-        codigoHTML = codigoHTML.concat("</th><th class='disabled-sorting text-right'>");
-        codigoHTML = codigoHTML.concat(traducciones[0]);
         codigoHTML = codigoHTML.concat("</th></tr></thead><tfoot><tr><th>");
         codigoHTML = codigoHTML.concat(traducciones[5]);
         codigoHTML = codigoHTML.concat("</th><th>");
@@ -124,8 +122,6 @@ function realizarBusqueda(nombrefichero,orden,idioma){
         codigoHTML = codigoHTML.concat(traducciones[4]);
         codigoHTML = codigoHTML.concat("</th><th>Rating</th><th>");
         codigoHTML = codigoHTML.concat(traducciones[3]);
-        codigoHTML = codigoHTML.concat("</th><th class='text-right'>");
-        codigoHTML = codigoHTML.concat(traducciones[0]);
         codigoHTML = codigoHTML.concat("</th></tr></tfoot>");
         codigoHTML = codigoHTML.concat("<tbody>");
         
@@ -166,11 +162,7 @@ function realizarBusqueda(nombrefichero,orden,idioma){
           codigoHTML = codigoHTML.concat(resultadosBusqueda[contadorElementos][3]);
           codigoHTML = codigoHTML.concat("</td><td>");
           codigoHTML = codigoHTML.concat(resultadosBusqueda[contadorElementos][4]);
-          codigoHTML = codigoHTML.concat("<td class='text-right'>");
-          codigoHTML = codigoHTML.concat("<a href='#' class='btn btn-link btn-info btn-just-icon like'><i class='material-icons'>favorite</i></a>");
-          codigoHTML = codigoHTML.concat("<a href='#' class='btn btn-link btn-warning btn-just-icon edit'><i class='material-icons'>dvr</i></a>");
-          codigoHTML = codigoHTML.concat("<a href='#' class='btn btn-link btn-danger btn-just-icon remove'><i class='material-icons'>close</i></a>");
-          codigoHTML = codigoHTML.concat("</td></td></tr>");
+          codigoHTML = codigoHTML.concat("</td></tr>");
         }
 
         codigoHTML = codigoHTML.concat("</tbody></table></div></div></div></div></div></div></div>");
