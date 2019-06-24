@@ -26,6 +26,21 @@
 	}
 </script>
 
+<script>
+	function valoracion(idJuego, nota) {
+		var criterioIdVideojuego = idJuego;
+		var criterioValoracion = nota;
+		$.ajax({
+			type: "POST",
+			url: "functions/add_valoracion.php",
+			data: {inputVideojuego: idJuego, inputNota: nota},
+			success: function (data) {
+				$("#alertaJugado").html(data);
+			}
+		});
+	}
+</script>
+
 <?php 
 
 function addBotones($criterioID){
@@ -48,34 +63,44 @@ function addBotones($criterioID){
 	        <ul class="pagination pagination-primary">
 	          Tu valoración:
 	          <li class="page-item active">
-	            <a class="page-link" href="#">1</a>
+	          	<?php $nota = 1; ?>
+	            <a class="page-link" onclick="valoracion(<?php echo $criterioID; ?>, <?php  echo $nota ?>)">1</a>
 	          </li>
-	          <li class="page-item">
-	            <a class="page-link" href="#link">2</a>
+	          <li class="page-item active">
+	          	<?php $nota = 2; ?>
+	            <a class="page-link" onclick="valoracion(<?php echo $criterioID; ?>, <?php  echo $nota ?>)">2</a>
 	          </li>
-	          <li class="page-item">
-	            <a class="page-link" href="#link">3</a>
+	          <li class="page-item active">
+	          	<?php $nota = 3; ?>
+	            <a class="page-link" onclick="valoracion(<?php echo $criterioID; ?>, <?php  echo $nota ?>)">3</a>
 	          </li>
-	          <li class="page-item">
-	            <a class="page-link" href="#link">4</a>
+	          <li class="page-item active">
+	          	<?php $nota = 4; ?>
+	            <a class="page-link" onclick="valoracion(<?php echo $criterioID; ?>, <?php  echo $nota ?>)">4</a>
 	          </li>
-	          <li class="page-item">
-	            <a class="page-link" href="#link">5</a>
+	          <li class="page-item active">
+	          	<?php $nota = 5; ?>
+	            <a class="page-link" onclick="valoracion(<?php echo $criterioID; ?>, <?php  echo $nota ?>)">5</a>
 	          </li>
-	          <li class="page-item">
-	            <a class="page-link" href="#link">6</a>
+	          <li class="page-item active">
+	          	<?php $nota = 6; ?>
+	            <a class="page-link" onclick="valoracion(<?php echo $criterioID; ?>, <?php  echo $nota ?>)">6</a>
 	          </li>
-	          <li class="page-item">
-	            <a class="page-link" href="#link">7</a>
+	          <li class="page-item active">
+	          	<?php $nota = 7; ?>
+	            <a class="page-link" onclick="valoracion(<?php echo $criterioID; ?>, <?php  echo $nota ?>)">7</a>
 	          </li>
-	          <li class="page-item">
-	            <a class="page-link" href="#link">8</a>
+	          <li class="page-item active">
+	          	<?php $nota = 8; ?>
+	            <a class="page-link" onclick="valoracion(<?php echo $criterioID; ?>, <?php  echo $nota ?>)">8</a>
 	          </li>
-	          <li class="page-item">
-	            <a class="page-link" href="#link">9</a>
+	          <li class="page-item active">
+	          	<?php $nota = 9; ?>
+	            <a class="page-link" onclick="valoracion(<?php echo $criterioID; ?>, <?php  echo $nota ?>)">9</a>
 	          </li>
-	          <li class="page-item">
-	            <a class="page-link" href="#link">10</a>
+	          <li class="page-item active">
+	          	<?php $nota = 10; ?>
+	            <a class="page-link" onclick="valoracion(<?php echo $criterioID; ?>, <?php  echo $nota ?>)">10</a>
 	          </li>
 	        </ul>
 	      </div>

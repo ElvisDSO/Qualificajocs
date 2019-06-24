@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-06-2019 a las 19:15:52
+-- Tiempo de generación: 25-06-2019 a las 01:45:28
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -4225,6 +4225,7 @@ INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (1, 284, 5),
 (1, 486, 8),
 (1, 496, 0),
+(1, 506, 8),
 (2, 4, 7),
 (2, 174, 8),
 (2, 207, 6),
@@ -4752,6 +4753,7 @@ INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (101, 234, 5),
 (101, 264, 8),
 (101, 336, 2),
+(101, 506, 4),
 (102, 2, 6),
 (102, 78, 8),
 (102, 189, 4),
@@ -4796,6 +4798,7 @@ INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (111, 140, 8),
 (111, 383, 3),
 (111, 391, 0),
+(111, 506, 1),
 (112, 124, 4),
 (112, 148, 2),
 (113, 23, 5),
@@ -5342,6 +5345,7 @@ INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (222, 107, 8),
 (222, 283, 5),
 (222, 293, 5),
+(222, 506, 6),
 (223, 31, 0),
 (223, 293, 7),
 (223, 382, 3),
@@ -8150,12 +8154,12 @@ INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (771, 6, 4),
 (771, 158, 7),
 (771, 365, 9),
-(771, 373, 10),
+(771, 373, 10);
+INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (771, 413, 1),
 (772, 40, 3),
 (772, 94, 0),
-(772, 104, 10);
-INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
+(772, 104, 10),
 (772, 199, 3),
 (772, 230, 4),
 (772, 247, 7),
@@ -11333,6 +11337,7 @@ INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (1364, 32, 5),
 (1364, 120, 1),
 (1364, 463, 9),
+(1364, 506, NULL),
 (1365, 8, 6),
 (1365, 144, 7),
 (1365, 271, 0),
@@ -11845,13 +11850,13 @@ INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (1456, 268, 9),
 (1456, 424, 9),
 (1457, 108, 10),
-(1457, 183, 7),
+(1457, 183, 7);
+INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (1457, 223, 0),
 (1457, 318, 1),
 (1457, 438, 9),
 (1458, 4, 8),
-(1458, 9, 3);
-INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
+(1458, 9, 3),
 (1458, 20, 3),
 (1458, 186, 2),
 (1458, 258, 8),
@@ -12833,6 +12838,7 @@ INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (1645, 164, 3),
 (1645, 289, 6),
 (1645, 468, 3),
+(1645, 506, NULL),
 (1646, 116, 5),
 (1646, 249, 8),
 (1646, 258, 0),
