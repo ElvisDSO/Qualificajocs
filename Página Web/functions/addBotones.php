@@ -12,6 +12,20 @@
 	}
 </script>
 
+<script>
+	function pendiente(idJuego) {
+		var criterioIdVideojuego = idJuego;
+		$.ajax({
+			type: "POST",
+			url: "functions/add_pendiente.php",
+			data: {inputVideojuego: idJuego},
+			success: function (data) {
+				$("#alertaJugado").html(data);
+			}
+		});
+	}
+</script>
+
 <?php 
 
 function addBotones($criterioID){
@@ -22,7 +36,7 @@ function addBotones($criterioID){
 	    <div class="form-group">
 	      <div class="clearfix">
 	        <a class='btn btn-info btn-round pull-right' onclick="jugado(<?php echo $criterioID; ?>)">Añadir a Jugados</a>
-	        <a href='#' class='btn btn-danger btn-round pull-right'>Añadir a Pendientes</a>  
+	        <a class='btn btn-danger btn-round pull-right' onclick="pendiente(<?php echo $criterioID; ?>)">Añadir a Pendientes</a>  
 	      </div>
 	    </div>
 	  </form>
