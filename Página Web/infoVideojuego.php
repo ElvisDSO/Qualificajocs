@@ -9,7 +9,6 @@
 <?php
   include_once 'config/connection.php';   //Establecer conexión con la base de datos 
   include 'functions/establecerIdioma.php'; //Arranca la variable de sesión que contiene al idioma.
-  include 'functions/listar_jugados.php'; //Añadir juego a pendiente o a jugado.
   include 'functions/flags.php'; //Banderas para cambiar el idioma.
   include 'functions/userButton.php'; //Botón usuario.
   include 'functions/footer.php'; //Footer
@@ -18,6 +17,7 @@
   include 'functions/cookies.php'; //Función de aviso de cookies.
   include 'functions/logo.php'; //Logo de Qualificajocs.
   include_once 'functions/recursosIdioma.php'; //Traducción de los párrafos existentes
+  include 'functions/addBotones.php';
 
   $arrayRecursosIdioma = recursosIdioma($idiomaActual);
   $ID = "inputID";
@@ -28,6 +28,7 @@
   $empresa = "inputEmpresa";
   $TOP = "inputTOP";
   $recomendacion = "inputRecomendacion";
+  $id_usuario = $_SESSION["username"];
 
   foreach($_GET as $key => $value) {
     if (strpos($key, 'inputID') === 0) {
@@ -159,59 +160,7 @@
           <!-- Carga los valores introducidos por el usuario. -->
           <input type="hidden" id="inputID" name="inputID" value="<?php echo $safeCriterioID; ?>">
           <div class="container-fluid" id="gridDatosVideojuego"></div>
-          <div class="row">
-            <div class="col-lg-8 col-md-12">
-              <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <div class="form-group">
-                  <div class="clearfix">
-                    <a href='#' class='btn btn-info btn-round pull-right'>Añadir a Jugados</a>
-                    <a href='#' class='btn btn-danger btn-round pull-right'>Añadir a Pendientes</a>  
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div class="col-lg-4 col-md-12">
-              <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <div class="form-group">
-                  <div class="clearfix">
-                    <ul class="pagination pagination-primary">
-                      Tu valoración:
-                      <li class="page-item active">
-                        <a class="page-link" href="#">1</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#link">2</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#link">3</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#link">4</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#link">5</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#link">6</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#link">7</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#link">8</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#link">9</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#link">10</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </form> 
-            </div>
-          </div>
+          <?php addBotones($criterioID); ?>
         </div>
       </div>
       <?php footer();?>

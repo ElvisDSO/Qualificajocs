@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-06-2019 a las 23:43:51
+-- Tiempo de generación: 24-06-2019 a las 18:33:41
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -9397,6 +9397,7 @@ INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (1006, 198, 4),
 (1006, 464, 10),
 (1006, 473, 3),
+(1006, 506, NULL),
 (1007, 145, 1),
 (1007, 196, 7),
 (1007, 228, 3),
@@ -11850,9 +11851,9 @@ INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (1458, 9, 3),
 (1458, 20, 3),
 (1458, 186, 2),
-(1458, 258, 8),
-(1458, 277, 0);
+(1458, 258, 8);
 INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
+(1458, 277, 0),
 (1458, 304, 4),
 (1458, 331, 5),
 (1458, 355, 4),
