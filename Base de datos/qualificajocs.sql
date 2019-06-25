@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2019 a las 01:45:28
+-- Tiempo de generación: 25-06-2019 a las 14:21:22
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -8353,6 +8353,7 @@ INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (805, 194, 3),
 (805, 404, 10),
 (805, 469, 1),
+(805, 506, NULL),
 (806, 10, 3),
 (806, 292, 6),
 (806, 436, 7),
@@ -9610,6 +9611,7 @@ INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (1048, 446, 3),
 (1048, 483, 2),
 (1048, 487, 7),
+(1048, 506, NULL),
 (1049, 56, 10),
 (1049, 113, 0),
 (1049, 271, 8),
@@ -11848,10 +11850,10 @@ INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (1456, 197, 4),
 (1456, 231, 10),
 (1456, 268, 9),
-(1456, 424, 9),
-(1457, 108, 10),
-(1457, 183, 7);
+(1456, 424, 9);
 INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
+(1457, 108, 10),
+(1457, 183, 7),
 (1457, 223, 0),
 (1457, 318, 1),
 (1457, 438, 9),
@@ -18557,6 +18559,7 @@ INSERT INTO `lista_pendientes` (`ID_VIDEOJUEGO`, `ID_USUARIO`) VALUES
 (1560, 209),
 (1560, 328),
 (1560, 403),
+(1560, 506),
 (1561, 129),
 (1561, 296),
 (1562, 85),
@@ -19535,9 +19538,9 @@ INSERT INTO `lista_pendientes` (`ID_VIDEOJUEGO`, `ID_USUARIO`) VALUES
 (1953, 167),
 (1953, 376),
 (1954, 445),
-(1955, 4),
-(1955, 121);
+(1955, 4);
 INSERT INTO `lista_pendientes` (`ID_VIDEOJUEGO`, `ID_USUARIO`) VALUES
+(1955, 121),
 (1955, 432),
 (1956, 45),
 (1956, 54),

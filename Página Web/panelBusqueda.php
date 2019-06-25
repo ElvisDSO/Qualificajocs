@@ -233,8 +233,8 @@
         <div class="container col-lg-1 col-md-1 col-sm-1"></div><!-- Bloque vacío por cuestiones estéticas. -->
         <div class="container col-lg-6 col-md-6 col-sm-6 border border-right-0" style="padding-left:40px">
           <!-- Mostrador de criterios introducidos -->
-          <h5 style="line-height:0.6!important; margin: 20px 0 20px;">
-            <?php echo $arrayRecursosIdioma['Criterios']; ?> 
+          <h5 style="line-height:0.6!important; margin: 35px 0 20px;"><font face="Tw Cen MT" color="#666666">
+            <?php echo $arrayRecursosIdioma['Criterios']; ?></font> 
           </h5>
           <hr>
           <?php
@@ -281,8 +281,20 @@
             }
           ?>
         </div>
-        <div class="container col-lg-2 col-md-2 col-sm-2"></div>
+        <div class="container col-lg-2 col-md-2 col-sm-2">
+          <div class="navbar navbar-expand-lg navbar-transparent navbar-absoluted fixed-top">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
+      
       <div class="content" style="margin-top: 0px;">
         <div class="container-fluid row">
           <div class="col-lg-6 col-md-12 col-sm-12" id="paginacion" style="text-align: right"></div>
@@ -295,6 +307,7 @@
   </div>
 
 <script>
+
   //Para poder obtener en JavaScript una variable de PHP.
   //La variable en cuestión es la que almacena el idioma.
   var idioma = '<?php echo $idiomaActual;?>'
@@ -309,7 +322,7 @@
     });
     //Esconde el desplegable de plataforma cuando se hace click fuera del bloque de plataforma.
     $(window).click(function(e) {
-      $("#divPlataforma").hide("slow");
+      $("#divBusqueda").hide("slow");
     });
 
     // Inicializar variables con criterios de búsqueda

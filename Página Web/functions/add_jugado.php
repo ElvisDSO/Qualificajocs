@@ -35,5 +35,6 @@ if (isset($_POST["inputVideojuego"])){
 if (isset($_SESSION["id_usuario"])){
   $idUser = $_SESSION["id_usuario"];
 }
+echo md.showNotification('top','right','Se ha añadido el juego a tu librería de Jugados');
 addJuego($idGame,$idUser);
 ?>

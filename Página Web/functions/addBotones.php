@@ -6,7 +6,7 @@
 			url: "functions/add_jugado.php",
 			data: {inputVideojuego: idJuego},
 			success: function (data) {
-				$("#alertaJugado").html(data);
+				md.showNotification('top','right','Se ha añadido el juego a tu librería de Jugados.');
 			}
 		});
 	}
@@ -20,7 +20,7 @@
 			url: "functions/add_pendiente.php",
 			data: {inputVideojuego: idJuego},
 			success: function (data) {
-				$("#alertaJugado").html(data);
+				md.showNotification('top','right','Se ha añadido el juego a tu librería de Pendientes.');
 			}
 		});
 	}
@@ -35,7 +35,7 @@
 			url: "functions/add_valoracion.php",
 			data: {inputVideojuego: idJuego, inputNota: nota},
 			success: function (data) {
-				$("#alertaJugado").html(data);
+				md.showNotification('top','right','Se ha añadido una valoración al juego.');
 			}
 		});
 	}

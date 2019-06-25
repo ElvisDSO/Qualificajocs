@@ -19,7 +19,13 @@ function navbar(){
 			  	<!-- Título que aparece si la pantalla es pequeña. -->
          	  	<span id="textotitulopeque"><h5 style="line-height:0.9!important; margin: 20px 0 20px"><?php echo $arrayRecursosIdioma['Titulo']; ?></h5><h6 style="line-height:0.9!important; font-family: 'Happy Monkey', cursive; color:#2A59AA;"><?php echo $arrayRecursosIdioma['Subtitulo']; ?></h6></span>
           	</div>
-        </div>	 	
+        </div>	
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        	<span class="sr-only">Toggle navigation</span>
+        	<span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+        </button> 	
 	  	
 	  	<div class="navbar-collapse collapse justify-content-end">
 	  		<ul class="navbar-nav">

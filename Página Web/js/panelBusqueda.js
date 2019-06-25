@@ -80,13 +80,7 @@ function realizarBusqueda(nombrefichero,orden,idioma){
   var criterioPlataforma = $("#inputPlataforma").val();
   var criterioEmpresa = $("#inputEmpresa").val();
 
-  if (idioma == "ES") {
-    var  traducciones = ['Acciones', 'Compañia', 'La consulta ha generado más de 200 resultados. Se muestran únicamente los 200 primeros resultados.', 'Fecha de lanzamiento', 'Género', 'Nombre', 'Resultado de la búsqueda.', ' resultados obtenidos', '1 resultado obtenido'];
-  } else if (idioma == "EN") {
-    traducciones = ['Actions', 'Company', 'Your query has generated more than 200 results. Only the first 200 results are displayed.', 'Launch date', 'Gender', 'Name', 'Result of the search.', ' results returned', '1 result returned'];
-  } else if (idioma == "PT") {
-    traducciones = ['Ações', 'Companhia', 'A consulta gerou mais de 200 resultados. Só são mostrados os primeiros 200 resultados.', 'Data de lançamento', 'Gênero', 'Nome', 'Resultado da busca.', ' resultados obtidos', '1 resultado obtido'];
-  }
+  
 
 
   if ((nombrefichero === undefined) || (nombrefichero === 'panelBusqueda.php')) {  // lanzamos la búsqueda desde panelBusqueda
@@ -97,6 +91,15 @@ function realizarBusqueda(nombrefichero,orden,idioma){
 		  data: {id: criterioID, nombre: criterioNombre, compañia: criterioCompañia, genero: criterioGenero, plataforma: criterioPlataforma, empresa: criterioEmpresa, orden: orden},
 		  success: function (data) {
         $("#divPlataforma").hide("slow");
+
+        if (idioma == "ES") {
+          traducciones = ['Acciones', 'Compañia', 'La consulta ha generado más de 200 resultados. Se muestran únicamente los 200 primeros resultados.', 'Fecha de lanzamiento', 'Género', 'Nombre', 'Resultado de la búsqueda.', ' resultados obtenidos', '1 resultado obtenido'];
+        } else if (idioma == "EN") {
+          traducciones = ['Actions', 'Company', 'Your query has generated more than 200 results. Only the first 200 results are displayed.', 'Launch date', 'Gender', 'Name', 'Result of the search.', ' results returned', '1 result returned'];
+        } else {
+          traducciones = ['Ações', 'Companhia', 'A consulta gerou mais de 200 resultados. Só são mostrados os primeiros 200 resultados.', 'Data de lançamento', 'Gênero', 'Nome', 'Resultado da busca.', ' resultados obtidos', '1 resultado obtido'];
+        }
+
 		    var resultadosBusqueda = data;
         var codigoHTML = "";
 
@@ -134,23 +137,8 @@ function realizarBusqueda(nombrefichero,orden,idioma){
           codigoHTML = codigoHTML.concat("' action='infoVideojuego.php'>");
           codigoHTML = codigoHTML.concat("<input type='hidden' id='inputID' name='inputID' value='");
           codigoHTML = codigoHTML.concat(resultadosBusqueda[contadorElementos][5]);
-          codigoHTML = codigoHTML.concat("'>");
-          codigoHTML = codigoHTML.concat("<input type='hidden' id='inputNombre' name='inputNombre' value='");
-          codigoHTML = codigoHTML.concat(criterioNombre);
-          codigoHTML = codigoHTML.concat("'>");
-          codigoHTML = codigoHTML.concat("<input type='hidden' id='inputCompañia' name='inputCompañia' value='");
-          codigoHTML = codigoHTML.concat(criterioCompañia);
-          codigoHTML = codigoHTML.concat("'>");
-          codigoHTML = codigoHTML.concat("<input type='hidden' id='inputGenero' name='inputGenero' value='");
-          codigoHTML = codigoHTML.concat(criterioGenero);
-          codigoHTML = codigoHTML.concat("'>");
-          codigoHTML = codigoHTML.concat("<input type='hidden' id='inputPlataforma' name='inputPlataforma' value='");
-          codigoHTML = codigoHTML.concat(criterioPlataforma);
-          codigoHTML = codigoHTML.concat("'>"); 
-          codigoHTML = codigoHTML.concat("<input type='hidden' id='inputEmpresa' name='inputEmpresa' value='");
-          codigoHTML = codigoHTML.concat(criterioEmpresa);
           codigoHTML = codigoHTML.concat("'>");         
-          codigoHTML = codigoHTML.concat("<h3 class='card-title' style='cursor: pointer;' onmouseover=$(this).addClass('text-danger') onmouseout=$(this).removeClass('text-danger') ><span id='titulo_nombre' onclick='formInfo");
+          codigoHTML = codigoHTML.concat("<h4 class='card-title' style='cursor: pointer;' onmouseover=$(this).addClass('text-danger') onmouseout=$(this).removeClass('text-danger') ><span id='titulo_nombre' onclick='formInfo");
           codigoHTML = codigoHTML.concat(contadorElementos);  
           codigoHTML = codigoHTML.concat(".submit()'>");
           codigoHTML = codigoHTML.concat(resultadosBusqueda[contadorElementos][0]);
