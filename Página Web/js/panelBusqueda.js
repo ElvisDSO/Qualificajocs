@@ -71,7 +71,7 @@ function verPagina(paginaver, cambiar, totalPaginas) {
 }
 
 function realizarBusqueda(nombrefichero,orden,idioma){
-  $("#divPlataforma").hide("slow");
+  $("#divBusqueda").hide("slow");
 
   var criterioID = $("#inputID").val();
   var criterioNombre = $("#inputNombre").val();
@@ -90,7 +90,7 @@ function realizarBusqueda(nombrefichero,orden,idioma){
 		  url: "functions/resultadoConsulta.php",
 		  data: {id: criterioID, nombre: criterioNombre, compañia: criterioCompañia, genero: criterioGenero, plataforma: criterioPlataforma, empresa: criterioEmpresa, orden: orden},
 		  success: function (data) {
-        $("#divPlataforma").hide("slow");
+        $("#divBusqueda").hide("slow");
 
         if (idioma == "ES") {
           traducciones = ['Acciones', 'Compañia', 'La consulta ha generado más de 200 resultados. Se muestran únicamente los 200 primeros resultados.', 'Fecha de lanzamiento', 'Género', 'Nombre', 'Resultado de la búsqueda.', ' resultados obtenidos', '1 resultado obtenido'];

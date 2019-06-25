@@ -20,6 +20,10 @@
   include_once 'functions/recursosIdioma.php'; //Traducción de los párrafos existentes
 
   $arrayRecursosIdioma = recursosIdioma($idiomaActual);
+
+  if (isset($_SESSION["id_usuario"])) {
+    $criterioIdUsuario = $_SESSION["id_usuario"];
+  }
 ?>
 <html lang="en">
 
@@ -95,7 +99,7 @@
   <script src="assets/demo/demo.js"></script>
   
   <!-- fichero javascript con funciones de búsqueda -->
-  <script src="js/panelBusqueda.js"></script>
+  <script src="js/tablasUsuario.js"></script>
   
   <!-- Script de carga del aviso de las cookies. -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
@@ -131,7 +135,12 @@
         <div style="margin-top: 70px; padding: 45px 15px 2px">
           <div class="container-fluid">
             <div class="row">
-              
+              <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="container-fluid" id="gridJugados"></div>
+              </div>
+              <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="container-fluid" id="gridPendientes"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -143,6 +152,8 @@
 <script>
 /* Cambia el estado del puntero del ratón indicando al usuario que se presenta un botón "clickeable". */
   $(document).ready(function() {
+    desplegarJugados(<?php $criterioIdUsuario; ?>);
+    desplegarPendientes(<?php $criterioIdUsuario; ?>);
     $('.clickable').hover(function() {
       $(this).css('cursor','pointer');
     });
@@ -159,11 +170,11 @@
       fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
 
       $(window).click(function(e) {
-        $("#divPlataforma").hide("slow");
+        $("#divBusqueda").hide("slow");
       });
 
       $("#navbarDropdownMenuLink").click(function(e) {
-        $("#divActividades").hide("slow");
+        $("#divBusqueda").hide("slow");
       });
 
       if (window_width > 767 && fixed_plugin_open == 'Dashboard') {

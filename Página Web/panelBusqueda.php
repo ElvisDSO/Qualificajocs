@@ -300,7 +300,7 @@
           <div class="col-lg-6 col-md-12 col-sm-12" id="paginacion" style="text-align: right"></div>
           <div class="col-lg-6 col-md-12 col-sm-12" id="numResultados" style="text-align: right"></div>
         </div>
-        <div class="container-fluid" id="gridResultados"></div> <!-- El ID gridResultados determina el bloque donde se impriman los resultados generados en funciones.js (más concretamente en la variable "codigoHTML") -->
+        <div class="container-fluid" id="gridResultados"></div> <!-- El ID gridResultados determina el bloque donde se impriman los resultados generados en panelBusqueda.js (más concretamente en la variable "codigoHTML") -->
       </div>
       <?php footer();?>
     </div>

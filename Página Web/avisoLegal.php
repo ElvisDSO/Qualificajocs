@@ -197,11 +197,11 @@
       fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
 
       $(window).click(function(e) {
-        $("#divPlataforma").hide("slow");
+        $("#divBusqueda").hide("slow");
       });
 
       $("#navbarDropdownMenuLink").click(function(e) {
-        $("#divActividades").hide("slow");
+        $("#divBusqueda").hide("slow");
       });
 
       if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
