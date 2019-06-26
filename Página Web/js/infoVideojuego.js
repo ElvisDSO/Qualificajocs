@@ -1,4 +1,4 @@
-function desplegarVideojuego(idVideojuego) {
+function desplegarVideojuego(idVideojuego,idioma) {
   var criterioIdVideojuego = idVideojuego;
   $.ajax({
     type: "POST",
@@ -8,19 +8,33 @@ function desplegarVideojuego(idVideojuego) {
     success: function(data) {
       var resultadosBusqueda = data;
       var codigoHTML = "";
+
+      if (idioma == "ES") {
+        traducciones = ['Datos del videojuego: ','Nombre: ','Compañía: ','Fecha de lanzamiento: ','Plataformas: ','Género: ','Número de jugadores: '];
+      } else if (idioma == "EN") {
+        traducciones = ['Videogame information: ','Name: ','Company: ','Release date: ','Platform: ','Gender: ','Number of players: '];
+      } else {
+        traducciones = ['Datos do videojogo: ','Nome: ','Companhía: ','Data de lançamento: ','Plataformas: ','Gênero: ','Numero de jugadores: '];
+      }
+
       codigoHTML = codigoHTML.concat("<div class='row'><div class='col-lg-8 col-md-12'><div class='card'><div class='card-header card-header-icon card-header-rose'>");
-      codigoHTML = codigoHTML.concat("<div class='card-icon'><i class='material-icons'>perm_identity</i></div><h4 class='card-title'>Datos del videojuego: ");
+      codigoHTML = codigoHTML.concat("<div class='card-icon'><i class='material-icons'>perm_identity</i></div><h4 class='card-title'>");
+      codigoHTML = codigoHTML.concat(traducciones[0]);
       codigoHTML = codigoHTML.concat("</h4></div><div class='card-body'><form><div class='row'><div class='col-md-5'><div class='form-group'>");
-      codigoHTML = codigoHTML.concat("<label class='bmd-label-floating'>Nombre: ");
+      codigoHTML = codigoHTML.concat("<label class='bmd-label-floating'>");
+      codigoHTML = codigoHTML.concat(traducciones[1]);
       codigoHTML = codigoHTML.concat(resultadosBusqueda[0]['data'][0]);
       codigoHTML = codigoHTML.concat("</label></div></div><div class='col-md-3'>");
-      codigoHTML = codigoHTML.concat("<div class='form-group'><label class='bmd-label-floating'>Compañía: ");
+      codigoHTML = codigoHTML.concat("<div class='form-group'><label class='bmd-label-floating'>");
+      codigoHTML = codigoHTML.concat(traducciones[2]);
       codigoHTML = codigoHTML.concat(resultadosBusqueda[0]['data'][1]);
       codigoHTML = codigoHTML.concat("</label></div></div><div class='col-md-4'><div class='form-group'>");
-      codigoHTML = codigoHTML.concat("<label class='bmd-label-floating'>Fecha de lanzamiento: ");
+      codigoHTML = codigoHTML.concat("<label class='bmd-label-floating'>");
+      codigoHTML = codigoHTML.concat(traducciones[3]);
       codigoHTML = codigoHTML.concat(resultadosBusqueda[0]['data'][2]);
       codigoHTML = codigoHTML.concat("</label></div></div></div><div class='row'><div class='col-md-12'>");
-      codigoHTML = codigoHTML.concat("<div class='form-group'><label class='bmd-label-floating'>Plataformas: ");
+      codigoHTML = codigoHTML.concat("<div class='form-group'><label class='bmd-label-floating'>");
+      codigoHTML = codigoHTML.concat(traducciones[4]);
 
       var i = 0;
       while (resultadosBusqueda[0]['platform'][i] != null) {
@@ -32,7 +46,8 @@ function desplegarVideojuego(idVideojuego) {
         i++;
       }
       codigoHTML = codigoHTML.concat("</label></div></div><div class='col-md-12'>");
-      codigoHTML = codigoHTML.concat("<div class='form-group'><label class='bmd-label-floating'>Género: ");
+      codigoHTML = codigoHTML.concat("<div class='form-group'><label class='bmd-label-floating'>");
+      codigoHTML = codigoHTML.concat(traducciones[5]);
       
       i = 0;
       while (resultadosBusqueda[0]['gender'][i] != null) {
@@ -44,7 +59,8 @@ function desplegarVideojuego(idVideojuego) {
         i++;
       }
       codigoHTML = codigoHTML.concat("</label></div></div></div><div class='row'>");
-      codigoHTML = codigoHTML.concat("<div class='col-md-12'><div class='form-group'><label class='bmd-label-floating'>Número de jugadores: ");
+      codigoHTML = codigoHTML.concat("<div class='col-md-12'><div class='form-group'><label class='bmd-label-floating'>");
+      codigoHTML = codigoHTML.concat(traducciones[6]);
       codigoHTML = codigoHTML.concat(resultadosBusqueda[0]['data'][3]);
       codigoHTML = codigoHTML.concat("</label></div></div></div><div class='row'><div class='col-md-4'>");
       codigoHTML = codigoHTML.concat("<div class='form-group'><label class='bmd-label-floating'>Rating: ");

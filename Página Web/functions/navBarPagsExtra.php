@@ -8,12 +8,18 @@ function navbarPagsExtra(){
   	/* Se carga los textos traducidos de la base de datos. */
   	$arrayRecursosIdioma = recursosIdioma($idiomaActual);
 ?>
-
+<link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
-  <div class="container-fluid">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+    </button>
     <div class="collapse navbar-collapse justify-content-end">
       <ul class="navbar-nav">
-        <li class="nav-item ">
+        <li class="nav-item">
           <a href="registro.php" class="nav-link">
             <em class="material-icons">person_add</em> <?php echo $arrayRecursosIdioma['Registrarse']; ?>
           </a>
@@ -23,12 +29,7 @@ function navbarPagsExtra(){
             <em class="material-icons">fingerprint</em> Login
           </a>
         </li>
-        <div class="navbar-collapse collapse justify-content-end">
-          <ul class="navbar-nav">
-	  		   <!-- Imprime las banderas. -->
-           <?php flags();?>
-		      </ul>
-  	    </div>
+        
       </ul>
     </div>
   </div>

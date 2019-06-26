@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2019 a las 14:21:22
+-- Tiempo de generación: 26-06-2019 a las 04:46:51
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.2.17
 
@@ -4759,6 +4759,7 @@ INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (102, 189, 4),
 (102, 370, 5),
 (102, 377, 6),
+(102, 506, NULL),
 (103, 16, 7),
 (103, 46, 10),
 (103, 192, 10),
@@ -8153,9 +8154,9 @@ INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (770, 475, 0),
 (771, 6, 4),
 (771, 158, 7),
-(771, 365, 9),
-(771, 373, 10);
+(771, 365, 9);
 INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
+(771, 373, 10),
 (771, 413, 1),
 (772, 40, 3),
 (772, 94, 0),
@@ -11849,9 +11850,9 @@ INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
 (1456, 90, 4),
 (1456, 197, 4),
 (1456, 231, 10),
-(1456, 268, 9),
-(1456, 424, 9);
+(1456, 268, 9);
 INSERT INTO `lista_jugados` (`ID_VIDEOJUEGO`, `ID_USUARIO`, `VALORACION`) VALUES
+(1456, 424, 9),
 (1457, 108, 10),
 (1457, 183, 7),
 (1457, 223, 0),
@@ -25777,9 +25778,9 @@ INSERT INTO `sector` (`ID_SECTOR`, `NOMBRE_SECTOR`) VALUES
 
 CREATE TABLE `textos` (
   `ID_TEXTO` varchar(20) NOT NULL,
-  `TEXTO_ES` varchar(200) NOT NULL,
-  `TEXTO_EN` varchar(200) NOT NULL,
-  `TEXTO_PT` varchar(200) NOT NULL
+  `TEXTO_ES` varchar(750) NOT NULL,
+  `TEXTO_EN` varchar(750) NOT NULL,
+  `TEXTO_PT` varchar(750) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -25792,6 +25793,8 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('AceptasTerminosDos', 'términos y condiciones', 'terms and conditions', 'termos y condições'),
 ('AceptasTerminosTres', 'de la página)', 'of the page)', 'da página)'),
 ('AceptasTerminosUno', '(Pulsando el botón de registro se entiende que estás de acuerdo con los', '(Pressing the register button means that you agree with the', '(A o pressionar no botão entende-se que você está de acordo com os'),
+('AddJugados', 'Añadir a jugados ', 'Add to played', 'Anhadir a jugados'),
+('AddPendiente', 'Añadir a pendientes', 'Add to pendings', 'Anhadir a pendentes'),
 ('AvisoLegal', 'Aviso legal.', 'Legal notice.', 'Aviso legal.'),
 ('BuscarCompañia', 'Buscar por compañía', 'Search by company', 'Procurar por companhia'),
 ('BuscarGenero', 'Buscar por genero', 'Search by gender', 'Procurar por gênero'),
@@ -25805,6 +25808,18 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('ConsultaDoscientos', 'La consulta ha generado más de 200 resultados. Se muestran únicamente los 200 primeros resultados.', 'Your query has generated more than 200 results. Only the first 200 results are displayed.', 'A consulta gerou mais de 200 resultados. Só são mostrados os primeiros 200 resultados.'),
 ('Contacta', '¡Contacta con nosotros!', 'Contact with us!', 'Contacte-nos!'),
 ('Contraseña', 'Contraseña', 'Password', 'Contrasenha'),
+('coockies3', 'Sin su expreso consentimiento –mediante la activación de las cookies en su navegador– Qualificajocs no enlazará en las cookies los datos memorizados con sus datos personales proporcionados en el momento del registro o la compra.', 'Without your express consent - by activating cookies in your browser - Qualificajocs will not link in cookies the data stored with your personal data provided at the time of registration or purchase.', 'Sem o seu consentimento expresso - activando cookies no seu browser - Qualificajocs não ligará nos cookies os dados armazenados com os seus dados pessoais fornecidos no momento do registo ou compra.'),
+('Cookies1', 'Cookie es un fichero que se descarga en su ordenador al acceder a determinadas páginas web. Las cookies permiten a una página web, entre otras cosas, almacenar y recuperar información sobre los hábitos de navegación de un usuario o de su equipo y, dependiendo de la información que contengan y de la forma en que utilice su equipo, pueden utilizarse para reconocer al usuario. El navegador del usuario memoriza cookies en el disco duro solamente durante la sesión actual ocupando un espacio de memoria mínimo y no perjudicando al ordenador. Las cookies no contienen ninguna clase de información personal específica, y la mayoría de las mismas se borran del disco duro al finalizar la sesión de navegador (las denominadas cookies de sesión).', 'Cookie is a file that is downloaded to your computer when you access certain web pages. Cookies allow a website, among other things, to store and retrieve information about the browsing habits of a user or their computer and, depending on the information they contain and the way you use your computer, can be used to recognize the user. The user\'s browser stores cookies on the hard drive only during the current session, occupying minimal memory space and not harming the computer. Cookies do not contain any kind of specific personal information, and most of them are deleted from the hard drive at the end of the browser session (so-called session cookies).', 'Cookie é um arquivo que é baixado para o seu computador quando você acessa determinadas páginas da web. Os cookies permitem que um site, entre outras coisas, armazene e recupere informações sobre os hábitos de navegação de um usuário ou de seu computador e, dependendo das informações que eles contêm e da forma como você usa seu computador, pode ser usado para reconhecer o usuário. O navegador do usuário armazena cookies no disco rígido apenas durante a sessão atual, ocupando um espaço mínimo de memória e não prejudicando o computador. Os cookies não contêm qualquer tipo de informação pessoal específica, e a maioria deles é eliminada do disco rígido no final da sessão de navegação (os chamados cookies de sessão)'),
+('cookies10', 'Cookies de terceros: La Web Qualificajocs puede utilizar servicios de terceros que, por cuenta de Qualificajocs, recopilaran información con fines estadísticos, de uso del Site por parte del usuario y para la prestacion de otros servicios relacionados con la actividad del Website y otros servicios de Internet.', 'Third-party Cookies: The Qualificajocs Web may use third party services that, on behalf of Qualificajocs, collect information for statistical purposes, user use of the Site and for the provision of other services related to the activity of the Website and other Internet services.', 'Cookies de terceiros: A Qualificajocs Web pode utilizar serviços de terceiros que, em nome da Qualificajocs, recolhem informação para fins estatísticos, utilização do Site pelo utilizador e para a prestação de outros serviços relacionados com a actividade do Website e outros serviços da Internet.'),
+('cookies11', 'En particular, este sitio Web utiliza Google Analytics, un servicio analítico de web prestado por Google, Inc. con domicilio en los Estados Unidos con sede central en 1600 Amphitheatre Parkway, Mountain View, California 94043.  Para la prestación de estos servicios, estos utilizan cookies que recopilan la información, incluida la dirección IP del usuario, que será transmitida, tratada y almacenada por Google en los términos fijados en la Web Google.com. Incluyendo la posible transmisión de dicha información a terceros por razones de exigencia legal o cuando dichos terceros procesen la información por cuenta de Google.', 'In particular, this website uses Google Analytics, a web analytics service provided by Google, Inc. headquartered in the United States at 1600 Amphitheatre Parkway, Mountain View, California 94043.  To provide these services, they use cookies that collect information, including the IP address of the user, which will be transmitted, processed and stored by Google in the terms set out in the Web Google.com. This includes the possible transmission of this information to third parties for reasons of legal requirements or when these third parties process the information on Google\'s behalf.', 'Em particular, este site usa o Google Analytics, um serviço de análise da web fornecido pela Google, Inc., com sede nos Estados Unidos, em 1600 Amphitheatre Parkway, Mountain View, California 94043.  Para fornecer esses serviços, eles usam cookies que coletam informações, incluindo o endereço IP do usuário, que serão transmitidas, processadas e armazenadas pelo Google nos termos estabelecidos no Web Google.com. Isso inclui a possível transmissão dessas informações a terceiros por motivos de exigências legais ou quando esses terceiros processam as informações em nome do Google.'),
+('cookies12', 'Este texto ha sido obtenido de la página: ', 'This text has been obtained from the page: ', 'Este texto foi obtido a partir da página: '),
+('Cookies2', 'La mayoría de los navegadores aceptan como estándar a las cookies y, con independencia de las mismas, permiten o impiden en los ajustes de seguridad las cookies temporales o memorizadas.', 'Most browsers accept cookies as standard and, regardless of the cookie, allow or prevent temporary or stored cookies in the security settings.', 'A maioria dos navegadores aceita cookies como padrão e, independentemente do cookie, permite ou evita cookies temporários ou armazenados nas configurações de segurança.'),
+('cookies4', '¿Qué tipos de cookies utiliza esta página web?', 'What types of cookies does this website use?', 'Que tipos de cookies este website utiliza?'),
+('cookies5', '- Cookies técnicas: son aquellas que permiten al usuario la navegación a través de una página web, plataforma o aplicación y la utilización de las diferentes opciones o servicios que en ella existan como, por ejemplo, controlar el tráfico y la comunicación de datos, identificar la sesión, acceder a partes de acceso restringido, recordar los elementos que integran un pedido, realizar el proceso de compra de un pedido, realizar la solicitud de inscripción o participación en un evento, utilizar elementos de seguridad durante la navegación, almacenar contenidos para la difusión de videos o sonido o compartir contenidos a través de redes sociales.', '- Technical Cookies: are those that allow the user to navigate through a web page, platform or application and the use of the different options or services that exist in it, such as, for example, controlling traffic and data communication, identifying the session, accessing parts of restricted access, remembering the elements that make up an order, carrying out the purchase process of an order, making the request for registration or participation in an event, using security elements during navigation, storing content for the dissemination of videos or sound or sharing content through social networks.', '- Cookies Técnicos: são aqueles que permitem ao usuário navegar por uma página web, plataforma ou aplicativo e utilizar as diferentes opções ou serviços existentes na mesma, tais como, por exemplo, controlar o tráfego e a comunicação de dados, identificar a sessão, acessar partes de acesso restrito, lembrar os elementos que compõem uma ordem, realizar o processo de compra de uma ordem, fazer o pedido de registro ou participação em um evento, utilizar elementos de segurança durante a navegação, armazenar conteúdo para a difusão de vídeos ou som ou compartilhar conteúdo em redes sociais.'),
+('cookies6', '- Cookies de personalización: son aquellas que permiten al usuario acceder al servicio con algunas características de carácter general predefinidas en función de una serie de criterios en el terminal del usuario como por ejemplo serian el idioma, el tipo de navegador a través del cual accede al servicio, la configuración regional desde donde accede al servicio, etc.', '- Personalization Cookies: are those that allow the user to access the service with some general characteristics predefined according to a series of criteria in the user\'s terminal, such as the language, the type of browser through which the service is accessed, the regional configuration from which the service is accessed, etc.', '- Cookies de personalização: são aqueles que permitem ao utilizador aceder ao serviço com algumas características gerais predefinidas de acordo com uma série de critérios no terminal do utilizador, tais como o idioma, o tipo de browser através do qual se acede ao serviço, a configuração regional a partir da qual se acede ao serviço, etc.'),
+('cookies7', '- Cookies de análisis: son aquellas que bien tratadas por nosotros o por terceros, nos permiten cuantificar el número de usuarios y así realizar la medición y análisis estadístico de la utilización que hacen los usuarios del servicio ofertado. Para ello se analiza su navegación en nuestra página web con el fin de mejorar la oferta de productos o servicios que le ofrecemos.', '- Analysis Cookies: are those that, whether processed by us or by third parties, allow us to quantify the number of users and thus carry out the measurement and statistical analysis of the use made by users of the service offered. For this purpose, your navigation on our website is analysed in order to improve the offer of products or services that we offer you.', '- Cookies de análise: são aqueles que, processados por nós ou por terceiros, nos permitem quantificar o número de usuários e, assim, realizar a medição e análise estatística do uso feito pelos usuários do serviço oferecido. Para este efeito, a sua navegação no nosso site é analisada para melhorar a oferta de produtos ou serviços que lhe oferecemos.'),
+('cookies8', '- Cookies publicitarias: son aquellas que, bien tratadas por nosotros o por terceros, nos permiten gestionar de la forma más eficaz posible la oferta de los espacios publicitarios que hay en la página web, adecuando el contenido del anuncio al contenido del servicio solicitado o al uso que realice de nuestra página web. Para ello podemos analizar sus hábitos de navegación en Internet y podemos mostrarle publicidad relacionada con su perfil de navegación.', '- Advertising Cookies: are those which, whether processed by us or by third parties, enable us to manage as efficiently as possible the offer of advertising spaces on the website, adapting the content of the advertisement to the content of the service requested or to the use made of our website. In order to do so, we can analyse your browsing habits on the Internet and we can show you advertising related to your browsing profile.', '- Cookies de Publicidade: são aqueles que, processados por nós ou por terceiros, nos permitem gerir da forma mais eficaz possível a oferta de espaços publicitários no site, adaptando o conteúdo do anúncio ao conteúdo do serviço solicitado ou à utilização feita do nosso site. Para isso, podemos analisar os seus hábitos de navegação na Internet e mostrar-lhe publicidade relacionada com o seu perfil de navegação.'),
+('cookies9', '- Cookies de publicidad comportamental: son aquellas que permiten la gestión, de la forma más eficaz posible, de los espacios publicitarios que, en su caso, el editor haya incluido en una página web, aplicación o plataforma desde la que presta el servicio solicitado. Estas cookies almacenan información del comportamiento de los usuarios obtenida a través de la observación continuada de sus hábitos de navegación, lo que permite desarrollar un perfil específico para mostrar publicidad en función del mismo.', '- Behavioral advertising cookies: are those that allow the management, in the most efficient way possible, of the advertising spaces that, where appropriate, the publisher has included in a website, application or platform from which it provides the service requested. These cookies store information on the behaviour of users obtained through continuous observation of their browsing habits, which allows a specific profile to be developed to display advertising according to the same.', '- Cookies de publicidade comportamental: são aqueles que permitem a gestão, da forma mais eficiente possível, dos espaços publicitários que, se for o caso, o editor tenha incluído numa página web, aplicação ou plataforma a partir da qual presta o serviço solicitado. Estes cookies armazenam informação sobre o comportamento dos utilizadores obtida através da observação contínua dos seus hábitos de navegação, o que permite desenvolver um perfil específico para exibir publicidade de acordo com os mesmos.'),
 ('Criterios', 'Criterios de búsqueda seleccionados', 'Selected search criteria', 'Critérios de pesquisa selecionados'),
 ('Descubre', 'Descubre tu videojuego', 'Discover your videogame', 'Descobre o teo videojogo'),
 ('Empresa', 'Empresa', 'Enterprise', 'Empresa'),
@@ -25829,12 +25844,16 @@ INSERT INTO `textos` (`ID_TEXTO`, `TEXTO_ES`, `TEXTO_EN`, `TEXTO_PT`) VALUES
 ('Registrarse', 'Registrarse', 'Register', 'Registrarse'),
 ('ResultadoBusqueda', 'Resultado de la búsqueda.', 'Search result.', 'Resultado da busca.'),
 ('ResultadosObtenidos', ' resultados obtenidos.', ' results returned.', ' resultados obtidos.'),
+('showNotJugado', 'Se ha añadido el juego a tu librería de Jugados.', 'The game has been added to your Played library.', 'O jogo foi adicionado à sua biblioteca Jogados.'),
+('showNotNota', 'Se ha añadido una valoración al juego.', 'A rating has been added to the game.', 'Foi adicionada uma classificação ao jogo.'),
+('showNotPendiente', 'Se ha añadido el juego a tu librería de Pendientes.', 'The game has been added to your Pendings library.', 'O jogo foi adicionado à sua biblioteca de Pendentes.'),
 ('Subtitulo', 'Juega, valora, descubre.', 'Play, rate, discover.', 'Joga, valoriza, descobre.'),
 ('TeRecomendamos', 'Te recomendamos', 'We recommend you', 'Recomendamos-te'),
 ('Titulo', 'Bienvenido a Qualificajocs.', 'Welcome to Qualificajocs.', 'Bem-vindo à Qualificajocs.'),
 ('TOP', 'Nuestro TOP', 'Our TOP', 'Nosso TOP'),
 ('TuColeccion', 'Tus jugados, tus pendientes.', 'Your played, your pending.', 'Teus jugados, teus pendentes.'),
 ('TuColeccionDos', 'Tu colección.', 'Your collection.', 'À tua coleção.'),
+('TuNota', 'Tu valoración: ', 'Your rating: ', 'A tua classificação: '),
 ('UnResultado', '1 resultado obtenido.', '1 result returned.', '1 resultado obtido.'),
 ('Videojuegos', 'Videojuegos', 'Videogames', 'Videojogos'),
 ('VolverAtras', 'Volver atrás', 'Get back', 'Retornar');

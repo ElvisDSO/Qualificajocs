@@ -43,25 +43,27 @@
 
 <?php 
 
-function addBotones($criterioID){
+function addBotones($criterioID, $idiomaActual){
+  include_once 'functions/recursosIdioma.php'; //Traducción de los párrafos existentes
+  $arrayRecursosIdioma = recursosIdioma($idiomaActual);
 	?>
   <div class="row">
 	<div class="col-lg-8 col-md-12">
 	  <form class="form">
 	    <div class="form-group">
 	      <div class="clearfix">
-	        <a class='btn btn-info btn-round pull-right' onclick="jugado(<?php echo $criterioID; ?>)">Añadir a Jugados</a>
-	        <a class='btn btn-danger btn-round pull-right' onclick="pendiente(<?php echo $criterioID; ?>)">Añadir a Pendientes</a>  
+	        <a class='btn btn-info btn-round pull-right' onclick="jugado(<?php echo $criterioID; ?>)"><?php echo $arrayRecursosIdioma["AddJugados"]; ?></a>
+	        <a class='btn btn-danger btn-round pull-right' onclick="pendiente(<?php echo $criterioID; ?>)"><?php echo $arrayRecursosIdioma["AddPendiente"]; ?></a>  
 	      </div>
 	    </div>
 	  </form>
 	</div>
 	<div class="col-lg-4 col-md-12">
+	  <?php echo $arrayRecursosIdioma["TuNota"]; ?>
 	  <form class="form">
 	    <div class="form-group">
 	      <div class="clearfix">
 	        <ul class="pagination pagination-primary">
-	          Tu valoración:
 	          <li class="page-item active">
 	          	<?php $nota = 1; ?>
 	            <a class="page-link" onclick="valoracion(<?php echo $criterioID; ?>, <?php  echo $nota ?>)">1</a>

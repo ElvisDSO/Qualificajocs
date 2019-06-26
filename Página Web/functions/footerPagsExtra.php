@@ -35,6 +35,10 @@ function footerPagsExtra(){
         </li>
       </ul>
     </nav>
+    <div class="float-right">
+       <!-- Imprime las banderas. -->
+       <?php flags();?>
+    </div>
   </div>
 </footer>
 

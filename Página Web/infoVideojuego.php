@@ -160,7 +160,7 @@
           <!-- Carga los valores introducidos por el usuario. -->
           <input type="hidden" id="inputID" name="inputID" value="<?php echo $safeCriterioID; ?>">
           <div class="container-fluid" id="gridDatosVideojuego"></div>
-          <?php addBotones($criterioID); ?>
+          <?php addBotones($criterioID, $idiomaActual); ?>
         </div>
       </div>
       <?php footer();?>
@@ -171,8 +171,8 @@
   /* Cambia el estado del puntero del ratón indicando al usuario que se presenta un botón "clickeable". */
 
   $(document).ready(function() {
-
-    desplegarVideojuego(<?php echo $inputID; ?>);
+    var idioma = '<?php echo $idiomaActual;?>'
+    desplegarVideojuego(<?php echo $inputID; ?>,idioma);
     md.initDashboardPageCharts();
 
     $('.clickable').hover(function() {
