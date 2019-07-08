@@ -1,0 +1,30 @@
+/* Cambia el tamaño de la fuente del título de la página cuando el tamaño de la pantalla es grande */
+@media only screen and (max-width: 1026px) {
+  #textotitulogrande {
+    display: none;
+  }
+}
+/* Cambia el tamaño de la fuente del título de la página cuando el tamaño de la pantalla es pequeño*/
+@media only screen and (min-width: 1026px) {
+  #textotitulopeque {
+    display: none;
+  }
+}
+/* Muestra el icono en el footer cuando el tamaño de la pantalla es pequeño */
+@media only screen and (min-width: 1026px) {
+  #iconosFooter {
+    display: none;
+  }
+}
+/* Muestra el Buscador por categoría en el main-panel cuando el tamaño es pequeño */
+@media only screen and (min-width: 1026px) {
+  #versionMovil {
+    display: none;
+  }
+}
+/* Cambia la localización de la info. del footer cuando el tamaño de la pantalla es pequeño */
+@media only screen and (min-width: 1026px){
+  #footerPeq {
+    display: none;
+  }
+}

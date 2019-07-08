@@ -1,0 +1,2 @@
+ErrorDocument 404 http://www.qualificajocs/errorPage.php
+DirectoryIndex login.php index.php
