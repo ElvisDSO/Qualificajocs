@@ -136,7 +136,7 @@
                   </div>
                   <div class="card-footer">
                     <div class="card-body">
-                    <a href="./recomendacion_juegos.php" class="btn btn-warning" ><?php echo $arrayRecursosIdioma['TOP'];?></a>
+                    <a href="./juegosTOP.php" class="btn btn-warning" ><?php echo $arrayRecursosIdioma['TOP'];?></a>
                   </div>
                   </div>
                 </div>
@@ -170,7 +170,7 @@
                   </div>
                   <div class="card-footer">
                     <div class="card-body">
-                      <a href="./recomendacion_juegos.php" class="btn btn-success" ><?php echo $arrayRecursosIdioma['TeRecomendamos'];?></a>
+                      <a href="./juegosTOP.php" class="btn btn-success" ><?php echo $arrayRecursosIdioma['TeRecomendamos'];?></a>
                     </div>
                   </div>
                 </div>
@@ -184,6 +184,7 @@
     </form>
   </div>
 <script>
+  
   if ($(window).width() <= 992) {  
     $("#versionMovil").css("display", "block");
   } else {

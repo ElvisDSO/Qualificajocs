@@ -184,6 +184,7 @@
     </form>
   </div>
 <script>
+  
   if ($(window).width() <= 992) {  
     $("#versionMovil").css("display", "block");
   } else {
